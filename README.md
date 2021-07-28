@@ -2,6 +2,8 @@
 
 We're excited to introduce a payment feature that enables you to make and receive payments from any location across the globe! This means that, wherever your customers are, they will be able to make payments for your products successfully. This way, you can more reliably deliver value to customers.
 
+{% embed url="https://codepen.io/emekauche/pen/xxdWVEB" %}
+
 ## Quick Start
 
 {% page-ref page="payments/accept-payments.md" %}

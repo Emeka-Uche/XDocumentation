@@ -104,14 +104,12 @@ The  PaymentAPI exposes the main components that support our payment process. De
 Note that you can only use this integration option if you have the required PCI-DSS compliance certificate.
 {% endhint %}
 
-| API response | Description |
-| :--- | :--- |
-| pending |  |
-| timeout | Failed transaction. You may start a new charge after showing the message to the user |
-| success | Transaction is successful. Give the value after checking that everything is in place |
-| birthday |  |
-| send\_otp |  |
-| failed |  |
+### Handling Payment API Response
+
+When you call the Create PaymentAPI endpoint, the response contains a data.status, which tells you what the next step in the process is. Depending on the value in data.status, you may need to request the user to enter \(such as PIN or OTP or date of birth\), or show the operation that the user must complete on their device- for example scanning a QR code or dialing a USSD code or redirecting to the 3DSecure page. So follow the prompts in data.status until you no longer need user input and then listen for events through webhooks. For the step that prompts the user for input, you will need to show a form to the user to collect the requested input and send it to the relevant endpoint, as shown in the following table. For steps that require users to complete operations on their devices, we recommend showing a button for users to confirm payment after the user performs the operation, so that you can listen to events through webhooks. 
+
+Here is the list of responses you can receive from the Create ChargeAPI endpoint and what you need to do next:  
+
 
 ### Verify Payment
 

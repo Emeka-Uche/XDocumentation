@@ -104,6 +104,15 @@ The  PaymentAPI exposes the main components that support our payment process. De
 Note that you can only use this integration option if you have the required PCI-DSS compliance certificate.
 {% endhint %}
 
+| API response | Description |
+| :--- | :--- |
+| pending |  |
+| timeout | Failed transaction. You may start a new charge after showing the message to the user |
+| success | Transaction is successful. Give the value after checking that everything is in place |
+| birthday |  |
+| send\_otp |  |
+| failed |  |
+
 ### Verify Payment
 
 {% page-ref page="verify-payments.md" %}

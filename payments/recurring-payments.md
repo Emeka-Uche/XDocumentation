@@ -1,6 +1,6 @@
 # Recurring Payments
 
-The [RecurringAPI](https://emekahuche.gitbook.io/squad-api/api-endpoints#recurring-payments) endpoint enables developers to embed subscriptions functionality in their applications. Sellers can easily create subscription plans and automatically charge customers on a recurring basis.
+The [RecurringAPI](https://squadinc.gitbook.io/squad-api/api-endpoints#recurring-payments) endpoint enables developers to embed subscriptions functionality in their applications. Sellers can easily create subscription plans and automatically charge customers on a recurring basis.
 
 {% hint style="info" %}
 This is only applicable to Card Payment
@@ -95,4 +95,3 @@ This is only applicable to Card Payment
 ```
 {% endtab %}
 {% endtabs %}
-

@@ -8,10 +8,12 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 [![image-text](<.gitbook/assets/Squad Recurring Payments.jpg>)](payments/recurring-payments.md)               [![image-text](<.gitbook/assets/Squad Initiate Refunds.jpg>)](payments/refunds.md)
 
-## Explore Demos
+## Before You Begin
 
 ### Accept Payment
 
-How to use Squad API to accept payment
+Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **** (_for Test, create a sandbox account_[ **Here**](https://sandbox.squadco.com/sign-up))
 
-![](.gitbook/assets/screen-shot-2021-08-05-at-3.00.15-pm.png)
+Integrate Squad using any of the methods
+
+Initiate payment

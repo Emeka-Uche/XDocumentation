@@ -1,28 +1,28 @@
 # Squad Payment Modal
 
-## Payment Modal :electric\_plug:&#x20;
+## Payment Modal&#x20;
 
-Squad Payment Modal provides an easy and convenient payment flow. It is the simplest way to securely collect payments from your customers without them leaving your website. The paying customer will be shown all the payment methods you have selected.
+Squad Payment Modal provides an easy and convenient payment flow. It is the simplest way to securely collect payments from your customers without them leaving your website. The customer will be shown all the payment methods you have selected.
 
-It can be integrated with simple steps, making it the easiest way to accept payments. It works across devices and can help increase your conversion.
+It can be integrated with simple steps, by copying the code in the embedded section and pasting on your page; making it the easiest way to accept payments. It works across devices and can help increase your conversion.
 
-### Collect customer details
+### Parameters
 
 To initialize a transaction, you need to pass details such as email, first name, last name, amount, transaction reference, etc. Email and amount are **required**. You can also pass any other additional information in the `metadata` object field. The following is a complete list of parameters that you can pass:
 
-| PARAMETERS | REQUIRED? | DESCRIPTION                                                                                                                                                                                                                        |
-| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key        | Yes       | Your **Squad** public key. Use the test key in test mode, and use the live key in live mode                                                                                                                                        |
-| email      | Yes       | Customer's email address                                                                                                                                                                                                           |
-| amount     | Yes       | The amount you are debiting customer (expressed in the lowest currency value - `kobo`& `cent`).                                                                                                                                    |
-| trans\_ref | No        | Unique case-sensitive transaction reference. Only `-,., =`and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                                              |
-| currency   | No        | Currency charge should be performed in. Allowed values are `NGN`, `USD`. It defaults to your integration currency.                                                                                                                 |
-| channels   | No        | An array of payment channels to control what channels you want to make available to the user to make a payment with. Available channels include; \[`'card', 'ussd', 'qr', 'bank_transfer'`]                                        |
-| meta       | No        | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
-|            |           |                                                                                                                                                                                                                                    |
-| onSuccess  | No        | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction.                                                  |
-| onClose    | No        | Javascript function that is called if the customer closes the payment window instead of making a payment.                                                                                                                          |
-| onPending  | No        | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to `Pay-with-Transfer` transactions)                                                       |
+| **PARAMETERS** | **REQUIRED?** | **DESCRIPTION**                                                                                                                                                                                                                    |
+| -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key            | Yes           | Your **Squad** public key. Use the test key in test mode, and use the live key in live mode                                                                                                                                        |
+| email          | Yes           | Customer's email address                                                                                                                                                                                                           |
+| amount         | Yes           | The amount you are debiting customer (expressed in the lowest currency value - `kobo`& `cent`).                                                                                                                                    |
+| trans\_ref     | No            | Unique case-sensitive transaction reference. Only `-,., =`and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                                              |
+| currency       | Yes           | Currency charge should be performed in. Allowed values are `NGN`, `USD`. It defaults to your integration currency.                                                                                                                 |
+| channels       | No            | An array of payment channels to control what channels you want to make available to the user to make a payment with. Available channels include; \[`'card', 'ussd', 'qr', 'bank_transfer'`]                                        |
+| meta           | No            | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
+|                |               |                                                                                                                                                                                                                                    |
+| onSuccess      | No            | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction.                                                  |
+| onClose        | No            | Javascript function that is called if the customer closes the payment window instead of making a payment.                                                                                                                          |
+| onPending      | No            | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to `Pay-with-Transfer` transactions)                                                       |
 
 {% hint style="info" %}
 The customer information can either be retrieved from a form, or from your database if you already have it stored.
@@ -39,7 +39,7 @@ The customer information can either be retrieved from a form, or from your datab
   <div class="form-group">
     <label for="amount">Amount</label>
     <input type="tel" id="amount" required />
-  </div>
+  </div><script src="https://test-checkout.squadinc.co/widget/squad.min.js"></script> <script src="https://test-checkout.squadinc.co/widget/squad.min.js"></script> 
   <div class="form-group">
     <label for="first-name">First Name</label>
     <input type="text" id="first-name" />
@@ -52,22 +52,29 @@ The customer information can either be retrieved from a form, or from your datab
     <button type="submit" onclick="SquadPay()"> Submit </button>
   </div>
 </form>
-<script src="https://js.squad.co/v1/inline.js"></script> 
+
 ```
 {% endtab %}
 
 {% tab title="JavaScript" %}
 ```javascript
-const squadInstance = new squad({
-  onClose: () => console.log('Widget closed'),
-  onLoad: () => console.log('Widget loaded successfully'),
-  onSuccess: () => console.log(`Linked successfully`),
-  key: 'test_pk_sample-public-key-1',
-  email: document.getElementById("email-address").value,
- ...params,
-});
-squadInstance.setup();
-squadInstance.open();
+<script src="https://test-checkout.squadinc.co/widget/squad.min.js"></script> 
+
+function SquadPay() {
+ 
+  const squadInstance = new squad({
+    onClose: () => console.log("Widget closed"),
+    onLoad: () => console.log("Widget loaded successfully"),
+    onSuccess: () => console.log(`Linked successfully`),
+    key: "test_pk_sample-public-key-1",
+    //Change key (test_pk_sample-public-key-1) to the key on your Squad Dashboard
+    email: document.getElementById("email-address").value,
+    amount: document.getElementById("amount").value * 100,
+    currency_code: "NGN"
+  });
+  squadInstance.setup();
+  squadInstance.open();
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -77,22 +84,26 @@ squadInstance.open();
 When the customer clicks on the `submit` button, initiate a transaction by passing the necessary details (email, amount, and any other parameters) to Squad through to a JavaScript function.&#x20;
 
 ```javascript
-const squadInstance = new squad({
-  onClose: () => console.log('Widget closed'),
-  onLoad: () => console.log('Widget loaded successfully'),
-  onSuccess: () => console.log(`Linked successfully`),
-  key: 'test_pk_sample-public-key-1',
-  ...params,
-});
-squadInstance.setup();
-squadInstance.open();
+function SquadPay() {
+ 
+  const squadInstance = new squad({
+    onClose: () => console.log("Widget closed"),
+    onLoad: () => console.log("Widget loaded successfully"),
+    onSuccess: () => console.log(`Linked successfully`),
+    key: "test_pk_sample-public-key-1",
+    //Change key (test_pk_sample-public-key-1) to the key on your Squad Dashboard
+    email: document.getElementById("email-address").value,
+    amount: document.getElementById("amount").value * 100,
+    currency_code: "NGN"
+  });
+  squadInstance.setup();
+  squadInstance.open();
+}
 ```
 
 A checkout pop-up will then be displayed for the customer to input their payment information to complete the transaction.&#x20;
 
 {% embed url="https://codepen.io/habaripay/pen/xxpvoxX" %}
-
-
 
 ## Payment Channels
 

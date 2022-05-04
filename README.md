@@ -15,11 +15,3 @@ We're excited to introduce a payment feature that enables you to make and receiv
 How to use Squad API to accept payment
 
 ![](.gitbook/assets/screen-shot-2021-08-05-at-3.00.15-pm.png)
-
-###
-
-### Transfer
-
-How to make a quick transfer on Squad
-
-![](.gitbook/assets/screen-shot-2021-08-05-at-3.00.15-pm.png)

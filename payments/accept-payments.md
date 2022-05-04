@@ -90,6 +90,10 @@ squadInstance.open();
 
 A checkout pop-up will then be displayed for the customer to input their payment information to complete the transaction.&#x20;
 
+{% embed url="https://codepen.io/habaripay/pen/xxpvoxX" %}
+
+
+
 ## Payment Channels
 
 After initialization, there are a couple of payment channels available to the customer to complete the transaction.

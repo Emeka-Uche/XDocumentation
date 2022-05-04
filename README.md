@@ -4,9 +4,9 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 ## Getting Started
 
-[![image-text](.gitbook/assets/TestPayments-a7e2b126679f45482d1e3a130832994f.png)](payments/)               [![image-text](.gitbook/assets/TestTransfer-8e8f58945e0d6b14b0dab6793fc1032f.png)](transfer/)
+[![image-text](<.gitbook/assets/Squad Accept Payments.jpg>)](payments/)               [![image-text](<.gitbook/assets/Squad Transfer.png>)](transfer/)
 
-[![image-text](.gitbook/assets/TestRecurring-32e4c8173494c63783b9525a5b9dface.png)](payments/recurring-payments.md)               [![image-text](.gitbook/assets/TestRefund-44b19505377d58914273ea627620db32.png)](payments/refunds.md)
+[![image-text](<.gitbook/assets/Squad Recurring Payments.jpg>)](payments/recurring-payments.md)               [![image-text](<.gitbook/assets/Squad Initiate Refunds.jpg>)](payments/refunds.md)
 
 ## Explore Demos
 

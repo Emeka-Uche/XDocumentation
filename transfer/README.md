@@ -5,12 +5,14 @@ You can now transfer money in two simple steps:
 1. Verify the account details
 2. Initiate transfer
 
-{% page-ref page="verify-the-account-details.md" %}
+{% content-ref url="verify-the-account-details.md" %}
+[verify-the-account-details.md](verify-the-account-details.md)
+{% endcontent-ref %}
 
-{% page-ref page="single-transfers.md" %}
+{% content-ref url="single-transfers.md" %}
+[single-transfers.md](single-transfers.md)
+{% endcontent-ref %}
 
 
 
-  
-
-
+\

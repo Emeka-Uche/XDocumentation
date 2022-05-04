@@ -6,7 +6,7 @@ For this, you will need to collect the destination `bank_name`, `country_code`, 
 For `bank_name` You can get a list of Nigerian banks and their codes [**here**](https://raw.githubusercontent.com/tomiiide/nigerian-banks/master/banks.json)**.**
 {% endhint %}
 
-`Country_code` refers to the representation of currencies, both numerically and alphabetically, using either three digits or three letters. For example, `NGN` for Nigerian Naira, `USD` for United States Dollars, and `CAD` for Canadian Dollars. 
+`Country_code` refers to the representation of currencies, both numerically and alphabetically, using either three digits or three letters. For example, `NGN` for Nigerian Naira, `USD` for United States Dollars, and `CAD` for Canadian Dollars.&#x20;
 
 {% hint style="info" %}
 [**Here**](https://datahub.io/core/currency-codes/r/0.html) is a list of internationally recognized codes for representing currencies that will enable clarity and help you reduce errors.
@@ -16,52 +16,30 @@ You can use our **Lookup API** endpoint to ensure the account number is the righ
 
 Send a GET request to the Lookup API endpoint with the `account number` and the `bank_name`.
 
-{% api-method method="get" host="https://api.cakes.com" path="/lookup" %}
-{% api-method-summary %}
-Lookup
-{% endapi-method-summary %}
-
-{% api-method-description %}
+{% swagger baseUrl="https://api.cakes.com" path="/lookup" method="get" summary="Lookup" %}
+{% swagger-description %}
 This endpoint allows you to search for a bank account.
-{% endapi-method-description %}
+{% endswagger-description %}
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="" type="integer" required=true %}
+{% swagger-parameter in="path" name="" type="integer" %}
 
-{% endapi-method-parameter %}
+{% endswagger-parameter %}
 
-{% api-method-parameter name="bank" type="integer" required=true %}
+{% swagger-parameter in="path" name="bank" type="integer" %}
 ID of the account to get.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+{% endswagger-parameter %}
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-Cake successfully retrieved.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="200" description="Cake successfully retrieved." %}
 ```
 {    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
 ```
-{% endapi-method-response-example %}
+{% endswagger-response %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-Could not find a cake matching this query.
-{% endapi-method-response-example-description %}
-
+{% swagger-response status="404" description="Could not find a cake matching this query." %}
 ```
 {    "message": "Ain't no cake like that."}
 
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
-
-
+{% endswagger-response %}
+{% endswagger %}
 

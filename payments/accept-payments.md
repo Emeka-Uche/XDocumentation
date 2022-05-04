@@ -1,27 +1,28 @@
-# Accept Payments
+# Squad Payment Modal
 
-## Payment Modal 🔌 
+## Payment Modal :electric\_plug:&#x20;
 
 Squad Payment Modal provides an easy and convenient payment flow. It is the simplest way to securely collect payments from your customers without them leaving your website. The paying customer will be shown all the payment methods you have selected.
 
 It can be integrated with simple steps, making it the easiest way to accept payments. It works across devices and can help increase your conversion.
 
-## Collect customer details
+### Collect customer details
 
 To initialize a transaction, you need to pass details such as email, first name, last name, amount, transaction reference, etc. Email and amount are **required**. You can also pass any other additional information in the `metadata` object field. The following is a complete list of parameters that you can pass:
 
-| PARAMETERS | REQUIRED? | DESCRIPTION |
-| :--- | :--- | :--- |
-| key | Yes | Your **Squad** public key. Use the test key in test mode, and use the live key in live mode |
-| email | Yes | Customer's email address |
-| amount | Yes | The amount you are debiting customer \(expressed in the lowest currency value - `kobo`& `cent`\). |
-| trans\_ref | No | Unique case-sensitive transaction reference. Only `-,., =`and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you. |
-| currency | No | Currency charge should be performed in. Allowed values are `NGN`, `USD`. It defaults to your integration currency. |
-| channels | No | An array of payment channels to control what channels you want to make available to the user to make a payment with. Available channels include; \[`'card', 'ussd', 'qr', 'bank_transfer'`\] |
-| meta | No | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
-| onSuccess | No | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction. |
-| onClose | No | Javascript function that is called if the customer closes the payment window instead of making a payment. |
-| onPending | No | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. \(This only applies to `Pay-with-Transfer` transactions\) |
+| PARAMETERS | REQUIRED? | DESCRIPTION                                                                                                                                                                                                                        |
+| ---------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key        | Yes       | Your **Squad** public key. Use the test key in test mode, and use the live key in live mode                                                                                                                                        |
+| email      | Yes       | Customer's email address                                                                                                                                                                                                           |
+| amount     | Yes       | The amount you are debiting customer (expressed in the lowest currency value - `kobo`& `cent`).                                                                                                                                    |
+| trans\_ref | No        | Unique case-sensitive transaction reference. Only `-,., =`and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                                              |
+| currency   | No        | Currency charge should be performed in. Allowed values are `NGN`, `USD`. It defaults to your integration currency.                                                                                                                 |
+| channels   | No        | An array of payment channels to control what channels you want to make available to the user to make a payment with. Available channels include; \[`'card', 'ussd', 'qr', 'bank_transfer'`]                                        |
+| meta       | No        | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
+|            |           |                                                                                                                                                                                                                                    |
+| onSuccess  | No        | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction.                                                  |
+| onClose    | No        | Javascript function that is called if the customer closes the payment window instead of making a payment.                                                                                                                          |
+| onPending  | No        | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to `Pay-with-Transfer` transactions)                                                       |
 
 {% hint style="info" %}
 The customer information can either be retrieved from a form, or from your database if you already have it stored.
@@ -48,7 +49,7 @@ The customer information can either be retrieved from a form, or from your datab
     <input type="text" id="last-name" />
   </div>
   <div class="form-submit">
-    <button type="submit" onclick="SquadPay()"> Pay </button>
+    <button type="submit" onclick="SquadPay()"> Submit </button>
   </div>
 </form>
 <script src="https://js.squad.co/v1/inline.js"></script> 
@@ -71,9 +72,9 @@ squadInstance.open();
 {% endtab %}
 {% endtabs %}
 
-### Initialize transaction
+### Initiate transaction
 
-Once you have all the necessary details to initiate the transaction, the next step is to link them to a JavaScript function, which passes them to Squad and displays the checkout pop-up.
+When the customer clicks on the `submit` button, initiate a transaction by passing the necessary details (email, amount, and any other parameters) to Squad through to a JavaScript function.&#x20;
 
 ```javascript
 const squadInstance = new squad({
@@ -87,43 +88,49 @@ squadInstance.setup();
 squadInstance.open();
 ```
 
-### 
+A checkout pop-up will then be displayed for the customer to input their payment information to complete the transaction.&#x20;
 
-### Payment API
+## Payment Channels
 
-The PaymentAPI endpoint allows you to pass the details of any payment channel and transaction details \(email, amount, etc.\) directly to Squad. We provide multiple payment channels, which you can use depending on your use case.
+After initialization, there are a couple of payment channels available to the customer to complete the transaction.
 
-The  PaymentAPI exposes the main components that support our payment process. Developers can use these components to develop solutions that meet specific customer needs. For example:
+### USSD
 
-* Providing services to non-smartphone users. Some of your users may be using phones that do not have Internet access. With the PaymentAPI, you can initiate a payment request from your server and send a payment completion reminder to these users via their phone numbers.
-* Utilizing mobile operating system APIs for a better user experience. The mobile operating system provides a rich set of APIs that developers can use. For example, there is an API to autocomplete the OTP on the form. Developers can combine the PaymentAPI with the Mobile OS API to provide a richer experience for their users.
+The USSD channel allows your Nigerian customers to pay you by dialing the USSD code on their mobile devices. Nigerian banks provide USSD services for customers to use for transactions, and we have integrated with some of these banks to allow your customers to complete payments.&#x20;
 
-{% hint style="warning" %}
-#### ❗️PCI-DSS Compliance required!
+![](../.gitbook/assets/image.png)
 
-Note that you can only use this integration option if you have the required PCI-DSS compliance certificate.
-{% endhint %}
+After dialing the USSD code displayed, the system will prompt the user to input the USSD PIN to authenticate the transaction and then confirm it. All that is needed to initiate USSD payment is the customer's email and the amount to be charged. When the user makes a payment, the response will be sent to your webhook.&#x20;
 
-### Handling Payment API Response
+Therefore, to make it work as expected, webhooks must be configured on your Squad dashboard.
 
-When you call the Create PaymentAPI endpoint, the response contains a data.status, which tells you what the next step in the process is. Depending on the value in data.status, you may need to request the user to enter \(such as PIN or OTP or date of birth\), or show the operation that the user must complete on their device- for example, scanning a QR code or dialing a USSD code or redirecting to the 3DSecure page. So follow the prompts in data.status until you no longer need user input and then listen for events through webhooks. 
+#### Banks Supported
 
-You will need to show the user a form to collect the requested input and send it to the relevant endpoint, as shown in the following table. For steps that require users to complete operations on their devices, we recommend showing a button for users to confirm payment after the user performs the operation so that you can listen to events through webhooks. 
+Here is a list of all the Banks USSD `shortcodes` we currently support:
 
-| API Response | Description |
-| :--- | :--- |
-|  |  |
+| Bank                            | USSD Shortcode |
+| ------------------------------- | -------------- |
+| Access (Diamond) Bank           | 426            |
+| Access Bank                     | 901            |
+| EcoBank                         | 326            |
+| First City Monument Bank (FCMB) | 329            |
+| Fidelity Bank                   | 770            |
+| First Bank                      | 894            |
+| Guaranty Trust                  | 737            |
+| Heritage Bank                   | 745            |
+| Keystone Bank                   | 7111           |
+| Rubies (Highstreet) MFB         | 779            |
+| Stanbic IBTC Bank               | 909            |
+| Sterling Bank                   | 822            |
+| United Bank for Africa (UBA)    | 919            |
+| Union Bank                      | 826            |
+| Unity Bank                      | 7799           |
+| VFD Bank                        | 5037           |
+| Wema Bank                       | 945            |
+| Zenith Bank                     | 966            |
 
-Here is the list of responses you can receive from the Create ChargeAPI endpoint and what you need to do next:  
+### Bank Transfer
 
+Squad provides a payment method that makes it possible for customers to pay you through a direct bank account transfer. The customer provides their name, phone number, and email address. Then a preset account number is displayed along with the preregistered bank name.&#x20;
 
-### Verify Payment
-
-{% page-ref page="verify-payments.md" %}
-
-
-
-
-
-
-
+![](<../.gitbook/assets/image (1).png>)

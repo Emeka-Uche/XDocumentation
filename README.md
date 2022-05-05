@@ -10,10 +10,8 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 ## Before You Begin
 
-### Accept Payment
-
 Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **** (_for Test, create a sandbox account_[ **Here**](https://sandbox.squadco.com/sign-up))
 
 Integrate Squad using any of the methods
 
-Initiate payment
+Initiate payment.

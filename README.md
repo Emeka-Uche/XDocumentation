@@ -10,10 +10,10 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 ## Before You Begin
 
-Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **** (_for Test, create a sandbox account_[ **Here**](https://sandbox.squadco.com/sign-up))
+1. Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **** (_for Test, create a sandbox account_[ **Here**](https://sandbox.squadco.com/sign-up))
 
-Integrate Squad using any of the methods
+&#x20; 2\. Integrate Squad using any of the methods.
 
-Initiate payment.
+&#x20; 3\. Initiate payment.
 
-![Steps to create a Squad Sandbox account and get testing keys.](<.gitbook/assets/Squad Sandbox Account.gif>)
+{% embed url="https://giphy.com/gifs/FOR2O8MeLRrhWUqMhm" %}

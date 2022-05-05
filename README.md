@@ -15,3 +15,5 @@ Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **
 Integrate Squad using any of the methods
 
 Initiate payment.
+
+![Steps to create a Squad Sandbox account and get testing keys.](<.gitbook/assets/Squad Sandbox Account.gif>)

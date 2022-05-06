@@ -14,7 +14,7 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 &#x20; 2\. Integrate Squad using any of the methods.
 
-&#x20; 3\. Test your integration.
+&#x20; 3\. Test your integration using Keys on your Dashboard.
 
 &#x20; 4\. Initiate payment.
 

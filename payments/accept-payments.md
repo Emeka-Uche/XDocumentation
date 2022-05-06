@@ -4,7 +4,7 @@
 
 Squad Payment Modal provides an easy and convenient payment flow. It is the simplest way to securely collect payments from your customers without them leaving your website. The customer will be shown all the payment methods you have selected.
 
-It can be integrated with simple steps, by copying the code in the embedded section and pasting on your page; making it the easiest way to accept payments. It works across devices and can help increase your conversion.
+It can be integrated with simple steps, by copying the code in the embedded section and pasting it on your page; making it the easiest way to accept payments. It works across devices and can help increase your conversion.
 
 ### Parameters
 

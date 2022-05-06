@@ -8,21 +8,21 @@ It can be integrated with simple steps, by copying the code in the embedded sect
 
 ### Parameters
 
-To initialize a transaction, you need to pass details such as email, first name, last name, amount, transaction reference, etc. Email and amount are **required**. You can also pass any other additional information in the `metadata` object field. The following is a complete list of parameters that you can pass:
+To initialize a transaction, you need to pass details such as email, first name, last name, amount, transaction reference, etc. Email, amount, and currency are **required**. You can also pass any other additional information in the `metadata` object field. The following is a complete list of parameters that you can pass:
 
 | **PARAMETERS** | **REQUIRED?** | **DESCRIPTION**                                                                                                                                                                                                                    |
 | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key            | Yes           | Your **Squad** public key. Use the test key in test mode, and use the live key in live mode                                                                                                                                        |
-| email          | Yes           | Customer's email address                                                                                                                                                                                                           |
-| amount         | Yes           | The amount you are debiting customer (expressed in the lowest currency value - `kobo`& `cent`).                                                                                                                                    |
-| trans\_ref     | No            | Unique case-sensitive transaction reference. Only `-,., =`and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                                              |
-| currency       | Yes           | Currency charge should be performed in. Allowed values are `NGN`, `USD`. It defaults to your integration currency.                                                                                                                 |
-| channels       | No            | An array of payment channels to control what channels you want to make available to the user to make a payment with. Available channels include; \[`'card', 'ussd', 'qr', 'bank_transfer'`]                                        |
+| key            | Yes           | Your **Squad** public key. Use the test key found in your [Sandbox account](https://sandbox.squadco.com) in test mode, and use the live key found in your [Squad dashboard](http://dashboard.squadco.com) in live mode.            |
+| email          | Yes           | Customer's email address.                                                                                                                                                                                                          |
+| amount         | Yes           | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).                                                                                                                            |
+| trans\_ref     | No            | Unique case-sensitive transaction reference. Only ``` `**`-`**_,_**`.`**_,_**`=`** and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                     |
+| currency       | Yes           | Currency charge should be performed in. Allowed values are **`NGN`**, **`USD`**. It defaults to your integration currency.                                                                                                         |
+| channels       | No            | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, ``` `**`'ussd'`**,**`'bank_transfer'`**]                         |
 | meta           | No            | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
 |                |               |                                                                                                                                                                                                                                    |
 | onSuccess      | No            | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction.                                                  |
 | onClose        | No            | Javascript function that is called if the customer closes the payment window instead of making a payment.                                                                                                                          |
-| onPending      | No            | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to `Pay-with-Transfer` transactions)                                                       |
+| onPending      | No            | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to **`Pay-with-Transfer`** transactions)                                                   |
 
 {% hint style="info" %}
 The customer information can either be retrieved from a form, or from your database if you already have it stored.
@@ -69,7 +69,8 @@ function SquadPay() {
     key: "test_pk_sample-public-key-1",
     //Change key (test_pk_sample-public-key-1) to the key on your Squad Dashboard
     email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value * 100,
+    amount: document.getElementById("amount").value,
+    //Multiply lowest currency value (kobo, cent) by 100 to get base currency
     currency_code: "NGN"
   });
   squadInstance.setup();
@@ -81,7 +82,7 @@ function SquadPay() {
 
 ### Initiate transaction
 
-When the customer clicks on the `submit` button, initiate a transaction by passing the necessary details (email, amount, and any other parameters) to Squad through to a JavaScript function.&#x20;
+When the customer clicks on the **`submit`** button, initiate a transaction by passing the necessary details (email, amount, and any other parameters) to Squad through to a JavaScript function.&#x20;
 
 ```javascript
 function SquadPay() {
@@ -93,7 +94,8 @@ function SquadPay() {
     key: "test_pk_sample-public-key-1",
     //Change key (test_pk_sample-public-key-1) to the key on your Squad Dashboard
     email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value * 100,
+    amount: document.getElementById("amount").value,
+    //Multiply lowest currency value (kobo, cent) by 100 to get base currency
     currency_code: "NGN"
   });
   squadInstance.setup();
@@ -102,6 +104,8 @@ function SquadPay() {
 ```
 
 A checkout pop-up will then be displayed for the customer to input their payment information to complete the transaction.&#x20;
+
+## Demo
 
 {% embed url="https://codepen.io/habaripay/pen/xxpvoxX" %}
 
@@ -117,7 +121,7 @@ The USSD channel allows your Nigerian customers to pay you by dialing the USSD c
 
 After dialing the USSD code displayed, the system will prompt the user to input the USSD PIN to authenticate the transaction and then confirm it. All that is needed to initiate USSD payment is the customer's email and the amount to be charged. When the user makes a payment, the response will be sent to your webhook.&#x20;
 
-Therefore, to make it work as expected, webhooks must be configured on your Squad dashboard.
+Therefore, to make it work as expected, webhooks must be configured on your [**Squad dashboard**](http://dashboard.squadco.com)**.**
 
 #### Banks Supported
 

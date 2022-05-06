@@ -1,6 +1,6 @@
 # Home
 
-We're excited to introduce a payment feature that enables you to make and receive payments from any location across the globe! This means that, wherever your customers are, they will be able to make payments for your products successfully. This way, you can more reliably deliver value to customers.
+We're excited to introduce a payment feature that enables you to make and receive payments from any location across the globe! This means that, wherever your customers are, they will be able to make payments for your products and services successfully. This way, you can more reliably deliver value to customers.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 1. Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **** (_for Test, create a_ [**Sandbox Account**](https://sandbox.squadco.com/sign-up))
 
-&#x20; 2\. Integrate Squad using any of the methods.
+&#x20; 2\. Integrate Squad payment gateway using any of the methods.
 
 &#x20; 3\. Test your integration using Keys on your Dashboard.
 

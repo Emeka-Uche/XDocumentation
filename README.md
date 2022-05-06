@@ -16,4 +16,4 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 &#x20; 3\. Initiate payment.
 
-{% embed url="https://giphy.com/gifs/FOR2O8MeLRrhWUqMhm" %}
+![](<.gitbook/assets/Squad Sandbox Account.gif>)

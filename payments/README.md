@@ -18,6 +18,3 @@ There are two ways to accept payment on Squad:
 [squad-payment-api.md](squad-payment-api.md)
 {% endcontent-ref %}
 
-
-
-## Explore Payment Demo

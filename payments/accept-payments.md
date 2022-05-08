@@ -17,14 +17,14 @@ To initialize a transaction, you need to pass details such as email, first name,
 | amount         | Yes           | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).                                                                                                                            |
 | trans\_ref     | No            | Unique case-sensitive transaction reference. Only ``` `**`-`**_,_**`.`**_,_**`=`** and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                     |
 | currency       | Yes           | Currency charge should be performed in. Allowed values are **`NGN`**, **`USD`**. It defaults to your integration currency.                                                                                                         |
-| channels       | No            | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, ``` `**`'ussd'`**,**`'bank_transfer'`**]                         |
+| channels       | No            | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , ``` `**`'ussd'`**,**`'bank_transfer'`**]          |
 | meta           | No            | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
 | onSuccess      | No            | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction.                                                  |
 | onClose        | No            | Javascript function that is called if the customer closes the payment window instead of making a payment.                                                                                                                          |
 | onPending      | No            | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to **`Pay-with-Transfer`** transactions)                                                   |
 
 {% hint style="info" %}
-The customer information can either be retrieved from a form, or from your database if you already have it stored.
+The customer information can either be retrieved from a form, or from your database if you already have it stored. (Example below)
 {% endhint %}
 
 {% tabs %}
@@ -108,6 +108,14 @@ A checkout pop-up will then be displayed for the customer to input their payment
 
 {% embed url="https://codepen.io/habaripay/pen/xxpvoxX" %}
 
+## Key Information
+
+1. The `key` field takes your Squad **\_public\_** key.
+2. The `amount` field has to be converted to the lowest currency unit by multiplying the value by `100`. For example, if you need to charge **NGN100** or **$100**, you have to multiply **100 \* 100** and pass **10000** in the amount field.
+3. Generating a unique `trans_ref` from your system for every transaction is advised, to avoid duplicate attempts.
+4. The `onSuccess` method is called when payment has been completed successfully on the Squad checkout.
+5. the `onClose` method is called if the user closes the modal without completing payment.
+
 ## Payment Channels
 
 After initialization, there are a couple of payment channels available to the customer to complete the transaction.
@@ -120,7 +128,9 @@ The USSD channel allows your Nigerian customers to pay you by dialing the USSD c
 
 After dialing the USSD code displayed, the system will prompt the user to input the USSD PIN to authenticate the transaction and then confirm it. All that is needed to initiate USSD payment is the customer's email and the amount to be charged. When the user makes a payment, the response will be sent to your webhook.&#x20;
 
+{% hint style="info" %}
 Therefore, to make it work as expected, webhooks must be configured on your [**Squad dashboard**](http://dashboard.squadco.com)**.**
+{% endhint %}
 
 #### Banks Supported
 

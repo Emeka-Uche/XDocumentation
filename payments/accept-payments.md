@@ -104,17 +104,17 @@ function SquadPay() {
 
 A checkout pop-up will then be displayed for the customer to input their payment information to complete the transaction.&#x20;
 
-## Demo
+## Checkout Demo
 
 {% embed url="https://codepen.io/habaripay/pen/xxpvoxX" %}
 
 ## Key Information
 
 1. The `key` field takes your Squad **\_public\_** key.
-2. The `amount` field is in the lowest currency unit (kobo, cent). To convert to base currency (Naira, Dollar) multiply the value by `100`. For example, if you need to charge **NGN100** or **$100**, you have to multiply **100 \* 100** and pass **10000** in the amount field.
+2. By default, the amount field is already set in the lowest currency unit (kobo, cent). That is, to pay **NGN100**, you have to enter **10000** in the amount field.\
+   To convert `amount` to the base currency (Naira, Dollar), multiply the amount parameter by `100` in your code, <mark style="background-color:blue;">amount: document.getElementById("amount").value \* 100</mark>, This will allow you enter the amount in Naira or Dollar as the case may be.
 3. Generating a unique `trans_ref` from your system for every transaction is advised, to avoid duplicate attempts.
 4. The `onSuccess` method is called when payment has been completed successfully on the Squad checkout.
-5. the `onClose` method is called if the user closes the modal without completing payment.
 
 ## Payment Channels
 

@@ -18,4 +18,4 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 &#x20; 4\. Initiate payment.
 
-![](<.gitbook/assets/Squad Sandbox Account.gif>)
+![Steps to get your Squad API Keys.](<.gitbook/assets/Squad Sandbox Account.gif>)

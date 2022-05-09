@@ -68,12 +68,13 @@ function SquadPay() {
     key: "test_pk_sample-public-key-1",
     //Change key (test_pk_sample-public-key-1) to the key on your Squad Dashboard
     email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value,
-    //Multiply lowest currency value (kobo, cent) by 100 to get base currency
+    amount: document.getElementById("amount").value * 100,
+    //Enter amount in Naira or Dollar (Base value Kobo/cent already multiplied by 100)
     currency_code: "NGN"
   });
   squadInstance.setup();
   squadInstance.open();
+
 }
 ```
 {% endtab %}
@@ -93,12 +94,13 @@ function SquadPay() {
     key: "test_pk_sample-public-key-1",
     //Change key (test_pk_sample-public-key-1) to the key on your Squad Dashboard
     email: document.getElementById("email-address").value,
-    amount: document.getElementById("amount").value,
-    //Multiply lowest currency value (kobo, cent) by 100 to get base currency
+    amount: document.getElementById("amount").value * 100,
+    //Enter amount in Naira or Dollar (Base value Kobo/cent already multiplied by 100)
     currency_code: "NGN"
   });
   squadInstance.setup();
   squadInstance.open();
+
 }
 ```
 
@@ -114,7 +116,6 @@ A checkout pop-up will then be displayed for the customer to input their payment
 2. By default, the amount field is already set in the lowest currency unit (kobo, cent). That is, to pay **NGN100**, you have to enter **10000** in the amount field.\
    To convert `amount` to the base currency (Naira, Dollar), multiply the amount parameter by `100` in your code, <mark style="background-color:blue;">amount: document.getElementById("amount").value \* 100</mark>, This will allow you enter the amount in Naira or Dollar as the case may be.
 3. Generating a unique `trans_ref` from your system for every transaction is advised, to avoid duplicate attempts.
-4. The `onSuccess` method is called when payment has been completed successfully on the Squad checkout.
 
 ## Payment Channels
 
@@ -162,3 +163,7 @@ Here is a list of all the Banks USSD `shortcodes` we currently support:
 Squad provides a payment method that makes it possible for customers to pay you through a direct bank account transfer. The customer provides their name, phone number, and email address. Then a preset account number is displayed along with the preregistered bank name.&#x20;
 
 ![](<../.gitbook/assets/image (1).png>)
+
+## Go Live
+
+&#x20;

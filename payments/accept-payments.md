@@ -185,6 +185,10 @@ Squad provides a payment method that makes it possible for customers to pay you 
 
 ![](<../.gitbook/assets/image (1).png>)
 
+### Card
+
+With Squad, customers can pay with Card provided their card details are correct and updated.  The customer provides their card number, card expiry date, and CVV.
+
 ## How To Test
 
 1. Create a free Squad [sandbox account](https://sandbox.squadco.com) and get your test keys from the dashboard.

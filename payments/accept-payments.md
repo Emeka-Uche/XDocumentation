@@ -200,6 +200,6 @@ With Squad, customers can pay with Card provided their card details are correct 
 To go live on the payment modal, all you need to do is:
 
 1. Change the test _**\_Public Key\_** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com).
-2. Change the Script link to [https://checkout.squadco.com/widget/squad.min.js](https://checkout.squadco.com/widget/squad.min.js)
+2. Change the Script link to `https://checkout.squadco.com/widget/squad.min.js`
 
 &#x20;

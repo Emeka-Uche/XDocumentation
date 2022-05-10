@@ -30,28 +30,47 @@ The customer information can either be retrieved from a form, or from your datab
 {% tabs %}
 {% tab title="HTML" %}
 ```typescript
- <form id="paymentForm">
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input type="email" id="email-address" required />
-  </div>
-  <div class="form-group">
-    <label for="amount">Amount</label>
-    <input type="tel" id="amount" required />
-  </div><script src="https://test-checkout.squadinc.co/widget/squad.min.js"></script> <script src="https://test-checkout.squadinc.co/widget/squad.min.js"></script> 
-  <div class="form-group">
-    <label for="first-name">First Name</label>
-    <input type="text" id="first-name" />
-  </div>
-  <div class="form-group">
-    <label for="last-name">Last Name</label>
-    <input type="text" id="last-name" />
-  </div>
-  <div class="form-submit">
-    <button type="submit" onclick="SquadPay()"> Submit </button>
-  </div>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<HEAD>
+<TITLE>SQUAD</TITLE>
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+</HEAD>
+<BODY>
+  <form style="padding-left: 30px;" class="text-center">
+      <div class="text-left" style="color:red; font-family: Verdana; font-size: 30px;">SAMPLE CHECKOUT</div>
+      <h6>Note: Amount should be between $1 to $10,000 (USD), NGN100 to NGN5,000,000 and KSH100 to KSH5,000,000</h6>
+      <div class="row text-center">
+        <div class="col-lg-4">
+            <label for="email">Email Address</label>
+            <input type="email" id="email-address" class="form-control" required /><br>
+        </div>
+        <div class="col-lg-4">
+            <label for="amount">Amount</label>
+            <input type="tel" id="amount" class="form-control" required /><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" class="form-control" /><br>
+        </div>
+        <div class="col-lg-4">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" class="form-control" /><br>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="form-submit">
+          <button type="button" onclick="SquadPay()" class="btn btn-danger">Check Out</button><br><br>
+        </div>
+      </div>
+    </div>
+  </form>
+</BODY>
+</HTML>
 ```
 {% endtab %}
 

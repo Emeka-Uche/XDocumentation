@@ -27,6 +27,8 @@ To initialize a transaction, you need to pass details such as email, first name,
 The customer information can either be retrieved from a form, or from your database if you already have it stored. (Example below)
 {% endhint %}
 
+## Code Glossary
+
 {% tabs %}
 {% tab title="HTML" %}
 ```typescript
@@ -132,9 +134,9 @@ A checkout pop-up will then be displayed for the customer to input their payment
 ## Key Information
 
 1. The `key` field takes your Squad **\_public\_** key.
-2. By default, the amount field is already set in the lowest currency unit (kobo, cent). That is, to pay **NGN100**, you have to enter **10000** in the amount field.\
+2. By default, the `amount` field is already set in the lowest currency unit (kobo, cent). That is, to pay **NGN100**, you have to enter **10000** in the amount field.\
    To convert `amount` to the base currency (Naira, Dollar), multiply the amount parameter by `100` in your code, <mark style="background-color:blue;">amount: document.getElementById("amount").value \* 100</mark>, This will allow you enter the amount in Naira or Dollar as the case may be.
-3. Generating a unique `trans_ref` from your system for every transaction is advised, to avoid duplicate attempts.
+3. WAMP or XAMP
 
 ## Payment Channels
 
@@ -183,6 +185,18 @@ Squad provides a payment method that makes it possible for customers to pay you 
 
 ![](<../.gitbook/assets/image (1).png>)
 
+## How To Test
+
+1. Create a free Squad [sandbox account](https://sandbox.squadco.com) and get your test keys from the dashboard.
+2. Copy the code sample from the [Code Glossary](accept-payments.md#undefined) of this documentation unto a text editor of your choice.
+3. Save the document as _ `.html` file. For example_ _**index.html**_&#x20;
+4. With an internet-enabled device, view the `.html` file (_**index.html**_) using any web server of your choice either local (WAMP, XAMPP, etc) or online.
+
 ## Go Live
+
+To go live on the payment modal, all you need to do is:
+
+1. Change the test _**\_Public Key\_** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com).
+2. Change the Script link to [https://checkout.squadco.com/widget/squad.min.js](https://checkout.squadco.com/widget/squad.min.js)
 
 &#x20;

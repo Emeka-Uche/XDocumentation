@@ -136,7 +136,6 @@ A checkout pop-up will then be displayed for the customer to input their payment
 1. The `key` field takes your Squad **\_public\_** key.
 2. By default, the `amount` field is already set in the lowest currency unit (kobo, cent). That is, to pay **NGN100**, you have to enter **10000** in the amount field.\
    To convert `amount` to the base currency (Naira, Dollar), multiply the amount parameter by `100` in your code, <mark style="background-color:blue;">amount: document.getElementById("amount").value \* 100</mark>, This will allow you enter the amount in Naira or Dollar as the case may be.
-3. WAMP or XAMP
 
 ## Payment Channels
 

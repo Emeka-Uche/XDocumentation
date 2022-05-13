@@ -9,6 +9,5 @@
   * [Transfer](payments/transfer.md)
   * [Split Payments](payments/split-payments.md)
   * [Refunds](payments/refunds.md)
-  * [Recurring Payments](payments/recurring-payments-1.md)
 * [API Reference](https://squadinc.gitbook.io/squad-api/)
 * [Virtual Accounts](https://squadinc.gitbook.io/virtual-accounts/)

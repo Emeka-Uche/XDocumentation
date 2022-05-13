@@ -2,7 +2,7 @@
 
 ## Payment API
 
-The PaymentAPI endpoint allows you to pass the details of any payment channel and transaction details (email, amount, etc.) directly to Squad. We provide multiple payment channels, which you can use depending on your use case.
+The PaymentAPI endpoint allows you to pass the details of any payment channel and transaction details \(email, amount, etc.\) directly to Squad. We provide multiple payment channels, which you can use depending on your use case.
 
 ### Use Cases
 
@@ -19,4 +19,9 @@ Note that you can only use this integration option if you have the required PCI-
 
 ### Handling Payment API Response
 
-You will need to show the user a form to collect the requested input and send it to the relevant endpoint, as shown in the following table. For steps that require users to complete operations on their devices, we recommend showing a button for users to confirm payment after the user performs the operation so that you can listen to events through webhooks.&#x20;
+You will need to show the user a form to collect the requested input and send it to the relevant endpoint, as shown in the following table. For steps that require users to complete operations on their devices, we recommend showing a button for users to confirm payment after the user performs the operation so that you can listen to events through webhooks. 
+
+| API Response | Description |
+| :--- | :--- |
+|  |  |
+

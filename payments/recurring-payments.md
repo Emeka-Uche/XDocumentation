@@ -6,9 +6,7 @@ The [RecurringAPI](https://squadinc.gitbook.io/squad-api/api-endpoints#recurring
 This is only applicable to Card Payment
 {% endhint %}
 
-
-
-{% swagger baseUrl="https://sandbox-api-d.squadco.com/payment/Service/recurringPayment" path="" method="post" summary="Recurring Payments" %}
+{% swagger baseUrl="https://sandbox-api-d.squadco.com" path="/payment/Service/recurringPayment" method="post" summary="Recurring Payments" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -121,6 +119,38 @@ This is only applicable to Card Payment
 {% endtabs %}
 
 ## Cancel Recurring Payment
+
+The cancel recurring payment endpoint enables developers to embed subscriptions functionality in their applications.
+
+{% swagger baseUrl="https://sandbox-api-d.squadco.com" path="payment/RecurringPayment/{merchant_id}/Cancel" method="patch" summary="Cancel Recurring" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="auth_code" type="string" %}
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200" description="" %}
+```javascript
+{
+  "status": 200,
+  "message": "Recurring Payment Successfully Cancelled",
+  "data": null
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400" description="" %}
+```javascript
+{
+    "status": 400,
+    "message": "Recurring Payment was not cancelled",
+    "data": null
+}
+```
+{% endswagger-response %}
+{% endswagger %}
 
 {% tabs %}
 {% tab title="Request" %}

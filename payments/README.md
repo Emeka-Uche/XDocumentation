@@ -1,5 +1,6 @@
 ---
 description: Learn to receive payment on Squad
+coverY: 0
 ---
 
 # Payments

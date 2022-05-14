@@ -1,3 +1,7 @@
+---
+coverY: 0
+---
+
 # Products
 
 With the Products API you can create and manage products and inventories on your integration

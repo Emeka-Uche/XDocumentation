@@ -1,3 +1,7 @@
+---
+coverY: 0
+---
+
 # Squad Payment Modal
 
 ## Payment Modal&#x20;
@@ -12,7 +16,7 @@ To initialize a transaction, you need to pass details such as email, first name,
 
 | **PARAMETERS** | **REQUIRED?**                         | **DESCRIPTION**                                                                                                                                                                                                                    |
 | -------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key            | <mark style="color:green;">Yes</mark> | Your **Squad** public key. Use the test key found in your [Sandbox account](https://sandbox.squadco.com) in test mode, and use the live key found in your [Squad dashboard](http://dashboard.squadco.com) in live mode.            |
+| key            | <mark style="color:green;">Yes</mark> | Your **Squad** public key. Use the test key found in your [Sandbox account](https://sandbox.squadco.com/) in test mode, and use the live key found in your [Squad dashboard](http://dashboard.squadco.com/) in live mode.          |
 | email          | <mark style="color:green;">Yes</mark> | Customer's email address.                                                                                                                                                                                                          |
 | amount         | <mark style="color:green;">Yes</mark> | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).                                                                                                                            |
 | trans\_ref     | No                                    | Unique case-sensitive transaction reference. Only ``` `**`-`**_,_**`.`**_,_**`=`** and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                     |
@@ -150,7 +154,7 @@ The USSD channel allows your Nigerian customers to pay you by dialing the USSD c
 After dialing the USSD code displayed, the system will prompt the user to input the USSD PIN to authenticate the transaction and then confirm it. All that is needed to initiate USSD payment is the customer's email and the amount to be charged. When the user makes a payment, the response will be sent to your webhook.&#x20;
 
 {% hint style="info" %}
-Therefore, to make it work as expected, webhooks must be configured on your [**Squad dashboard**](http://dashboard.squadco.com)**.**
+Therefore, to make it work as expected, webhooks must be configured on your [**Squad dashboard**](http://dashboard.squadco.com/)**.**
 {% endhint %}
 
 #### Banks Supported
@@ -190,7 +194,7 @@ With Squad, customers can pay with Card provided their card details are correct 
 
 ## How To Test
 
-1. Create a free Squad [sandbox account](https://sandbox.squadco.com) and get your test keys from the dashboard.
+1. Create a free Squad [sandbox account](https://sandbox.squadco.com/) and get your test keys from the dashboard.
 2. Copy the code sample from the [Code Glossary](accept-payments.md#undefined) of this documentation unto a text editor of your choice.
 3. Save the document as _ `.html` file. For example_ _**index.html**_&#x20;
 4. With an internet-enabled device, view the `.html` file (_**index.html**_) using any web server of your choice either local (WAMP, XAMPP, etc) or online.
@@ -199,6 +203,6 @@ With Squad, customers can pay with Card provided their card details are correct 
 
 To go live on the payment modal, all you need to do is:
 
-1. Change the test _**\_Public Key\_** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com).
+1. Change the test _**\_Public Key\_** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
 2. Change the Script link to `https://checkout.squadco.com/widget/squad.min.js`
 3. Paste your `Callback/Webhook URL` in the space provided on your dashboard. `dashboard > profile > api-webhooks.`

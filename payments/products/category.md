@@ -1,3 +1,7 @@
+---
+coverY: 0
+---
+
 # Category
 
 Get categories in your integration

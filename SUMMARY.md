@@ -7,6 +7,7 @@
   * [Recurring Payments](payments/recurring-payments.md)
   * [Verify Transactions](payments/verify-transactions.md)
   * [Products](payments/products/README.md)
+    * [Category](payments/products/category.md)
     * [Orders](payments/products/orders.md)
   * [Refunds](payments/refunds.md)
 * [API Reference](https://squadinc.gitbook.io/squad-api/)

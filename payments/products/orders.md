@@ -2,7 +2,7 @@
 
 Get Orders on your integration
 
-{% swagger method="post" path="orders" baseUrl="https://test-api.squadinc.co/" summary="Create Order" %}
+{% swagger method="post" path="orders" baseUrl="https://sandbox-api-d.squadco.com" summary="Create Order" %}
 {% swagger-description %}
 
 {% endswagger-description %}

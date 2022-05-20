@@ -1,3 +1,7 @@
+---
+coverY: 314.11042944785277
+---
+
 # Refunds
 
 You can use the [RefundAPI ](https://squadinc.gitbook.io/squad-api/api-endpoints#refunds)endpoint to reimburse customers. To initiate, you need a payment ID and the refund amount. Regardless of the payment method, you can use the [RefundAPI](https://squadinc.gitbook.io/squad-api/api-endpoints#refunds) endpoint to refund the payment.
@@ -13,15 +17,15 @@ The following conditions apply to refunds:
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="transaction_ref" type="string" %}
+{% swagger-parameter in="body" name="transaction_ref" type="string" required="true" %}
 
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="refund_type" type="string" %}
+{% swagger-parameter in="body" name="refund_type" type="string" required="true" %}
 
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="refund_amount" type="number" %}
+{% swagger-parameter in="body" name="refund_amount" type="number" required="true" %}
 
 {% endswagger-parameter %}
 

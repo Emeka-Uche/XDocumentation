@@ -1,6 +1,6 @@
 ---
 description: Learn to receive payment on Squad
-coverY: 0
+coverY: 294.47852760736197
 ---
 
 # Payments

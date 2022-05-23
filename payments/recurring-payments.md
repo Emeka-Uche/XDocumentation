@@ -12,7 +12,7 @@ This is only applicable to Card Payment
 
 {% swagger baseUrl="https://sandbox-api-d.squadco.com" path="/payment/Service/recurringPayment" method="post" summary="Recurring Payments" %}
 {% swagger-description %}
-
+API for 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="access_token" type="string" %}

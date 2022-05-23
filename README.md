@@ -10,7 +10,7 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 [![image-text](<.gitbook/assets/Squad Accept Payments.jpg>)](payments/)               [![image-text](<.gitbook/assets/Squad Transfer.png>)](payments/verify-transactions.md)
 
-[![image-text](<.gitbook/assets/Squad Recurring Payments.jpg>)](payments/recurring-payments.md)               [![image-text](<.gitbook/assets/Squad Initiate Refunds.jpg>)](refunds.md)
+[![image-text](<.gitbook/assets/Squad Recurring Payments.jpg>)](payments/recurring-payments.md)               [![image-text](<.gitbook/assets/Squad Initiate Refunds.jpg>)](payments/refunds.md)
 
 ## Before You Begin
 

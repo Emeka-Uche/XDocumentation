@@ -15,7 +15,7 @@ There are two ways to accept payment on Squad:
 [accept-payments.md](accept-payments.md)
 {% endcontent-ref %}
 
-{% content-ref url="squad-payment-api/" %}
-[squad-payment-api](squad-payment-api/)
+{% content-ref url="squad-payment-api.md" %}
+[squad-payment-api.md](squad-payment-api.md)
 {% endcontent-ref %}
 

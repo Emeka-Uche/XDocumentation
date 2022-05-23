@@ -212,7 +212,7 @@ Get product details
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="post" path="/products" baseUrl="https://test-api.squadinc.co/products" summary="Add Product" %}
+{% swagger method="post" path="/products" baseUrl="https://sandbox-api-d.squadco.com/products" summary="Add Product" %}
 {% swagger-description %}
 Add products details
 {% endswagger-description %}

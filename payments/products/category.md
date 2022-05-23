@@ -35,7 +35,7 @@ Get specific category
 
 
 
-{% swagger method="get" path="" baseUrl="https://test-api.squadinc.co/category?type=default" summary="Get All Categories" %}
+{% swagger method="get" path="category?type=default" baseUrl="https://sandbox-api-d.squadco.com/" summary="Get All Categories" %}
 {% swagger-description %}
 Get all product categories 
 {% endswagger-description %}

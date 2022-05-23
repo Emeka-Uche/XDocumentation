@@ -6,7 +6,7 @@ coverY: 229.6932515337423
 
 Get Orders on your integration
 
-{% swagger method="post" path="orders" baseUrl="https://sandbox-api-d.squadco.com" summary="Create Order" %}
+{% swagger method="post" path="orders" baseUrl="https://sandbox-api-d.squadco.com/" summary="Create Order" %}
 {% swagger-description %}
 
 {% endswagger-description %}

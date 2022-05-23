@@ -9,10 +9,10 @@ You can use the [RefundAPI ](https://squadinc.gitbook.io/squad-api/api-endpoints
 The following conditions apply to refunds:
 
 1. You cannot refund **more** than what was originally collected.
-2. The refund amount must be available in the Square account. Refunds are in a state of **PENDING** until the funds can be secured. If funds cannot be secured, the refund is not completed and the buyer does not receive a credit. The refund has a status of **FAILED**.
-3. You can only refund payments with the status **COMPLETED**
+2. The refund amount must be available in the Squad account. Refunds are in a state of **PENDING** until the funds can be secured. If funds cannot be secured, the refund is not completed and the buyer does not receive a credit. The refund has a status of **FAILED**.
+3. You can only refund payments with the status **COMPLETED.**
 
-{% swagger baseUrl="https://sandbox-api.squadco.com" path="/transaction/refund" method="post" summary="Refunds" %}
+{% swagger baseUrl="https://sandbox-api-d.squadco.com" path="/transaction/refund" method="post" summary="Refunds" %}
 {% swagger-description %}
 
 {% endswagger-description %}

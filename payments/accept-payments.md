@@ -20,12 +20,9 @@ To initialize a transaction, you need to pass details such as email, first name,
 | email          | <mark style="color:green;">Yes</mark> | Customer's email address.                                                                                                                                                                                                          |
 | amount         | <mark style="color:green;">Yes</mark> | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).                                                                                                                            |
 | trans\_ref     | No                                    | Unique case-sensitive transaction reference. Only ``` `**`-`**_,_**`.`**_,_**`=`** and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                     |
-| currency\_code | <mark style="color:green;">Yes</mark> | Currency charge should be performed in. Allowed values are **`NGN`**, **`USD`**. It defaults to your integration currency.                                                                                                         |
+| currency\_code | <mark style="color:green;">Yes</mark> | The currency you want the amount to be charged in. Allowed value is **`NGN`**.                                                                                                                                                     |
 | paymentChannel | No                                    | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , ``` `**`'ussd'`**,**`'bank_transfer'`**]          |
 | meta           | No                                    | Object that contains any additional information that you want to record with the transaction. The fields of the `custom_field`object will be displayed on the merchant receipt and transaction information on the Squad dashboard. |
-| onSuccess      | No                                    | JavaScript function that runs when payment is successful. Ideally, this should be a script that uses the verify endpoint on the Squad API to check the status of the transaction.                                                  |
-| onClose        | No                                    | Javascript function that is called if the customer closes the payment window instead of making a payment.                                                                                                                          |
-| onPending      | No                                    | Javascript function that is called if the customer clicks on `Close Checkout` before we receive their bank transfer. (This only applies to **`Pay-with-Transfer`** transactions)                                                   |
 
 {% hint style="info" %}
 The customer information can either be retrieved from a form, or from your database if you already have it stored. (Example below)
@@ -129,7 +126,7 @@ function SquadPay() {
 }
 ```
 
-A checkout pop-up will then be displayed for the customer to input their payment information to complete the transaction.&#x20;
+A checkout modal will pop-up with different payment options for the customer to choose and input their payment information to complete the transaction.&#x20;
 
 ## Checkout Demo
 

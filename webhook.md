@@ -13,5 +13,8 @@ Paste your **`Callback/Webhook URL`** in the space provided on your dashboard.
 * Login to your Squad dashboard.&#x20;
 * Go to Profile > API & Webhook.
 * In the Webhook URL field, enter your Notification URL.
+* Enter a redirect URL for your customers to be redirected after they complete payment. \
+  Note: The Redirect URL is optional.\
+
 
 To configure webhook notifications: [<mark style="color:blue;">`dashboard > profile > api-webhooks.`</mark>](https://dashboard.squadinc.co/profile/api-webhooks)<mark style="color:blue;">``</mark>

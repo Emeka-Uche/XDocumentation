@@ -17,4 +17,4 @@ Paste your **`Callback/Webhook URL`** in the space provided on your dashboard.
   Note: The Redirect URL is optional.\
 
 
-To configure webhook notifications: [<mark style="color:blue;">`dashboard > profile > api-webhooks.`</mark>](https://dashboard.squadinc.co/profile/api-webhooks)<mark style="color:blue;">``</mark>
+To configure webhook notifications: go to <mark style="color:blue;">**dashboard > profile > Api & Webhooks.**</mark>

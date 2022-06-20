@@ -8,15 +8,15 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 ## Getting Started
 
-[![image-text](<.gitbook/assets/Squad Accept Payments.jpg>)](payments/)               [![image-text](<.gitbook/assets/Squad Transfer.png>)](payments/verify-transactions.md)
+[![image-text](<.gitbook/assets/Squad Accept Payments.jpg>)](payments/)               [![image-text](<.gitbook/assets/Squad Transfer.png>)](broken-reference)
 
-[![image-text](<.gitbook/assets/Squad Recurring Payments.jpg>)](payments/recurring-payments.md)               [![image-text](<.gitbook/assets/Squad Initiate Refunds.jpg>)](payments/refunds.md)
+[![image-text](<.gitbook/assets/Squad Recurring Payments.jpg>)](broken-reference)               [![image-text](<.gitbook/assets/Squad Initiate Refunds.jpg>)](broken-reference)
 
 ## Before You Begin
 
 1. Create a free Squad account [**Here**](https://dashboard.squadco.com/sign-up) **** (_for Test, create a_ [**Sandbox Account**](https://sandbox.squadco.com/sign-up))
 
-&#x20; 2\. Integrate Squad payment gateway using any of the methods.
+&#x20; 2\. Integrate Squad payment gateway.
 
 &#x20; 3\. Test your integration using Keys on your Dashboard.
 

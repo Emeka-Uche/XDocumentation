@@ -4,7 +4,7 @@ Webhooks are used so that anytime an event occurs on your account, your applicat
 
 Squad webhooks are HTTP calls that are triggered by specific events. It is necessary only for behind-the-scenes transactions.&#x20;
 
-This can be set up on your Squad Dashboard by specifying a URL we would send POST requests to whenever an event occurs. Each webhook notification contains an eventType that specifies which type of event triggered the webhook notification.&#x20;
+This can be set up on your Squad Dashboard by specifying a URL we would send POST requests to whenever a successful transaction occurs.&#x20;
 
 To process notifications, you need to:
 

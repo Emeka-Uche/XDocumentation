@@ -18,3 +18,24 @@ Paste your **`Callback/Webhook URL`** in the space provided on your dashboard.
 
 
 To configure webhook notifications: go to <mark style="color:blue;">**dashboard > profile > Api & Webhooks.**</mark>
+
+<mark style="color:blue;">****</mark>
+
+Sample POST request to be sent via webhook upon successful transaction
+
+```
+{
+  "Event": "Charge.Successful",
+  "TransactionRef": "SQCHIZ451029107631",
+  "Body": {
+    "amount": 10000,
+    "transaction_ref": "SQCHIZ451029107631",
+    "transaction_status": "Success",
+    "email": "OKOYEANTHONYCHIZOBA@GMAIL.COM",
+    "currency": "NGN",
+    "transaction_type": "Card",
+    "created_at": "2022-06-24T09:38:44.31",
+    "customer_mobile": null
+  }
+}
+```

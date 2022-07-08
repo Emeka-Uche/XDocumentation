@@ -23,10 +23,9 @@ namespace HMacExample
       //Replace with the body of the notification received
       String webhookPayload = "THE_BODY_OF_THE_WEBHOOK_PAYLOAD YOU RECEIVED";
       String jsonInput = JsonConvert.SerializeObject(webhookPayload);
-      String inputString = Convert.ToString(new JValue(jsonInput));
       String result = "";
       byte[] secretkeyBytes = Encoding.UTF8.GetBytes(key);
-      byte[] inputBytes = Encoding.UTF8.GetBytes(inputString);
+      byte[] inputBytes = Encoding.UTF8.GetBytes(jsonInput);
       using (var hmac = new HMACSHA512(secretkeyBytes))
       {
           byte[] hashValue = hmac.ComputeHash(inputBytes);
@@ -34,7 +33,7 @@ namespace HMacExample
       }
       Console.WriteLine(result);
       String x-squad-encrypted-body = "Request's header value for x-squad-encrypted-body" //replace with the request's header value for x-squad-encrypted-body here
-      if(result.ToLower().Equals(x-squad-encrypted-body)) {
+      if(result.Equals(x-squad-encrypted-body)) {
           // you can trust the event came from squad and so you can give value to customer
       } else {
           // this request didn't come from Squad, ignore it
@@ -50,7 +49,7 @@ namespace HMacExample
 const crypto = require('crypto');
 const secret = "Your Squad Secret Key";
 // Using Express
-app.post("/my/webhook/url", function(req, res) {
+app.post("/MY-WEBHOOK-URL", function(req, res) {
     //validate event
     const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
     if (hash == req.headers['x-squad-encrypted-body']) {
@@ -71,7 +70,7 @@ if ((strtoupper($_SERVER['REQUEST_METHOD']) != 'POST' ) || !array_key_exists('x-
     exit();
 // Retrieve the request's body
 $input = @file_get_contents("php://input");
-define('SQUAD_SECRET_KEY','SECRET_KEY');
+define('SQUAD_SECRET_KEY','YOUR_SECRET_KEY'); //ENTER YOUR SECRET KEY HERE
 // validate event do all at once to avoid timing attack
 if($_SERVER['x-squad-encrypted-body'] !== hash_hmac('sha512', $input, SQUAD_SECRET_KEY))
 // The Webhook request is not from SQUAD 
@@ -114,7 +113,7 @@ public class HMacExample {
     byte [] mac_data = sha512_HMAC.
     doFinal(body.toString().getBytes("UTF-8"));
     result = DatatypeConverter.printHexBinary(mac_data);
-    if(result.toLowerCase().equals(x-squad-encrypted-body)) {
+    if(result.equals(x-squad-encrypted-body)) {
       // you can trust that this is from squad
     }else{
       // this isn't from Squad, ignore it

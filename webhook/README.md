@@ -38,17 +38,18 @@ Sample POST request to be sent via webhook upon successful transaction
 ```
 {
   "Event": "charge_successful",
-  "TransactionRef": "SQDEMOEJ37A2",
+  "TransactionRef": "SQDEMO4825804255499",
   "Body": {
-    "amount": 779400,
-    "transaction_ref": "SQDEMOEJ37A2",
+    "amount": 10000,
+    "transaction_ref": "SQDEMO4825804255499",
+    "gateway_ref": "SQDEMO4825804255499_1_1",
     "transaction_status": "Success",
-    "email": "murrayataga@gmail.com",
+    "email": "godspowerj4@gmail.com",
     "merchant_id": "AABBCCDDEEFFGGHHJJKK",
     "currency": "NGN",
     "transaction_type": "Card",
-    "merchant_amount": 765047,
-    "created_at": "2022-07-06T13:44:36.848",
+    "merchant_amount": 4880,
+    "created_at": "2022-07-15T09:07:20.936",
     "customer_mobile": null,
     "meta": {}
   }

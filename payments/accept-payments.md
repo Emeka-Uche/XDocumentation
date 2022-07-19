@@ -129,6 +129,47 @@ function SquadPay() {
 
 A checkout modal will pop-up with different payment options for the customer to choose and input their payment information to complete the transaction.&#x20;
 
+### Verify Transaction
+
+This is an endpoint that allows you to query the status of a particular transaction using the unique transaction reference attached to the transaction.
+
+{% swagger method="get" path="verify/" baseUrl="https://sandbox.api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
+{% swagger-description %}
+Transaction status can be either successful, failed or abandoned
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="transaction_ref" type="String" required="true" %}
+Unique transaction reference that identifies each transaction
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "transaction_amount": 5000,
+        "transaction_ref": "SQCHIZ3634573076082",
+        "email": "ayo@gmail.com",
+        "transaction_status": "Success",
+        "transaction_currency_id": "NGN",
+        "created_at": "0001-01-01T00:00:00",
+        "transaction_type": "VirtualAccount",
+        "merchant_name": "CHIZOBA ANTHONY",
+        "merchant_business_name": null,
+        "gateway_transaction_ref": "SQCHIZ3634573076082",
+        "recurring": null,
+        "merchant_email": "okoyeanthonychizoba@gmail.com",
+        "plan_code": null
+    }
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+
+
 ## Checkout Demo
 
 {% embed url="https://codepen.io/habaripay/pen/xxpvoxX" %}
@@ -204,3 +245,4 @@ To go live on the payment modal, all you need to do is:
 1. Change the test _**\_Public Key\_** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
 2. Change the Script link to `https://checkout.squadco.com/widget/squad.min.js`
 3. Paste your `Callback/Webhook URL` in the space provided on your dashboard. `dashboard > profile > api-webhooks.`
+4. If you are using the verify transaction endpoint, kindly change the base URL to api-d.squadco.com

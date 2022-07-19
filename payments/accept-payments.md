@@ -133,9 +133,12 @@ A checkout modal will pop-up with different payment options for the customer to 
 
 This is an endpoint that allows you to query the status of a particular transaction using the unique transaction reference attached to the transaction.
 
-{% swagger method="get" path="verify/" baseUrl="https://sandbox.api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
+{% swagger method="get" path="verify/{{transaction_ref}}" baseUrl="https://sandbox.api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
 {% swagger-description %}
-Transaction status can be either successful, failed or abandoned
+To verify the validity of a transaction, kindly query the endpoint above by replacing \{{transaction\_ref\}} with the unique transaction\_ref of the transaction you want to _verify_.
+
+\
+Transaction status can either be successful, failed or abandoned.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="transaction_ref" type="String" required="true" %}

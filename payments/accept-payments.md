@@ -228,6 +228,28 @@ Sample Response for Failed Transaction
 }
 ```
 {% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="Unauthorized Request" %}
+```javascript
+//sending a request without an authorization key
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Invalid API Key" %}
+```javascript
+//sending a request with an Invalid key
+{
+    "success": false,
+    "message": "API key is invalid. Key must start with sandbox_sk_",
+    "data": {}
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
 

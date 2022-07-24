@@ -260,7 +260,7 @@ Sample Response for Failed Transaction
 
 ## Key Information
 
-1. The `key` field takes your Squad **\_public\_** key.
+1. The `key` field takes your Squad key.
 2. By default, the `amount` field is already set in the lowest currency unit (kobo, cent). That is, to pay **NGN100**, you have to enter **10000** in the amount field.\
    To convert `amount` to the base currency (Naira, Dollar), multiply the amount parameter by `100` in your code, <mark style="background-color:blue;">amount: document.getElementById("amount").value \* 100</mark>, This will allow you enter the amount in Naira or Dollar as the case may be.
 
@@ -326,7 +326,7 @@ With Squad, customers can pay with Card provided their card details are correct 
 
 To go live on the payment modal, all you need to do is:
 
-1. Change the test _**\_Public Key\_** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
+1. Change the test key _**** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
 2. Change the Script link to `https://checkout.squadco.com/widget/squad.min.js`
 3. Paste your `Callback/Webhook URL` in the space provided on your dashboard. `dashboard > profile > api-webhooks.`
 4. If you are using the verify transaction endpoint, kindly change the base URL to api-d.squadco.com

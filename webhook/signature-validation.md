@@ -87,11 +87,11 @@ exit();
 ```
 package hmacexample;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
 import org.json.JSONException;
 import org.json.JSONObject;
 public class HMacExample {
@@ -112,8 +112,8 @@ public class HMacExample {
     sha512_HMAC.init(keySpec);
     byte [] mac_data = sha512_HMAC.
     doFinal(body.toString().getBytes("UTF-8"));
-    result = DatatypeConverter.printHexBinary(mac_data);
-    if(result.equals(x-squad-encrypted-body)) {
+    result = String.format("%040x", new BigInteger(1, mac_data));
+    if(result.toUpperCase().equals(x-squad-encrypted-body)) {
       // you can trust that this is from squad
     }else{
       // this isn't from Squad, ignore it

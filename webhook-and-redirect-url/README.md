@@ -1,4 +1,4 @@
-# Webhook
+# Webhook & Redirect URL
 
 Webhooks are used so that anytime an event occurs on your account, your application can be notified with instant, real-time notifications by Squad.
 
@@ -8,11 +8,12 @@ This can be set up on your Squad Dashboard by specifying a URL we would send POS
 
 To process notifications, you need to:
 
-Paste your **`Callback/Webhook URL`** in the space provided on your dashboard by following the steps below:
+Paste your redirect and**`Callback/Webhook URL`** in the space provided on your dashboard by following the steps below:
 
 * Login to your Squad dashboard.&#x20;
 * Go to Profile > API & Webhook.
 * In the Webhook URL field, enter your Notification URL.
+* In the redirect URL field, enter your redirect URL- and on completion of payment, the customer will be redirected to the URL with the transaction reference passed as a query param.
 * Enter a redirect URL for your customers to be redirected after they complete payment. \
   Note: The Redirect URL is optional.\
 

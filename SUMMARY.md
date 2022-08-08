@@ -7,3 +7,4 @@
   * [Signature validation](webhook-and-redirect-url/signature-validation.md)
 * [Virtual Accounts](https://squadinc.gitbook.io/virtual-accounts/)
 * [Test Cards](https://squadinc.gitbook.io/squad-api/test-cards)
+* [Payment Link](payment-link.md)

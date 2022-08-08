@@ -1,10 +1,30 @@
 # Payment Link
 
-This API is used to create a simple payment link
+This API is used to create a simple payment link. All calls to this end point is to be made using your secret key gotten from your dashboard
 
 {% swagger method="get" path="/paymentLink/otp" baseUrl="https://sandbox-api-d.squadco.com" summary="This API creates a Simple Payment Link" %}
 {% swagger-description %}
+The payment link is a concatenation of the base url 
 
+[https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591)
+
+ and the hash selected when creating the payment link
+
+\
+
+
+
+
+\
+
+
+That is if the hash is 
+
+_mypaymentlink_
+
+ then the payment link will be https://sandbox-pay.squadco.com/
+
+_mypaymentlink_
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="name" type="String" required="true" %}
@@ -108,3 +128,11 @@ Message to be displayed to the customer after payment via the link
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+### GO LIVE - Production
+
+To create payment link on production:
+
+1. &#x20;kindly change the base URL of the endpoint from sandbox-api-d.squadco.com to api-d-squadco.com
+2. get production keys from your production environment on dashboard.squadco.com
+3. On production the concatenation for payment link needs to be changed from sandbox-pay.checkout.squadco.com/hash to pay.checkout.squadco.co/hash

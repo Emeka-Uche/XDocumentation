@@ -135,4 +135,4 @@ To create payment link on production:
 
 1. &#x20;kindly change the base URL of the endpoint from sandbox-api-d.squadco.com to api-d-squadco.com
 2. get production keys from your production environment on dashboard.squadco.com
-3. On production the concatenation for payment link needs to be changed from sandbox-pay.checkout.squadco.com/hash to pay.checkout.squadco.co/hash
+3. On production, the base URL for concatenation of the payment link needs to be changed from sandbox-pay.checkout.squadco.com/hash to pay.checkout.squadco.co/hash

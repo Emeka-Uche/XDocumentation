@@ -1,30 +1,37 @@
 # Payment Link
 
-This API is used to create a simple payment link. All calls to this end point is to be made using your secret key gotten from your dashboard
+This API is used to create a simple payment link. All calls to this end point is to be made using your secret key gotten from your dashboard.
+
+The payment link is a concatenation of the base url [https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591) and the hash selected when creating the payment link\
+\
+For instance, if the hash is _mypaymentlink_ then the payment link will be https://sandbox-pay.squadco.com/_mypaymentlink_\
+\
+
+
+### Sample Request
+
+```
+
+{
+    "name": "Demo Otp Link",
+    "hash": "mypaymentlink",
+    "link_status": 1,
+    "expire_by": "2023-04-26T11:22:08.587Z",
+    "amounts": [
+        {
+            "amount": 4000,
+            "currency_id": "NGN"
+        }
+    ],
+    "description": "My description",
+    "redirect_link": "https://fjfhgfd.com",
+    "return_msg": "Successful"
+}
+```
 
 {% swagger method="get" path="/paymentLink/otp" baseUrl="https://sandbox-api-d.squadco.com" summary="This API creates a Simple Payment Link" %}
 {% swagger-description %}
-The payment link is a concatenation of the base url 
 
-[https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591)
-
- and the hash selected when creating the payment link
-
-\
-
-
-
-
-\
-
-
-That is if the hash is 
-
-_mypaymentlink_
-
- then the payment link will be https://sandbox-pay.squadco.com/
-
-_mypaymentlink_
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="name" type="String" required="true" %}
@@ -41,7 +48,7 @@ Value can be 0 or 1.
 \
 
 
-0 - Active, 1 - Inactive
+1 - Active, 0 - Inactive
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="expire_by" type="String" required="true" %}
@@ -77,10 +84,10 @@ Message to be displayed to the customer after payment via the link
     "data": {
         "name": "Demo Otp Link",
         "link_type": "otp",
-        "hash": "kmtyevdkcd591",
+        "hash": "mypaymentlink",
         "description": "My description",
         "currencies": null,
-        "redirect_link": "https://fjfhgfd.com",
+        "redirect_link": "https://squadco.com",
         "return_msg": "Successful",
         "support_email": null,
         "support_phone": null,

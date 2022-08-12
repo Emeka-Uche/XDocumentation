@@ -1,8 +1,22 @@
 # Payment Link
 
-This API is used to create a simple payment link. All calls to this end point is to be made using your secret key gotten from your dashboard.
+This API is used to create a simple payment link. All calls to this end point is to be made using your secret key gotten from your dashboard.\
 
-The payment link is a concatenation of the base url [https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591) and the hash selected when creating the payment link\
+
+{% hint style="warning" %}
+**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Service Not Authorized)` response code.
+{% endhint %}
+
+{% hint style="info" %}
+**The authorization key is sent via the http header as Bearer Token**
+{% endhint %}
+
+**Example:**\
+****Authorization**: "**Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f"
+
+### Creating the Link
+
+The payment link is a concatenation of the base url: [https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591) and the hash selected when creating the payment link\
 \
 For instance, if the hash is _mypaymentlink_ then the payment link will be https://sandbox-pay.squadco.com/_mypaymentlink_\
 \

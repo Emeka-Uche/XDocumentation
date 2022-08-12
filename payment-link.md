@@ -53,7 +53,7 @@ Title/Name of the Payment Link
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="hash" required="true" type="String" %}
-Unique string that identifies each payment Link
+Unique string that identifies each payment Link (cannot exceed 255 characters)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="link_status" type="Integer" required="true" %}
@@ -74,7 +74,7 @@ Amount must be in the lowest currency. (kobo for Naira transactions and cent for
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="currency_id" required="true" type="String" %}
-USD or NGN (USD - US Dollars & NGN - NIgerian Naira)
+USD or NGN (USD - US Dollars & NGN - Nigerian Naira)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="description" required="true" type="String" %}
@@ -82,7 +82,7 @@ This describes what the payment link does
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="redirect_link" type="String" %}
-URL to be redirected to after payment
+URL to be redirected to after payment. When this is not provided, the default redirect URL set on your dashboard will be used
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="return_msg" type="String" %}

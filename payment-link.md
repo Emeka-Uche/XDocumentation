@@ -8,11 +8,11 @@ This API is used to create a simple payment link. All calls to this end point is
 {% endhint %}
 
 {% hint style="info" %}
-**The authorization key is sent via the http header as Bearer Token**
+**The authorization key is sent via the http header as Bearer Token Authorization**
 {% endhint %}
 
 **Example:**\
-****Authorization**: "**Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f"
+****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 ### Creating the Link
 

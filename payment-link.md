@@ -43,7 +43,7 @@ For instance, if the hash is _mypaymentlink_ then the payment link will be https
 }
 ```
 
-{% swagger method="get" path="/paymentLink/otp" baseUrl="https://sandbox-api-d.squadco.com" summary="This API creates a Simple Payment Link" %}
+{% swagger method="get" path="/payment_link/otp" baseUrl="https://sandbox-api-d.squadco.com" summary="This API creates a Simple Payment Link" %}
 {% swagger-description %}
 
 {% endswagger-description %}

@@ -4,7 +4,7 @@ This API is used to create a simple payment link. All calls to this end point is
 
 
 {% hint style="warning" %}
-**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
+**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Service Not Authorized)` response code.
 {% endhint %}
 
 {% hint style="info" %}
@@ -13,6 +13,14 @@ This API is used to create a simple payment link. All calls to this end point is
 
 **Example:**\
 ****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+
+### Creating the Link
+
+The payment link is a concatenation of the base url: [https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591) and the hash selected when creating the payment link\
+\
+For instance, if the hash is _mypaymentlink_ then the payment link will be https://sandbox-pay.squadco.com/_mypaymentlink_\
+\
+
 
 ### Sample Request
 
@@ -34,8 +42,6 @@ This API is used to create a simple payment link. All calls to this end point is
     "return_msg": "Successful"
 }
 ```
-
-#### Creating a Payment Link
 
 {% swagger method="post" path="/payment_link/otp" baseUrl="https://sandbox-api-d.squadco.com" summary="This API creates a Simple Payment Link" %}
 {% swagger-description %}
@@ -64,7 +70,7 @@ sample: 2021-04-26T11:22:08.587Z
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-Amount must be in the lowest currency. (kobo for Naira transactions and cent for Dollar transaction) i.e 40000 = 400NGN
+Amount must be in the lowest currency. (kobo for Naira transactions and cent for Dollar transaction)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="currency_id" required="true" type="String" %}
@@ -133,7 +139,7 @@ Message to be displayed to the customer after payment via the link
 ```
 {% endswagger-response %}
 
-{% swagger-response status="401: Unauthorized" description="Unauthorized" %}
+{% swagger-response status="401: Unauthorized" description="No Authorization Key" %}
 ```javascript
 {
     "success": false,
@@ -143,12 +149,6 @@ Message to be displayed to the customer after payment via the link
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-### Generating the Link
-
-The payment link is a concatenation of the base URL: [https://sandbox-pay.squadco.com/](https://sandbox-pay.squadco.com/kmtyevdkcd591) and the hash selected when creating the payment link\
-\
-For instance, if the hash is _mypaymentlink_ then the payment link will be https://sandbox-pay.squadco.com/_mypaymentlink_
 
 ### GO LIVE - Production
 

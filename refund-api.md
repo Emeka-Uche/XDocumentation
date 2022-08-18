@@ -33,7 +33,12 @@ unique reference that identifies a transaction.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="refund_type" type="String" required="true" %}
-Only full refund is available at the moment
+Only full refund is available at the moment.
+
+\
+
+
+The value of this parameter is "Full" .
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="reason_for_refund" type="String" required="true" %}

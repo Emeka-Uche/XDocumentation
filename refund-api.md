@@ -8,7 +8,7 @@ This API is used to initiate refund process on a successful transaction.\
 {% endhint %}
 
 {% hint style="info" %}
-**The authorization key is sent via the http header as Bearer Token Authorization**
+**The authorization key is sent via the request header as Bearer Token Authorization**
 {% endhint %}
 
 **Example:**\

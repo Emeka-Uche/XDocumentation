@@ -67,6 +67,17 @@ Reason for initiating the refund
 {% endswagger-response %}
 {% endswagger %}
 
+### Sample Request
+
+```
+{
+    "gateway_transaction_ref": "wvszqsdrujscpuaofnea529117332_1_1",
+    "refund_type": "Full",
+    "reason_for_refund": "Any reason",
+    "transaction_ref": "vszqsdrujscpua"
+}
+```
+
 ### GO LIVE - Production
 
 To Use this API on production:

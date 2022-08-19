@@ -19,7 +19,7 @@ This API is used to initiate refund process on a successful transaction.\
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="gateway_ref" required="true" type="String" %}
+{% swagger-parameter in="body" name="gateway_transaction_ref" required="true" type="String" %}
 Unique reference that uniquely identifies the medium of payment and can be obtained from  the webhook notification sent to you.
 {% endswagger-parameter %}
 

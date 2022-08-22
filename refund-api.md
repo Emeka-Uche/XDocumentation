@@ -8,7 +8,7 @@ This API is used to initiate refund process on a successful transaction.\
 {% endhint %}
 
 {% hint style="info" %}
-**The authorization key is sent via the request header as Bearer Token Authorization**
+**The authorization key is sent via the http header as Bearer Token Authorization**
 {% endhint %}
 
 **Example:**\
@@ -19,7 +19,7 @@ This API is used to initiate refund process on a successful transaction.\
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="gateway_transaction_ref" required="true" type="String" %}
+{% swagger-parameter in="body" name="gateway_ref" required="true" type="String" %}
 Unique reference that uniquely identifies the medium of payment and can be obtained from  the webhook notification sent to you.
 {% endswagger-parameter %}
 
@@ -33,12 +33,7 @@ unique reference that identifies a transaction.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="refund_type" type="String" required="true" %}
-Only full refund is available at the moment.
-
-\
-
-
-The value of this parameter is "Full" .
+Only full refund is available at the moment
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="reason_for_refund" type="String" required="true" %}
@@ -66,17 +61,6 @@ Reason for initiating the refund
 ```
 {% endswagger-response %}
 {% endswagger %}
-
-### Sample Request
-
-```
-{
-    "gateway_transaction_ref": "wvszqsdrujscpuaofnea529117332_1_1",
-    "refund_type": "Full",
-    "reason_for_refund": "Any reason",
-    "transaction_ref": "vszqsdrujscpua"
-}
-```
 
 ### GO LIVE - Production
 

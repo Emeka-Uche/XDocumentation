@@ -7,9 +7,6 @@ description: >-
 
 # Disputes & Chargebacks
 
-This API is used to initiate refund process on a successful transaction.\
-
-
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (private/secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
 {% endhint %}
@@ -32,6 +29,24 @@ This API is used to get all disputes on your transactions raised by your custome
 {% endswagger-description %}
 {% endswagger %}
 
+## Get Upload URL
+
+This API is used to get a unique URL to upload an evidence(file) which is a proof or reason to reject a dispute. This is only necessary when we want to reject a dispute.
+
+{% swagger method="get" path="/dispute/upload-url/:ticket_id/:file_name" baseUrl="https//sandbox-api-d.squadco.com" summary="All you need to do is  make a get request with your private/secret key" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="path" name="ticket_id" type="String" required="true" %}
+
+{% endswagger-parameter %}
+
+{% swagger-parameter in="path" name="file_name" type="String" required="true" %}
+
+{% endswagger-parameter %}
+{% endswagger %}
+
 ## Resolve Disputes
 
 This API is used to resolve a dispute by either accepting or rejecting it.\
@@ -42,7 +57,15 @@ This API is used to resolve a dispute by either accepting or rejecting it.\
 
 {% endswagger-description %}
 
+{% swagger-parameter in="body" name="action" type="String" required="true" %}
+This is the action you want to be taken on the raised dispute. The value of this action can be either "rejected" or "accepted"
+{% endswagger-parameter %}
+
 {% swagger-parameter in="path" name="ticket_id" type="String" required="true" %}
 A unique ID that identifies the dispute you want to reject or accept
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="file_name" type="String" %}
+The name of the file uploaded 
 {% endswagger-parameter %}
 {% endswagger %}

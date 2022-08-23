@@ -149,7 +149,9 @@ A status code of 400 is returned for an invalid transaction ref\
 **Response Data Object**\
 ****The data object returned in the response is null when the status code is 400 and populated when the status code is 200.\
 \
-The data object contains a parameter known as the transaction\_status which differentiates the transaction type.\
+The data object contains a parameter known as the transaction\_status which differentiates the transaction type.
+
+Transaction status can either be Success, Failed, Abandoned or Pending\
 \
 
 

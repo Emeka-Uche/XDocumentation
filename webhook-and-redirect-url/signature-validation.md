@@ -100,8 +100,8 @@ public class HMacExample {
       
     String key = "YOUR_SECRET_KEY"; //replace with your squad secret_key
     
-    String rawJson = "BODY_OF_THE_WEBHOOK_PAYLOAD"; //Replace with body of the webhook payload
-    JSONObject body = new JSONObject(rawJson);
+    String body = "BODY_OF_THE_WEBHOOK_PAYLOAD"; //Replace with body of the webhook payload
+   
     String result = "";
     String HMAC_SHA512 = "HmacSHA512";
     String x-squad-encrypted-body = ""; //put in the request's header value for x-squad-encrypted-body

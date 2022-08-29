@@ -31,7 +31,7 @@ The amount you are debiting customer (expressed in the lowest currency value -
 This states the method by which the transaction is initiated. At the moment, this can only take the value "inline".
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="currency_code" type="String" required="true" %}
+{% swagger-parameter in="body" name="currency" type="String" required="true" %}
 
 
 \

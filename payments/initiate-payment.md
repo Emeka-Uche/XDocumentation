@@ -54,6 +54,10 @@ An alphanumeric string that uniquely identifies a transaction
 Name of Customer carrying out the transaction
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="callback_url" type="String" %}
+Sample: squadco.com
+{% endswagger-parameter %}
+
 {% swagger-parameter in="header" name="Authorization" type="String" required="true" %}
 API keys (Public Key) that authorizes your transactions and gotten from your squad dashboard
 {% endswagger-parameter %}

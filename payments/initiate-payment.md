@@ -62,6 +62,30 @@ Sample: squadco.com
 API keys (Public Key) that authorizes your transactions and gotten from your squad dashboard
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="payment_channels" type="Array" %}
+An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; [
+
+**`'card'`**
+
+, 
+
+**`'bank'`**
+
+ , 
+
+``
+
+` `
+
+**`'ussd'`**
+
+,
+
+**`'bank_transfer'`**
+
+]
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Successful" %}
 ```javascript
 {

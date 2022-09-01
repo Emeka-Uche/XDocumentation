@@ -55,7 +55,7 @@ Name of Customer carrying out the transaction
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="callback_url" type="String" %}
-Sample: squadco.com
+Sample: http://squadco.com
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="String" required="true" %}
@@ -93,12 +93,12 @@ An array of payment channels to control what channels you want to make available
     "message": "success",
     "data": {
         "auth_url": null,
-        "access_token": "A3CD270146D14BCAE2581A8D054BA70F",
+        "access_token": null,
         "merchant_info": {
             "merchant_response": null,
-            "merchant_name": "Demo Habari Shop",
-            "merchant_logo": "https://picsum.photos/400",
-            "merchant_id": "AABBCCDDEEFFGGHHJJKK"
+            "merchant_name": null,
+            "merchant_logo": null,
+            "merchant_id": "SBN1EBZEQ8"
         },
         "currency": "NGN",
         "recurring": {
@@ -110,16 +110,16 @@ An array of payment channels to control what channels you want to make available
         },
         "is_recurring": false,
         "plan_code": null,
-        "callback_url": null,
-        "transaction_ref": "BN7838858835",
+        "callback_url": "http://squadco.com",
+        "transaction_ref": "4678388588350909090AH",
         "transaction_memo": null,
-        "transaction_amount": 10000,
+        "transaction_amount": 43000,
         "authorized_channels": [
             "card",
             "ussd",
             "bank"
         ],
-        "checkout_url": "https://pay.squadinc.co/pay/BN7838858835"
+        "checkout_url": "https://sandbox-pay.squadco.com/4678388588350909090AH"
     }
 }
 ```
@@ -156,11 +156,12 @@ An array of payment channels to control what channels you want to make available
 
 ```
 {
-    "amount":10000,
+    "amount":43000,
     "email":"henimastic@gmail.com",
     "currency":"NGN",
     "initiate_type": "inline",
-    "transaction_ref":"BN7838858835"
+    "transaction_ref":"4678388588350909090AH",
+    "callback_url":"http://squadco.com"
 }
 ```
 

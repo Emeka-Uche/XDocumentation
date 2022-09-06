@@ -188,7 +188,7 @@ Amount to charge from card in the lowest currency value. kobo for NGN transactio
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="token_id" type="String" required="true" %}
-A unique tokenization code for each card transaction and it is returned via the webhook for the initial card transactions
+A unique tokenization code for each card transaction and it is returned via the webhook for first charge on the card.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Success" %}
@@ -227,3 +227,10 @@ A unique tokenization code for each card transaction and it is returned via the 
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+### Sample Request
+
+<pre><code><strong>{
+</strong>    "amount":10000,
+    "token_id":"tJlYMKcwPd"
+}</code></pre>

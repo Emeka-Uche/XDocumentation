@@ -165,7 +165,7 @@ An array of payment channels to control what channels you want to make available
 
 ## Charge Authorization on Card&#x20;
 
-This allows you charge a tokenized card at a later date.
+This allows you charge an authorization on a card.
 
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.

@@ -39,20 +39,27 @@ Sample POST request to be sent via webhook upon successful transaction
 ```
 {
   "Event": "charge_successful",
-  "TransactionRef": "SQDEMO4825804255499",
+  "TransactionRef": "4678388588A0",
   "Body": {
-    "amount": 10000,
-    "transaction_ref": "SQDEMO4825804255499",
-    "gateway_ref": "SQDEMO4825804255499_1_1",
+    "amount": 83000,
+    "transaction_ref": "4678388588A0",
+    "gateway_ref": "4678388588A0_1_1",
     "transaction_status": "Success",
-    "email": "godspowerj4@gmail.com",
-    "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+    "email": "henimastic@gmail.com",
+    "merchant_id": "SBN1EBZEQ8",
     "currency": "NGN",
     "transaction_type": "Card",
-    "merchant_amount": 4880,
-    "created_at": "2022-07-15T09:07:20.936",
+    "merchant_amount": 82170,
+    "created_at": "2022-09-06T15:28:02.477",
     "customer_mobile": null,
-    "meta": {}
+    "meta": {},
+    "payment_information": {
+      "payment_type": "card",
+      "pan": "408408******4081",
+      "recurring_id": null,
+      "card_type": "visa",
+      "token_id": "tJlYMKcwPd"
+    }
   }
 }
 ```

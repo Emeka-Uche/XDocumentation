@@ -163,7 +163,7 @@ An array of payment channels to control what channels you want to make available
 }
 ```
 
-## Card Tokenization (Charge Card)&#x20;
+## Charge Authorization on Card&#x20;
 
 This allows you charge a tokenized card at a later date.
 

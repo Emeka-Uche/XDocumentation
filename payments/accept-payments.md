@@ -152,9 +152,18 @@ A status code of 400 is returned for an invalid transaction ref\
 \
 The data object contains a parameter known as the transaction\_status which differentiates the transaction type.
 
-Transaction status can either be Success, Failed, Abandoned or Pending\
-\
+Transaction status can either be Success, Failed, Abandoned or Pending
 
+{% hint style="warning" %}
+**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
+{% endhint %}
+
+{% hint style="info" %}
+**The authorization key is sent via the request header as Bearer Token Authorization**
+{% endhint %}
+
+**Example:**\
+****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 {% swagger method="get" path="verify/{{transaction_ref}}" baseUrl="https://sandbox-api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
 {% swagger-description %}

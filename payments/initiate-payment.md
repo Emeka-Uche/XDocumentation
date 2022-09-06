@@ -6,8 +6,6 @@ description: >-
 
 # Initiate Payment
 
-
-
 {% swagger method="post" path="/payment/Initiate" baseUrl="https//sandbox-api.squadco.com" summary="" %}
 {% swagger-description %}
 This endpoint returns a checkout URL that when visited calls up the modal with the various payment channel.
@@ -165,4 +163,67 @@ An array of payment channels to control what channels you want to make available
 }
 ```
 
-&#x20;
+## Card Tokenization (Charge Card)&#x20;
+
+This allows you charge a tokenized card at a later date.
+
+{% hint style="warning" %}
+**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
+{% endhint %}
+
+{% hint style="info" %}
+**The authorization key is sent via the request header as Bearer Token Authorization**
+{% endhint %}
+
+**Example:**\
+****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+
+{% swagger method="post" path="/charge_card" baseUrl="https//sandbox-api-d.squadco.com/payment" summary="" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
+Amount to charge from card in the lowest currency value. kobo for NGN transactions or cent for USD transactions
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="token_id" type="String" required="true" %}
+A unique tokenization code for each card transaction and it is returned via the webhook for the initial card transactions
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Success" %}
+```javascript
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "transaction_amount": 0,
+        "transaction_ref": null,
+        "email": null,
+        "transaction_status": null,
+        "transaction_currency_id": null,
+        "created_at": "0001-01-01T00:00:00",
+        "transaction_type": null,
+        "merchant_name": null,
+        "merchant_business_name": null,
+        "gateway_transaction_ref": null,
+        "recurring": null,
+        "merchant_email": null,
+        "plan_code": null
+    }
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="400: Bad Request" description="Bad Request" %}
+```javascript
+{
+    "status": 400,
+    "success": false,
+    "message": "amount cannot be < 0",
+    "data": {}
+}
+```
+{% endswagger-response %}
+{% endswagger %}

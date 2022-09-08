@@ -6,7 +6,7 @@ description: >-
 
 # Initiate Payment
 
-{% swagger method="post" path="/transaction/initiate" baseUrl="https//sandbox-api-d.squadco.com" summary="" %}
+{% swagger method="post" path="/payment/Initiate" baseUrl="https//sandbox-api.squadco.com" summary="" %}
 {% swagger-description %}
 This endpoint returns a checkout URL that when visited calls up the modal with the various payment channel.
 {% endswagger-description %}

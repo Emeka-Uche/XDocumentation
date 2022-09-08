@@ -19,12 +19,12 @@ To initialize a transaction, you need to pass details such as email, first name,
 | key               | <mark style="color:green;">Yes</mark> | Your **Squad** public key. Use the test key found in your [Sandbox account](https://sandbox.squadco.com/) in test mode, and use the live key found in your [Squad dashboard](http://dashboard.squadco.com/) in live mode.                                   |
 | email             | <mark style="color:green;">Yes</mark> | Customer's email address.                                                                                                                                                                                                                                   |
 | amount            | <mark style="color:green;">Yes</mark> | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).                                                                                                                                                     |
-| transaction\_ref  | No                                    | Unique case-sensitive transaction reference. If you do not pass this parameter, Squad will generate a unique reference for you.                                                                                                                             |
+| transaction\_ref  | No                                    | Unique case-sensitive transaction reference. Only ``` `**`-`**_,_**`.`**_,_**`=`** and alphanumeric characters are allowed. If you do not pass this parameter, Squad will generate a unique reference for you.                                              |
 | currency\_code    | <mark style="color:green;">Yes</mark> | The currency you want the amount to be charged in. Allowed value is **`NGN or USD`**.                                                                                                                                                                       |
 | payment\_channels | No                                    | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , ``` `**`'ussd'`**,**`'bank_transfer'`**]                                   |
 | Customer\_name    | No                                    | Name of Customer                                                                                                                                                                                                                                            |
-| callback\_url     | No                                    | Sample: https://squadco.com                                                                                                                                                                                                                                 |
-| metadata          | No                                    | <p>Object that contains any additional information that you want to record with the transaction. The fields of the <code>custom_field</code>object will be displayed on the merchant receipt and </p><p>transaction information on the Squad dashboard.</p> |
+| callback\_url     | No                                    | Sample: squadco.com                                                                                                                                                                                                                                         |
+| meta              | No                                    | <p>Object that contains any additional information that you want to record with the transaction. The fields of the <code>custom_field</code>object will be displayed on the merchant receipt and </p><p>transaction information on the Squad dashboard.</p> |
 
 {% hint style="info" %}
 The customer information can either be retrieved from a form, or from your database if you already have it stored. (Example below)
@@ -152,18 +152,9 @@ A status code of 400 is returned for an invalid transaction ref\
 \
 The data object contains a parameter known as the transaction\_status which differentiates the transaction type.
 
-Transaction status can either be Success, Failed, Abandoned or Pending
+Transaction status can either be Success, Failed, Abandoned or Pending\
+\
 
-{% hint style="warning" %}
-**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
-{% endhint %}
-
-{% hint style="info" %}
-**The authorization key is sent via the request header as Bearer Token Authorization**
-{% endhint %}
-
-**Example:**\
-****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 {% swagger method="get" path="verify/{{transaction_ref}}" baseUrl="https://sandbox-api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
 {% swagger-description %}

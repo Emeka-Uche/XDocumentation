@@ -6,7 +6,7 @@ description: >-
 
 # Initiate Payment
 
-{% swagger method="post" path="/payment/Initiate" baseUrl="https//sandbox-api.squadco.com" summary="" %}
+{% swagger method="post" path="/transaction/initiate" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}
 This endpoint returns a checkout URL that when visited calls up the modal with the various payment channel.
 {% endswagger-description %}
@@ -82,6 +82,14 @@ An array of payment channels to control what channels you want to make available
 **`'bank_transfer'`**
 
 ]
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="metadata" type="Object" %}
+Object that contains any additional information that you want to record with the transaction. The 
+
+`custom fields in the object`
+
+ will be returned via webhook and the payment verification endpoint.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Successful" %}
@@ -178,7 +186,7 @@ This allows you charge an authorization on a card.
 **Example:**\
 ****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-{% swagger method="post" path="/charge_card" baseUrl="https//sandbox-api-d.squadco.com/payment" summary="" %}
+{% swagger method="post" path="/charge_card" baseUrl="https://sandbox-api-d.squadco.com/payment" summary="" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -192,7 +200,7 @@ A unique tokenization code for each card transaction and it is returned via the 
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="transaction_ref" type="String" %}
-Unique reference for your transaction
+Unique case-sensitive transaction reference. If you do not pass this parameter, Squad will generate a unique reference for you.
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Success" %}

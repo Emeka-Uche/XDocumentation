@@ -260,3 +260,17 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
 </strong>    "amount":10000,
     "token_id":"tJlYMKcwPd"
 }</code></pre>
+
+## Go Live
+
+To go live, simply:&#x20;
+
+\
+1\. Change the base URL of your endpoints from sandbox-api-d.squadco.com to \
+api-d.squadco.com
+
+2\. [Sign up on our Live Environment](http://dashboard.squadco.com)
+
+3\. Complete your KYC
+
+4\. Use the secret key provided on the dashboard to replace the test keys gotten from the sandbox environment to authenticate your live transactions.

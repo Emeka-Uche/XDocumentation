@@ -92,6 +92,20 @@ Object that contains any additional information that you want to record with the
  will be returned via webhook and the payment verification endpoint.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="pass_charge" type="Boolean" %}
+It takes two possible values: True or False.
+
+\
+
+
+It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).
+
+\
+
+
+But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Successful" %}
 ```javascript
 {

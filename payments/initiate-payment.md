@@ -200,7 +200,7 @@ This allows you charge an authorization on a card.
 **Example:**\
 ****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-{% swagger method="post" path="/charge_card" baseUrl="https://sandbox-api-d.squadco.com/payment" summary="" %}
+{% swagger method="post" path="transaction/charge_card" baseUrl="https://sandbox-api-d.squadco.com/" summary="" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -258,7 +258,7 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
 
 <pre><code><strong>{
 </strong>    "amount":10000,
-    "token_id":"tJlYMKcwPd"
+    "token_id":"tJlYMKcwPd",
 }</code></pre>
 
 ## Go Live

@@ -11,3 +11,7 @@
 * [Payment Link](payment-link.md)
 * [Refund API](refund-api.md)
 * [Disputes & Chargebacks](disputes-and-chargebacks.md)
+
+## Squad POS
+
+* [Squad POS](squad-pos/squad-pos.md)

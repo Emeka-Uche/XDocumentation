@@ -79,12 +79,26 @@ This is only required for "Partial" refunds
 
 ### Sample Request
 
+### Full Refund
+
 ```
 {
     "gateway_transaction_ref": "wvszqsdrujscpuaofnea529117332_1_1",
     "refund_type": "Full",
     "reason_for_refund": "Any reason",
     "transaction_ref": "vszqsdrujscpua"
+}
+```
+
+### Partial Refund
+
+```
+{
+    "gateway_transaction_ref": "SQOKOY3167299494777_1_1",
+    "refund_type": "Partial",
+    "reason_for_refund": "Testing Testing",
+    "transaction_ref": "SQOKOY3167299494777",
+    "refund_amount":"20000"
 }
 ```
 

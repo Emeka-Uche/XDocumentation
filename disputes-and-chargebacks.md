@@ -7,18 +7,6 @@ description: >-
 
 # Disputes & Chargebacks
 
-\
-You have the option to either accept or reject a chargeback
-
-### Accepting a chargeback: &#x20;
-
-This means you received the customer’s payment but did not provide the service or product the customer requested for some reasons. When you accept a chargeback, you allow for the funds to be deducted from your payouts and reversed to the customer’s bank account.\
-
-
-### Rejecting a chargeback:&#x20;
-
-This means you received the customer’s payment and have provided the service or delivered the product to the customer.  To justify your claim you are required to provide an evidence to show that value has been given for payment made by the customer. If the evidence is not sufficient, we will automatically accept the chargeback.
-
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (private/secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
 {% endhint %}
@@ -39,22 +27,6 @@ This API is used to get all disputes on your transactions raised by your custome
 {% swagger-description %}
 
 {% endswagger-description %}
-
-{% swagger-response status="200: OK" description="Success" %}
-```javascript
-{
-    // Response
-}
-```
-{% endswagger-response %}
-
-{% swagger-response status="401: Unauthorized" description="No API key" %}
-```javascript
-{
-    // Response
-}
-```
-{% endswagger-response %}
 {% endswagger %}
 
 ## Get Upload URL
@@ -97,10 +69,3 @@ A unique ID that identifies the dispute you want to reject or accept
 The name of the file uploaded 
 {% endswagger-parameter %}
 {% endswagger %}
-
-### GO LIVE - Production
-
-To Use this API on production:
-
-1. &#x20;Kindly change the base URL of the endpoint from sandbox-api-d.squadco.com to api-d.squadco.com
-2. Get production keys from your production environment on dashboard.squadco.com and replace as authorization keys.

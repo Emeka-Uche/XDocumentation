@@ -166,7 +166,35 @@ This API allows you see all  SquadPOS terminals created and associated to your a
 {% swagger-response status="200: OK" description="Success" %}
 ```javascript
 {
-    // Response
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "count": 1,
+        "rows": [
+            {
+                "is_reg": true,
+                "reg_id": "2058HKUU",
+                "name": "Yossy water services",
+                "email": "omoyosola.afolayan@gtbank.com",
+                "phone": "08032014076",
+                "enabled": true,
+                "active": true,
+                "mcc": null,
+                "createdAt": "2022-06-22T15:00:25.272Z",
+                "updatedAt": "2022-07-19T10:50:17.541Z",
+                "location": {
+                    "id": "1",
+                    "code": "2969",
+                    "name": "Lagos",
+                    "createdAt": "2022-06-20T17:20:03.602Z",
+                    "updatedAt": "2022-06-20T17:20:03.602Z",
+                    "deletedAt": null
+                }
+            }
+        ],
+        "query": {}
+    }
 }
 ```
 {% endswagger-response %}

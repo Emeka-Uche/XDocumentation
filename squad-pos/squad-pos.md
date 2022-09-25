@@ -42,3 +42,7 @@ SquadPOS is an application that allows businesses to turn their NFC-enabled andr
 4. **Evolve and speed up your customers’ payment experiences in- store**: Now, your customers do not have to wait in long queues at your checkout counter because you can accept payments on the go!&#x20;
 5. **E-commerce**: Sell your products on Squad Storefront and have your sales automatically synched with SquadPOS.&#x20;
 6. **Never miss a sale**: now, you can accept card payments from your customers even if you don’t have a hardware POS terminal from a bank.
+
+{% hint style="info" %}
+**Download and get started with SquadPOS today. For additional information, visit www.squadco.com, or contact our support team at help@squadco.com.**
+{% endhint %}

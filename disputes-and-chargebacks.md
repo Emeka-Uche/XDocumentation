@@ -27,6 +27,22 @@ This API is used to get all disputes on your transactions raised by your custome
 {% swagger-description %}
 
 {% endswagger-description %}
+
+{% swagger-response status="200: OK" description="Success" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="No API key" %}
+```javascript
+{
+    // Response
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
 ## Get Upload URL

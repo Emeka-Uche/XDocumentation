@@ -14,5 +14,5 @@
 
 ## Squad POS
 
-* [Getting Started](squad-pos/getting-started.md)
+* [Getting Started](squad-pos/squad-pos.md)
 * [API Documentation](squad-pos/api-documentation.md)

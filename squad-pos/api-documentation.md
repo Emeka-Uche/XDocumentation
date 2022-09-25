@@ -192,3 +192,10 @@ This API allows you see all  SquadPOS terminals created and associated to your a
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+### GO LIVE - Production
+
+To Use this API on production:
+
+1. &#x20;Kindly change the base URL of the endpoint from sandbox-api-d.squadco.com to api-d.squadco.com
+2. Get production keys from your production environment on dashboard.squadco.com and replace as authorization keys.

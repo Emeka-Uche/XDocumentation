@@ -3,7 +3,7 @@
 This API is used to initiate refund process on a successful transaction.\
 
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 **Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
 {% endhint %}
 

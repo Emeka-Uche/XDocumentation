@@ -46,12 +46,22 @@ Format : YYYY-MM-DD
 End Date
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="sort_by_dir" type="String" %}
-Filter Parameter
+{% swagger-parameter in="query" name="sort_by" type="String" %}
+Sorting Parameter. This can have a value of "Created"
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="sort_by" type="String" %}
-Filter Parameter which can be any field/parameter in the transaction details
+{% swagger-parameter in="query" name="sort_by_dir" type="String" %}
+This arranges the sorted data in ascending or descending order.
+
+\
+
+
+possible values are "asc" - ascending order
+
+\
+
+
+"desc" - descending order
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}

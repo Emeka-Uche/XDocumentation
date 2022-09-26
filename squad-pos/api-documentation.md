@@ -15,7 +15,7 @@
 
 This API allows you get all your SquadPOS transactions
 
-{% swagger method="get" path="/softpos/transactions?perPage&page&date_from&date_to&sort_by_dir&sort_by" baseUrl="https://sandbox-api-d.squadco.com" summary="Allows you get all your Squad POS transactions" %}
+{% swagger method="get" path="/softpos/transactions?perPage&page" baseUrl="https://sandbox-api-d.squadco.com" summary="Allows you get all your Squad POS transactions" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -47,27 +47,130 @@ End Date
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort_by" type="String" %}
-Sorting Parameter. This can have a value of "Created"
+Sorting Parameter. This can have a value of "createdAt"
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort_by_dir" type="String" %}
-This arranges the sorted data in ascending or descending order.
+This arranges the transactions in ascending or descending order.
 
 \
 
 
-possible values are "asc" - ascending order
+possible values are "ASC" - ascending order
 
 \
 
 
-"desc" - descending order
+"DESC" - descending order
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-response status="200: OK" description="Success" %}
 ```javascript
 {
-    // Response
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "count": 8,
+        "rows": [
+            {
+                "id": "1",
+                "amount": "10000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "1",
+                "location_id": "1"
+            },
+            {
+                "id": "2",
+                "amount": "50000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "1",
+                "location_id": "1"
+            },
+            {
+                "id": "3",
+                "amount": "100000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "2",
+                "location_id": "2"
+            },
+            {
+                "id": "4",
+                "amount": "7000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "2",
+                "location_id": "2"
+            },
+            {
+                "id": "5",
+                "amount": "10000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "3",
+                "location_id": "2"
+            },
+            {
+                "id": "6",
+                "amount": "35000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "3",
+                "location_id": "2"
+            },
+            {
+                "id": "7",
+                "amount": "10000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "4",
+                "location_id": "3"
+            },
+            {
+                "id": "8",
+                "amount": "22000",
+                "status": 0,
+                "card": "5074 *** *** 2234",
+                "createdAt": "2021-12-08T15:05:10.316Z",
+                "updatedAt": "2021-12-08T15:05:10.316Z",
+                "deletedAt": null,
+                "merchant_id": "1",
+                "terminal_id": "4",
+                "location_id": "3"
+            }
+        ]
+    }
 }
 ```
 {% endswagger-response %}
@@ -126,7 +229,21 @@ unique ID that identifies a particular location
 {% swagger-response status="200: OK" description="Success" %}
 ```javascript
 {
-    // Response
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "enabled": false,
+        "id": "8",
+        "name": "Sample name",
+        "phone": "090123456789",
+        "email": "Sample@email.com",
+        "location_id": "1",
+        "updatedAt": "2021-11-12T10:02:09.413Z",
+        "createdAt": "2021-11-12T10:02:09.413Z",
+        "deletedAt": null,
+        "merchant_id": null
+    }
 }
 ```
 {% endswagger-response %}
@@ -180,30 +297,93 @@ This API allows you see all  SquadPOS terminals created and associated to your a
     "success": true,
     "message": "Success",
     "data": {
-        "count": 1,
+        "count": 4,
         "rows": [
             {
-                "is_reg": true,
-                "reg_id": "2058HKUU",
-                "name": "Yossy water services",
-                "email": "omoyosola.afolayan@gtbank.com",
-                "phone": "08032014076",
-                "enabled": true,
+                "id": "2",
+                "merchant_id": "1",
+                "name": "Terminal 2",
+                "email": "merchant1.terminal2@example.com",
+                "phone": "090123456789",
+                "registered": false,
+                "enabled": false,
+                "active": false,
+                "createdAt": "2021-11-20T16:11:21.570Z",
+                "updatedAt": "2021-11-20T16:11:21.570Z",
+                "deletedAt": null,
+                "location_id": "2",
+                "location": {
+                    "id": "2",
+                    "name": "Abuja",
+                    "createdAt": "2021-11-20T16:11:21.410Z",
+                    "updatedAt": "2021-11-20T16:11:21.410Z",
+                    "deletedAt": null
+                }
+            },
+            {
+                "id": "3",
+                "merchant_id": "1",
+                "name": "Terminal 3",
+                "email": "merchant1.terminal3@example.com",
+                "phone": "090123456789",
+                "registered": false,
+                "enabled": false,
+                "active": false,
+                "createdAt": "2021-11-20T16:11:21.570Z",
+                "updatedAt": "2021-11-20T16:11:21.570Z",
+                "deletedAt": null,
+                "location_id": "2",
+                "location": {
+                    "id": "2",
+                    "name": "Abuja",
+                    "createdAt": "2021-11-20T16:11:21.410Z",
+                    "updatedAt": "2021-11-20T16:11:21.410Z",
+                    "deletedAt": null
+                }
+            },
+            {
+                "id": "4",
+                "merchant_id": "1",
+                "name": "Terminal 4",
+                "email": "merchant1.terminal4@example.com",
+                "phone": "090123456789",
+                "registered": false,
+                "enabled": false,
+                "active": false,
+                "createdAt": "2021-11-20T16:11:21.570Z",
+                "updatedAt": "2021-11-20T16:11:21.570Z",
+                "deletedAt": null,
+                "location_id": "3",
+                "location": {
+                    "id": "3",
+                    "name": "Enugu",
+                    "createdAt": "2021-11-20T16:11:21.410Z",
+                    "updatedAt": "2021-11-20T16:11:21.410Z",
+                    "deletedAt": null
+                }
+            },
+            {
+                "id": "1",
+                "merchant_id": "1",
+                "name": "Terminal 1",
+                "email": "merchant1.terminal1@example.com",
+                "phone": "090123456789",
+                "registered": false,
+                "enabled": false,
                 "active": true,
-                "mcc": null,
-                "createdAt": "2022-06-22T15:00:25.272Z",
-                "updatedAt": "2022-07-19T10:50:17.541Z",
+                "createdAt": "2021-11-20T16:11:21.570Z",
+                "updatedAt": "2021-11-20T16:24:29.624Z",
+                "deletedAt": null,
+                "location_id": "1",
                 "location": {
                     "id": "1",
-                    "code": "2969",
                     "name": "Lagos",
-                    "createdAt": "2022-06-20T17:20:03.602Z",
-                    "updatedAt": "2022-06-20T17:20:03.602Z",
+                    "createdAt": "2021-11-20T16:11:21.410Z",
+                    "updatedAt": "2021-11-20T16:11:21.410Z",
                     "deletedAt": null
                 }
             }
-        ],
-        "query": {}
+        ]
     }
 }
 ```

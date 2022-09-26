@@ -290,6 +290,58 @@ This API allows you see all  SquadPOS terminals created and associated to your a
 
 {% endswagger-description %}
 
+{% swagger-parameter in="query" name="perPage" type="Integer" required="true" %}
+Number of results per page
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="page" type="Integer" required="true" %}
+Page Number
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="location_id" type="Integer" %}
+an ID that identifies a location
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="sort_by" type="String" %}
+Sorting Parameter. This can have a value of "createdAt"
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="sort_by_dir" type="String" %}
+This arranges the transactions in ascending or descending order.
+
+\
+
+
+possible values are "ASC" - ascending order
+
+\
+
+
+"DESC" - descending order
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="date_from" type="date" %}
+Format : YYYY-MM-DD 
+
+\
+
+
+Start Date
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="date_to" type="date" %}
+Format : YYYY-MM-DD 
+
+\
+
+
+End Date
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="active" type="Boolean" %}
+It takes a value of "True" or "False"
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Success" %}
 ```javascript
 {

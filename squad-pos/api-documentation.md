@@ -20,11 +20,11 @@ This API allows you get all your SquadPOS transactions
 
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="perPage" type="Integer" %}
+{% swagger-parameter in="query" name="perPage" type="Integer" required="true" %}
 Number of transactions per page
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="page" type="Integer" %}
+{% swagger-parameter in="query" name="page" type="Integer" required="true" %}
 page number
 {% endswagger-parameter %}
 

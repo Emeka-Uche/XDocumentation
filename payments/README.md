@@ -12,7 +12,7 @@ Squad helps you create any type of payment flow for your particular use case, fr
 ## Help/Support
 
 * For non-integration related enquiries, kindly visit our robust [FAQ](https://squadco.com/support/faq/) page or send an email to help@squadco.com
-* For all enquiries/support with respect to integrations, kindly join our dedicated Integration Support Channel on Slack via the link: [Squad Integration Channel](https://join.slack.com/share/enQtMzk4NDc4NzA2MTcxMy04NjkxOTA3MWJjYTEzMjhiYmY3NjZjYTcyYjRhYTFjMWFhZTQyYTkyNmU2YjI1MTBiNjEwYjI5YTk5Yjk5Yzlh)
+* For all enquiries/support with respect to integrations, kindly join our dedicated Integration Support Channel on Slack via the link: [Squad Integration Channel](https://join.slack.com/share/enQtNDE0NjM1ODYwNDUxNi04ZGI3MmQxMWQyY2JkOWJjMjNlYjQzMjMwNjIwZWIxYTRjNWYxYjYyMDEzNTE4NjMxZGI2NGIxM2VjYWI5NWE4)
 
 {% content-ref url="accept-payments.md" %}
 [accept-payments.md](accept-payments.md)

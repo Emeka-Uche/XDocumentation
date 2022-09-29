@@ -51,7 +51,7 @@ const secret = "Your Squad Secret Key";
 // Using Express
 app.post("/MY-WEBHOOK-URL", function(req, res) {
     //validate event
-    const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
+    const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(body)).digest('hex').toUpperCase();
     if (hash == req.headers['x-squad-encrypted-body']) {
      // you can trust the event came from squad and so you can give value to customer
      } else {

@@ -72,7 +72,7 @@ if ((strtoupper($_SERVER['REQUEST_METHOD']) != 'POST' ) || !array_key_exists('x-
 $input = @file_get_contents("php://input");
 define('SQUAD_SECRET_KEY','YOUR_SECRET_KEY'); //ENTER YOUR SECRET KEY HERE
 // validate event do all at once to avoid timing attack
-if($_SERVER['x-squad-encrypted-body'] !== hash_hmac('sha512', $input, SQUAD_SECRET_KEY))
+if($_SERVER['x-squad-encrypted-body'] !== strtoupper(hash_hmac('sha512', $input, SQUAD_SECRET_KEY)))
 // The Webhook request is not from SQUAD 
     exit();
 http_response_code(200);

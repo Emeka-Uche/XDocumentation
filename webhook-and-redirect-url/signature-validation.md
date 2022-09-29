@@ -113,6 +113,7 @@ public class HMacExample {
     byte [] mac_data = sha512_HMAC.
     doFinal(body.toString().getBytes("UTF-8"));
     result = String.format("%040x", new BigInteger(1, mac_data));
+    while (result.length() < 128)  result = "0"+ result;
     if(result.toUpperCase().equals(x-squad-encrypted-body)) {
       // you can trust that this is from squad
     }else{

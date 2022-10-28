@@ -44,7 +44,7 @@ Sample POST request to be sent via webhook upon successful transaction
     "amount": 83000,
     "transaction_ref": "4678388588A0",
     "gateway_ref": "4678388588A0_1_1",
-    "transaction_status": "Success",
+    "transaction_status": "success",
     "email": "henimastic@gmail.com",
     "merchant_id": "SBN1EBZEQ8",
     "currency": "NGN",

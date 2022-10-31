@@ -340,6 +340,4 @@ With Squad, customers can pay with Card provided their card details are correct 
 To go live on the payment modal, all you need to do is:
 
 1. Change the test key _**** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
-2. ensure script link is pointing  to `https://checkout.squadco.com/widget/squad.min.js`
-3. Paste your `Callback/Webhook URL` in the space provided on your dashboard. `dashboard > profile > api-webhooks.`
-4. If you are using the verify transaction endpoint, kindly change the base URL to api-d.squadco.com
+2. If you are using the verify transaction endpoint, kindly change the base URL to api-d.squadco.com

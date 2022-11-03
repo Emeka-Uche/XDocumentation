@@ -10,6 +10,7 @@
 * [Test Cards](https://squadinc.gitbook.io/squad-api/test-cards)
 * [Payment Link](payment-link.md)
 * [Refund API](refund-api.md)
+* [Squad Woo Commerce Plugin](squad-woo-commerce-plugin.md)
 * [Disputes & Chargebacks](disputes-and-chargebacks.md)
 
 ## Squad POS

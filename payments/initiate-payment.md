@@ -6,6 +6,19 @@ description: >-
 
 # Initiate Payment
 
+{% hint style="warning" %}
+**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
+{% endhint %}
+
+{% hint style="info" %}
+**The authorization key is sent via the request header as Bearer Token Authorization**
+{% endhint %}
+
+**Example:**\
+****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+
+
+
 {% swagger method="post" path="/transaction/initiate" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}
 This endpoint returns a checkout URL that when visited calls up the modal with the various payment channel.
@@ -57,7 +70,7 @@ Sample: http://squadco.com
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="Authorization" type="String" required="true" %}
-API keys (Public Key) that authorizes your transactions and gotten from your squad dashboard
+API keys (Secret Key) that authorizes your transactions and gotten from your squad dashboard
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="payment_channels" type="Array" %}

@@ -61,7 +61,7 @@ The currency you want the amount to be charged in. Allowed value is either
 An alphanumeric string that uniquely identifies a transaction
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="Customer_name" type="String" required="false" %}
+{% swagger-parameter in="body" name="customer_name" type="String" required="false" %}
 Name of Customer carrying out the transaction
 {% endswagger-parameter %}
 

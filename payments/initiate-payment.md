@@ -92,7 +92,7 @@ An array of payment channels to control what channels you want to make available
 
 ,
 
-**`'bank_transfer'`**
+**`'transfer'`**
 
 ]
 {% endswagger-parameter %}
@@ -272,7 +272,8 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
 <pre><code><strong>{
 </strong>    "amount":10000,
     "token_id":"tJlYMKcwPd",
-}</code></pre>
+}
+</code></pre>
 
 ## Go Live
 

@@ -36,6 +36,10 @@ application/json
 
 Sample POST request to be sent via webhook upon successful transaction
 
+
+
+## Sample Webhook for Card Transactions
+
 ```
 {
   "Event": "charge_successful",
@@ -60,6 +64,60 @@ Sample POST request to be sent via webhook upon successful transaction
       "card_type": "visa",
       "token_id": "tJlYMKcwPd"
     }
+  }
+}
+```
+
+## Sample Webhook for Bank Transfer Option
+
+```
+
+{
+  "Event": "charge_successful",
+  "TransactionRef": "SQGRAN7557984665043",
+  "Body": {
+    "amount": 10000,
+    "transaction_ref": "SQGRAN7557984665043",
+    "gateway_ref": "SQGRAN7557984665043_2_1",
+    "transaction_status": "Success",
+    "email": "urannas@gmail.com",
+    "merchant_id": "HD3DDPKW",
+    "currency": "NGN",
+    "transaction_type": "Bank",
+    "merchant_amount": 9900,
+    "created_at": "2023-01-23T10:01:52.284",
+    "meta": {},
+    "is_recurring": false
+  }
+}
+```
+
+
+
+### Sample Webhook for Merchant USSD (USSD CODE ON THE DASHBOARD)
+
+```
+{
+  "Event": "charge_successful",
+  "TransactionRef": "SQCHIZ410708",
+  "Body": {
+    "amount": 10000,
+    "transaction_ref": "SQCHIZ410708",
+    "gateway_ref": "f7c810f4-b53e-4970-a3f6",
+    "transaction_status": "Success",
+    "email": "0803***0000",
+    "merchant_id": "********",
+    "currency": "NGN",
+    "transaction_type": "MerchantUssd",
+    "merchant_amount": 10000,
+    "created_at": "2022-11-30T16:21:52.8850061+00:00",
+    "customer_mobile": "0803***0000",
+    "meta": {},
+    "payment_information": {
+      "payment_type": "merchantussd",
+      "customer_ref": "123456"
+    },
+    "is_recurring": false
   }
 }
 ```

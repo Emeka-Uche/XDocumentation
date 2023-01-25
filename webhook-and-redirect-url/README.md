@@ -15,8 +15,13 @@ Paste your redirect and**`Callback/Webhook URL`** in the space provided on your 
 * In the Webhook URL field, enter your Notification URL.
 * In the redirect URL field, enter your redirect URL- and on completion of payment, the customer will be redirected to the URL with the transaction reference passed as a query param.
 * Enter a redirect URL for your customers to be redirected after they complete payment. \
-  Note: The Redirect URL is optional.\
+  Note: The Redirect URL is optional.
 
+{% hint style="warning" %}
+_**KINDLY ENSURE YOU HAVE A TRANSACTION REFERENCE CHECKER WHEN IMPLEMENTING WEBHOOKS TO AVOID GIVING DOUBLE VALUE ON TRANSACTIONS.**_
+{% endhint %}
+
+## Webhook Validation
 
 To configure webhook notifications: go to <mark style="color:blue;">**dashboard > profile > Api & Webhooks.**</mark>
 

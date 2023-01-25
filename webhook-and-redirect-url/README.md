@@ -97,6 +97,31 @@ Sample POST request to be sent via webhook upon successful transaction
 }
 ```
 
+## SAMPLE WEBHOOK FOR USSD PAYMENT OPTION
+
+```
+{
+  "Event": "charge_successful",
+  "TransactionRef": "SQCHIZ6035872641857",
+  "Body": {
+    "amount": 20000,
+    "transaction_ref": "SQCHIZ6035872641857",
+    "gateway_ref": "SQCHIZ6035872641857_3_1",
+    "transaction_status": "Success",
+    "email": "maaa@h.com",
+    "currency": "NGN",
+    "transaction_type": "Ussd",
+    "merchant_amount": 19800,
+    "created_at": "2023-01-25T13:41:16.223",
+    "customer_mobile": "0803***7205",
+    "meta": {
+      "plan": "premium"
+    },
+    "is_recurring": false
+  }
+}
+```
+
 
 
 ### Sample Webhook for Merchant USSD (USSD CODE ON THE DASHBOARD)

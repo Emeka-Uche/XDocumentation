@@ -11,36 +11,69 @@ description: >-
 
 ```
 using System;
-using System.Security.Cryptography;
 using System.Text;
-using Newtonsoft.Json.Linq;
-namespace HMacExample
+using System.Security.Cryptography;
+using Newtonsoft.Json;
+					
+public class Program
 {
-  class Program {
-    static void Main(string[] args) {
-      String key = "YOUR_SECRET_KEY"; //replace with your squad secret_key
-
-      //Replace with the body of the notification received
-      String webhookPayload = "THE_BODY_OF_THE_WEBHOOK_PAYLOAD YOU RECEIVED";
-      String jsonInput = JsonConvert.SerializeObject(webhookPayload);
-      String result = "";
-      byte[] secretkeyBytes = Encoding.UTF8.GetBytes(key);
-      byte[] inputBytes = Encoding.UTF8.GetBytes(jsonInput);
-      using (var hmac = new HMACSHA512(secretkeyBytes))
-      {
-          byte[] hashValue = hmac.ComputeHash(inputBytes);
-          result = BitConverter.ToString(hashValue).Replace("-", string.Empty);;
-      }
-      Console.WriteLine(result);
-      String x-squad-encrypted-body = "Request's header value for x-squad-encrypted-body" //replace with the request's header value for x-squad-encrypted-body here
-      if(result.Equals(x-squad-encrypted-body)) {
-          // you can trust the event came from squad and so you can give value to customer
-      } else {
-          // this request didn't come from Squad, ignore it
-      }
-    }
-  }
+	public static void Main()
+	{
+				var chargeResponse = new VirtualAccount_VM()
+				{
+					  transaction_reference = "REFE52ARZHTS/1668421222619_1",
+					  virtual_account_number = "2129125316",
+					  principal_amount = "222.00",
+					  settled_amount = "221.78",
+					  fee_charged = "0.22",
+					  transaction_date = "2022-11-14T10:20:22.619Z",
+					  customer_identifier = "SBN1EBZEQ8",
+					  transaction_indicator = "C",
+					  remarks =  "Transfer FROM sandbox sandbox | [SBN1EBZEQ8] TO sandbox sandbox",
+					  currency = "NGN",
+					  channel =  "virtual-account",
+					  meta =  new MetaBody_VM()
+					  {
+						freeze_transaction_ref =  null,
+						reason_for_frozen_transaction =  null
+					  },
+					  encrypted_body = "ViASuHLhO+SP3KtmcdAOis+3Obg54d5SgCFPFMcguYfkkYs/i44jeT5Dbx52TcOvHRp9HlnCoFwbATkEihzv2C8UyPoC38sRb90S5Z9Fq7vRwjDQz/hYi/nKbWA0btPr3A+UXhX1Nu5ek+TL0ENUC8W1ZX/FrowX3HQaYiwe3tU/Kfr2XvAGwT7IAx5CQBhpzL34faHP4jbwSVmSgVYmW5rd2ClWQ7WWJjDMakrqYJva8qd0vhkqSpyz2KywOV9t9zSHRx3VpbvlDsBdkNGr+4Axh/7Gspu3xo9mMOIdv73OzjN4VA/qQP+fQMCjU1pbS8oh81HjwkHjzC5SBhzR8IU8bsmvFUyzJMfDoJuUB+fs09SLW7pdfODwK5vB8LtdKPnAuTPlv5dHVAPeMG/ubtl/HOqCZs4axjuO557srw0GpKk86bwaVKt4IQ17nY/QCJFC273HWU1CawP7d3nQasRZf/TU7ra+fOjQBHQ7Gtz2Pnfp3gLljBKenMT4Cabks1X2/6ZQpd/yGFkloYdS7ZW3kEvrorjcyma4WNDmJfhcdR9XGsom6Y/M/n/gMMa0z2KPbHDRoEBeRYbQHcnu5LnGWzBA4Y4RMSTDesD876PDB1bOnMzNPrWYam6ZVRHz"
+				};
+				
+				String SerializedPayload = JsonConvert.SerializeObject(chargeResponse);
+				Console.WriteLine(SerializedPayload);
+                string result = "";
+                var secretKeyBytes = Encoding.UTF8.GetBytes("sandbox_sk_9ac9418e847972dd45f5fe845b5716ef305589808eda");
+                var inputBytes = Encoding.UTF8.GetBytes(SerializedPayload);
+                var hmac = new HMACSHA512(secretKeyBytes);
+                byte[] hashValue = hmac.ComputeHash(inputBytes);
+                result = BitConverter.ToString(hashValue).Replace("-", string.Empty);
+				Console.WriteLine(result);
+		
+				Console.WriteLine(result.ToLower() == "18b9eb6ca68f92ca9f058da7bce6545efb12660cf75f960e552cf6098bb5ee8e71f20331dcfe0dfaea07439cc6629f901850291a39f374a1bd076c4eff1026c8");
+	}
 }
+public class VirtualAccount_VM
+{
+  public string transaction_reference { get; set; }
+  public string virtual_account_number { get; set; }
+  public string principal_amount { get; set; }
+  public string settled_amount { get; set; }
+  public string fee_charged { get; set; }
+  public string transaction_date { get; set; }
+  public string customer_identifier { get; set; }
+  public string transaction_indicator { get; set; }
+  public string remarks { get; set; }
+  public string currency { get; set; }
+  public string channel { get; set; }
+  public MetaBody_VM meta { get; set; }
+  public string encrypted_body { get; set; }
+}
+public class MetaBody_VM
+    {
+        public string freeze_transaction_ref { get; set; }
+        public string reason_for_frozen_transaction { get; set; }
+    }
 ```
 
 **Sample Function (node)**

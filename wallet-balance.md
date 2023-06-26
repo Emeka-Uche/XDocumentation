@@ -1,0 +1,74 @@
+---
+description: >-
+  This endpoint allows you get your Squad Wallet Balance. Please be informed
+  that the wallet balance is in KOBO.
+---
+
+# Wallet Balance
+
+{% hint style="warning" %}
+**Authorization** Any request made without the authorization key will fail with a **`401`**` ``(Service Not Authorized)` response code.
+{% endhint %}
+
+{% hint style="info" %}
+**Authorization** would be done via Headers using Keys gotten from your dashboard. (Provided by your Technical Accounts Manager <mark style="color:green;">**chizoba.okoye@Habaripay.com**</mark>)
+{% endhint %}
+
+**Example:**\
+Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+
+{% swagger method="get" path="/merchant/balance" baseUrl="https://sandbox-api-d.squadco.com" summary="This endpoint allows you get your Squad Wallet Balance. Amount is in KOBO." %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="query" name="currency_id" type="String" required="true" %}
+It takes the value "NGN"
+
+\
+
+
+
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Successful" %}
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "merchant_id": "SBN1EBZEQ8",
+        "balance": "2368013",
+        "currency_id": "NGN",
+        "system": false,
+        "createdAt": "2022-06-04T11:19:08.051Z",
+        "updatedAt": "2022-11-14T10:20:26.096Z",
+        "deletedAt": null
+    }
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="No Authoirzation" %}
+```
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Key" %}
+```
+
+{
+    "success": false,
+    "message": "Merchant authentication failed",
+    "data": {}
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+

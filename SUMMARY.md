@@ -19,3 +19,9 @@
 
 * [Getting Started](squad-pos/squad-pos.md)
 * [API Documentation](squad-pos/api-documentation.md)
+
+## VALUE ADDED SERVICES
+
+* [VALUE ADDED SERVICES (VAS)](value-added-services/value-added-services-vas.md)
+* [Page 1](value-added-services/page-1/README.md)
+  * [Page 2](value-added-services/page-1/page-2.md)

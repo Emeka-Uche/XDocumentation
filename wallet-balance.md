@@ -12,7 +12,7 @@ description: >-
 {% endhint %}
 
 {% hint style="info" %}
-**Authorization** would be done via Headers using Keys gotten from your dashboard. (Provided by your Technical Accounts Manager <mark style="color:green;">**chizoba.okoye@Habaripay.com**</mark>)
+**Authorization** would be done via Headers using Keys gotten from your dashboard.&#x20;
 {% endhint %}
 
 **Example:**\

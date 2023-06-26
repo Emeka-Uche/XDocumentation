@@ -1,7 +1,8 @@
 ---
 description: >-
   This endpoint allows you get your Squad Wallet Balance. Please be informed
-  that the wallet balance is in KOBO.
+  that the wallet balance is in KOBO. (Please note that you can't get wallet
+  balance for Dollar transactions)
 ---
 
 # Wallet Balance

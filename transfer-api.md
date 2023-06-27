@@ -89,7 +89,27 @@ GTB account number you want to transfer to
 This API allows you to transfer funds from your Squad Wallet to the account you have looked up.\
 Please be informed that we will not be held liable for mistake in transferring to a wrong account or an account that wasn't looked up.\
 \
-**PLEASE NOTE THAT THIS WILL ONLY WORK FOR TRANSFERS TO GTB AT THE MOMENT.**
+**Transaction Reference:**\
+Transaction Reference used to initiate a transfer must be unique per transfer. Kindly ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.\
+\
+**For instance:**\
+\
+If my Squad Merchant ID is SBABCKDY and i want to create a transaction ref for my transfer, then I will have something like:\
+\
+"transaction\_reference":"SBABCKDY\_12345".\
+\
+**PLEASE NOTE THAT THE TRANSFER API WILL ONLY WORK FOR TRANSFERS TO GTB AT THE MOMENT, WE WILL NOTIFY AND UPDATE THE DOCUMENATION ONCE WE OPEN ACCESS TO ALL BANKS.**
+
+### Error Codes:
+
+These are the various error codes that you might get on the transfer API and the one you should re-query
+
+200 -- Success: \
+400 --- Bad request \
+422 --- Unprocessed\
+424 --- Timeout/failed --- Should re-query\
+404 --- Not found\
+412 ---- reversed
 
 {% swagger method="post" path="/payout/transfer" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}
@@ -97,7 +117,17 @@ This is for movement of funds from Squad Wallet to any bank account (GTB at the 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="transaction_reference" type="String" required="true" %}
-Unique Code that identifiers a transfer
+Unique Transaction Reference used to initiate a transfer. 
+
+\
+
+
+Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.
+
+\
+
+
+
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="amount" type="String" required="true" %}
@@ -166,6 +196,7 @@ A unique remark that will be sent with the transfer.
 ## Re-query Transfer
 
 This API allows you re-query the status of a transfer made to know if it was successful, failed, reversed or pending.\
+\
 
 
 {% swagger method="post" path="/payout/requery" baseUrl="https://sandbox-api-d.squadco.com" summary="This API allows you re-query the status of a transfer" %}
@@ -174,7 +205,17 @@ This API allows you re-query the status of a transfer made to know if it was suc
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="transaction_reference" type="String" required="true" %}
-Unique Transaction Reference used to initiate a transfer
+Unique Transaction Reference used to initiate a transfer. 
+
+\
+
+
+Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.
+
+\
+
+
+If my S 
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Success" %}

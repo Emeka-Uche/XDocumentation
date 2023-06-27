@@ -209,3 +209,37 @@ Unique Transaction Reference used to initiate a transfer
     "transaction_reference": "47484093994949"
 }
 ```
+
+## Get All Transfers
+
+This API Allows you retrieve the details of all transfers you have done from your Squad Wallet using this transfer solution.
+
+{% swagger method="get" path="/payout/list" baseUrl="https://sandbox-api-d.squadco.com" summary="This API gets the details of all transfers you have done from your Squad Wallet " %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="Success" %}
+
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+```
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Keys" %}
+```
+{
+    "success": false,
+    "message": "Merchant authentication failed",
+    "data": {}
+}
+```
+{% endswagger-response %}
+{% endswagger %}

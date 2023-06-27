@@ -15,6 +15,7 @@
 * [Squad Woo Commerce Plugin](squad-woo-commerce-plugin.md)
 * [Disputes & Chargebacks](disputes-and-chargebacks.md)
 * [Wallet Balance](wallet-balance.md)
+* [Transfer API](transfer-api.md)
 
 ## Squad POS
 

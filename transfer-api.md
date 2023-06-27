@@ -26,7 +26,7 @@ Unique NIP code that identifies a bank. Currently you can only pass "000013" whi
 GTB account number you want to transfer to
 {% endswagger-parameter %}
 
-{% swagger-response status="200: OK" description="" %}
+{% swagger-response status="200: OK" description="Success" %}
 ```
 {
     "status": 200,
@@ -36,6 +36,26 @@ GTB account number you want to transfer to
         "account_name": "JENNY SQUAD",
         "account_number": "0123456789"
     }
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+```
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Invalid/Wrong API Keys" %}
+```
+{
+    "success": false,
+    "message": "Merchant authentication failed",
+    "data": {}
 }
 ```
 {% endswagger-response %}
@@ -107,6 +127,26 @@ A unique remark that will be sent with the transfer.
 {% swagger-response status="200: OK" description="Success" %}
 
 {% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+```
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Invalid/Wrong API Keys" %}
+```
+{
+    "success": false,
+    "message": "Merchant authentication failed",
+    "data": {}
+}
+```
+{% endswagger-response %}
 {% endswagger %}
 
 ### Sample Request
@@ -120,5 +160,52 @@ A unique remark that will be sent with the transfer.
     "account_number":"0123456789",
     "transaction_reference": "hfhfhhfhhf",
     "account_name":"IGWEH IFEANYI"
+}
+```
+
+## Re-query Transfer
+
+This API allows you re-query the status of a transfer made to know if it was successful, failed, reversed or pending.\
+
+
+{% swagger method="post" path="/payout/requery" baseUrl="https://sandbox-api-d.squadco.com" summary="This API allows you re-query the status of a transfer" %}
+{% swagger-description %}
+
+{% endswagger-description %}
+
+{% swagger-parameter in="body" name="transaction_reference" type="String" required="true" %}
+Unique Transaction Reference used to initiate a transfer
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Success" %}
+
+{% endswagger-response %}
+
+{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+```
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endswagger-response %}
+
+{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Keys" %}
+```
+{
+    "success": false,
+    "message": "Merchant authentication failed",
+    "data": {}
+}
+```
+{% endswagger-response %}
+{% endswagger %}
+
+### Sample Request
+
+```postman_json
+{
+    "transaction_reference": "47484093994949"
 }
 ```

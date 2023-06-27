@@ -220,7 +220,92 @@ This API Allows you retrieve the details of all transfers you have done from you
 {% endswagger-description %}
 
 {% swagger-response status="200: OK" description="Success" %}
-
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": [
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "2000",
+            "total_amount_debited": "3000",
+            "success": true,
+            "recipient": "Dummy Dummy",
+            "bank_code": "058",
+            "transaction_reference": "4d665e98-802d-4cd7-b76c-c77eaba9e394",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "2000",
+            "total_amount_debited": "2500",
+            "success": true,
+            "recipient": "Dummy Dummy",
+            "bank_code": "058",
+            "transaction_reference": "bbf6ba99-07ae-463d-a8e5-8b11bd5702fa",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "4000",
+            "total_amount_debited": "4500",
+            "success": true,
+            "recipient": "Dummy Dummy",
+            "bank_code": "058",
+            "transaction_reference": "e344ed1d-dd1a-4e46-b964-66587a4ad4d4",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": false,
+            "recipient": "Tee Fifi",
+            "bank_code": "058",
+            "transaction_reference": "03/13/2023_C15DBPRZ_Q2P8VPL9",
+            "transaction_status": "pending",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": false,
+            "recipient": "Tee Fifi",
+            "bank_code": "058",
+            "transaction_reference": "optional-sample-unique-id",
+            "transaction_status": "pending",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": true,
+            "recipient": "Hay Stack",
+            "bank_code": "058",
+            "transaction_reference": "e1f14484-b7dc-4528-8d79-d95fa66e8c69",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": true,
+            "recipient": "Jenny Squad",
+            "bank_code": "058",
+            "transaction_reference": "43eb10c0-57d9-42eb-b8a7-4db299c65ced",
+            "transaction_status": "success",
+            "switch_transaction": null
+        }
+    ]
+}
+```
 {% endswagger-response %}
 
 {% swagger-response status="401: Unauthorized" description="No Authorization" %}
@@ -243,3 +328,92 @@ This API Allows you retrieve the details of all transfers you have done from you
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+### Sample Response: 200-ok
+
+```json
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": [
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "2000",
+            "total_amount_debited": "3000",
+            "success": true,
+            "recipient": "Dummy Dummy",
+            "bank_code": "058",
+            "transaction_reference": "4d665e98-802d-4cd7-b76c-c77eaba9e394",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "2000",
+            "total_amount_debited": "2500",
+            "success": true,
+            "recipient": "Dummy Dummy",
+            "bank_code": "058",
+            "transaction_reference": "bbf6ba99-07ae-463d-a8e5-8b11bd5702fa",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "4000",
+            "total_amount_debited": "4500",
+            "success": true,
+            "recipient": "Dummy Dummy",
+            "bank_code": "058",
+            "transaction_reference": "e344ed1d-dd1a-4e46-b964-66587a4ad4d4",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": false,
+            "recipient": "Tee Fifi",
+            "bank_code": "058",
+            "transaction_reference": "03/13/2023_C15DBPRZ_Q2P8VPL9",
+            "transaction_status": "pending",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": false,
+            "recipient": "Tee Fifi",
+            "bank_code": "058",
+            "transaction_reference": "optional-sample-unique-id",
+            "transaction_status": "pending",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": true,
+            "recipient": "Hay Stack",
+            "bank_code": "058",
+            "transaction_reference": "e1f14484-b7dc-4528-8d79-d95fa66e8c69",
+            "transaction_status": "success",
+            "switch_transaction": null
+        },
+        {
+            "account_number_credited": "0254896325",
+            "amount_debited": "300000",
+            "total_amount_debited": "300000",
+            "success": true,
+            "recipient": "Jenny Squad",
+            "bank_code": "058",
+            "transaction_reference": "43eb10c0-57d9-42eb-b8a7-4db299c65ced",
+            "transaction_status": "success",
+            "switch_transaction": null
+        }
+    ]
+}
+```

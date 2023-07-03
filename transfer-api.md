@@ -9,6 +9,17 @@ description: >-
 **PLEASE NOTE THAT THIS WILL ONLY WORK FOR TRANSFERS TO GTB AT THE MOMENT.**\
 
 
+{% hint style="warning" %}
+**Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
+{% endhint %}
+
+{% hint style="info" %}
+**The authorization key is sent via the request header as Bearer Token Authorization**
+{% endhint %}
+
+**Example:**\
+Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+
 ## Account Lookup
 
 This API allows you lookup/ confirm account name of a customer who you want to make transfer to so you can make a transfer.

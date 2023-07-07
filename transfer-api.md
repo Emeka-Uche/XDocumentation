@@ -29,7 +29,7 @@ This API allows you lookup/confirm the account name of the recipient you intend 
 
 {% endswagger-description %}
 
-{% swagger-parameter in="body" name="nip_code" type="String" required="true" %}
+{% swagger-parameter in="body" name="bank_code" type="String" required="true" %}
 Unique NIP code that identifies a bank. Currently you can only pass "000013" which is for GTB
 {% endswagger-parameter %}
 

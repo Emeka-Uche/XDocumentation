@@ -24,7 +24,7 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API allows you lookup/confirm the account name of the recipient you intend to credit. This should be done before initiating the transfer.
 
-{% swagger method="get" path="/payout/account/lookup" baseUrl="https://sandbox-api-d.squadco.com" summary="This API allows you confirm Account Name to be transferred to." %}
+{% swagger method="post" path="/payout/account/lookup" baseUrl="https://sandbox-api-d.squadco.com" summary="This API allows you confirm Account Name to be transferred to." %}
 {% swagger-description %}
 
 {% endswagger-description %}

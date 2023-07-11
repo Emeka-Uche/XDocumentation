@@ -6,7 +6,7 @@ description: >-
 
 # Transfer API
 
-**PLEASE NOTE THAT THIS WILL ONLY WORK FOR TRANSFERS TO GTB AT THE MOMENT.**\
+\
 
 
 {% hint style="warning" %}

@@ -1,13 +1,10 @@
 ---
 description: >-
   These are suites of API that allows you move funds from your Squad Wallet to a
-  bank Account (GTB Account)
+  bank Account.
 ---
 
 # Transfer API
-
-\
-
 
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
@@ -30,11 +27,11 @@ This API allows you lookup/confirm the account name of the recipient you intend 
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="bank_code" type="String" required="true" %}
-Unique NIP code that identifies a bank. Currently you can only pass "000013" which is for GTB
+Unique NIP code that identifies a bank. 
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="account_number" type="String" required="true" %}
-GTB account number you want to transfer to
+Account number you want to transfer to
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Success" %}
@@ -71,6 +68,15 @@ GTB account number you want to transfer to
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+## Available Bank Codes
+
+```
+'000013' - GTB
+'000014' - Access
+'000023' -Providus
+'100004' -OPay 
+```
 
 ### Sample Request
 
@@ -222,11 +228,6 @@ Unique Transaction Reference used to initiate a transfer.
 
 
 Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.
-
-\
-
-
-If my S 
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="Success" %}

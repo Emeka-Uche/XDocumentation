@@ -114,17 +114,16 @@ Transaction Reference used to initiate a transfer must be unique per transfer. K
 If my Squad Merchant ID is SBABCKDY and i want to create a transaction ref for my transfer, then I will have something like:\
 \
 "transaction\_reference":"SBABCKDY\_12345".\
-\
-**PLEASE NOTE THAT THE TRANSFER API WILL ONLY WORK FOR TRANSFERS TO GTB AT THE MOMENT, WE WILL NOTIFY AND UPDATE THE DOCUMENATION ONCE WE OPEN ACCESS TO ALL BANKS.**
 
-### Error Codes:
+
+## ERROR CODE
 
 These are the various error codes that you might get on the transfer API and the one you should re-query
 
 200 -- Success: \
 400 --- Bad request \
 422 --- Unprocessed\
-424 --- Timeout/failed --- Should re-query\
+424 --- Timeout/failed --- **Should re-query**\
 404 --- Not found\
 412 ---- reversed
 

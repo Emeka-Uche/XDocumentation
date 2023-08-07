@@ -523,6 +523,6 @@ api-d.squadco.com
 
 2\. [Sign up on our Live Environment](http://dashboard.squadco.com)
 
-\-3. Complete your KYC
+3\. Complete your KYC
 
 4\. Use the secret keys provided on the dashboard to authenticate your live transactions

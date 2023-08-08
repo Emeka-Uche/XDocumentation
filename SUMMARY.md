@@ -27,3 +27,7 @@
 * [VALUE ADDED SERVICES (VAS)](value-added-services/value-added-services-vas.md)
 * [Page 1](value-added-services/page-1/README.md)
   * [Page 2](value-added-services/page-1/page-2.md)
+
+## Squad GT-POS Onboarding <a href="#gt-pos-onboarding" id="gt-pos-onboarding"></a>
+
+* [📟 Squad GT-POS Merchant Onboarding](gt-pos-onboarding/profile-merchant-and-business.md)

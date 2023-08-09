@@ -12,7 +12,7 @@ This API is used to initiate refund process on a successful transaction.\
 {% endhint %}
 
 **Example:**\
-****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 {% swagger method="post" path="/transaction/refund" baseUrl="https://sandbox-api-d.squadco.com" summary="This endpoint refunds an already completed transactions" %}
 {% swagger-description %}

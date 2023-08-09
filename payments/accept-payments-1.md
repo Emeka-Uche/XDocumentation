@@ -3,7 +3,7 @@
 This is an endpoint that allows you to query the status of a particular transaction using the unique transaction reference attached to the transaction.
 
 **RESPONSE**\
-****The API responses returns a status code and a data object
+The API responses returns a status code and a data object
 
 **Response Status Code**
 
@@ -16,7 +16,7 @@ A status code of 200 is returned for a valid transaction ref.\
 A status code of 400 is returned for an invalid transaction ref\
 \
 **Response Data Object**\
-****The data object returned in the response is null when the status code is 400 and populated when the status code is 200.\
+The data object returned in the response is null when the status code is 400 and populated when the status code is 200.\
 \
 The data object contains a parameter known as the transaction\_status which differentiates the transaction type.
 
@@ -31,7 +31,7 @@ Transaction status can either be Success, Failed, Abandoned or Pending
 {% endhint %}
 
 **Example:**\
-****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 {% swagger method="get" path="verify/{{transaction_ref}}" baseUrl="https://sandbox-api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
 {% swagger-description %}

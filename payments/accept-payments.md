@@ -21,7 +21,7 @@ To initialize a transaction, you need to pass details such as email, first name,
 | amount            | <mark style="color:green;">Yes</mark> | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).                                                                                                                                                                                                                         |
 | transaction\_ref  | No                                    | Unique case-sensitive transaction reference. If you do not pass this parameter, Squad will generate a unique reference for you.                                                                                                                                                                                                 |
 | currency\_code    | <mark style="color:green;">Yes</mark> | The currency you want the amount to be charged in. Allowed value is **`NGN or USD`**.                                                                                                                                                                                                                                           |
-| payment\_channels | No                                    | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , ``` `**`'ussd'`**,**`'transfer'`**]                                                                                                            |
+| payment\_channels | No                                    | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , **`'ussd'`**,**`'transfer'`**]                                                                                                                 |
 | customer\_name    | No                                    | Name of Customer                                                                                                                                                                                                                                                                                                                |
 | callback\_url     | No                                    | Sample: https://squadco.com                                                                                                                                                                                                                                                                                                     |
 | metadata          | No                                    | Object that contains any additional information that you want to record with the transaction. The `custom fields in the object` will be returned via webhook and the payment verification endpoint.                                                                                                                             |
@@ -198,10 +198,10 @@ With Squad, customers can pay with Card provided their card details are correct 
 
 1. Create a free Squad [sandbox account](https://sandbox.squadco.com/) and get your test keys from the dashboard.
 2. Copy the code sample from the [Code Glossary](accept-payments.md#undefined) of this documentation unto a text editor of your choice.
-3. Save the document as _ `.html` file. For example_ _**index.html**_&#x20;
+3. Save the document as _`.html` file. For example_ _**index.html**_&#x20;
 4. With an internet-enabled device, view the `.html` file (_**index.html**_) using any web server of your choice either local (WAMP, XAMPP, etc) or online.
 
 ## Go Live
 
-To go live on the payment modal, simply change the test key _**** to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
+To go live on the payment modal, simply change the test key _to_ the live key found in your [Squad dashboard](http://dashboard.squadco.com/).
 

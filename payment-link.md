@@ -12,7 +12,7 @@ This API is used to create a simple payment link. All calls to this end point is
 {% endhint %}
 
 **Example:**\
-****Authorization**:** Bearer **** sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 ### Sample Request
 

@@ -28,7 +28,7 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API allows you vend airtime. Minimum amount that can be vended is 50 naira.
 
-{% swagger method="post" path="vending/purchase/airtime" baseUrl="https://api-d.squadco.com" summary="This API vends Airtime" %}
+{% swagger method="post" path="/vending/purchase/airtime" baseUrl="https://sandbox-api-d.squadco.com" summary="This API vends Airtime" %}
 {% swagger-description %}
 
 {% endswagger-description %}

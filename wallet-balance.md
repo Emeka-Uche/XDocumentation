@@ -44,13 +44,9 @@ It only takes the value "NGN".
     "success": true,
     "message": "Success",
     "data": {
-        "merchant_id": "SBN1EBZEQ8",
-        "balance": "2368013",
+        "balance": "2367013",
         "currency_id": "NGN",
-        "system": false,
-        "createdAt": "2022-06-04T11:19:08.051Z",
-        "updatedAt": "2022-11-14T10:20:26.096Z",
-        "deletedAt": null
+        "merchant_id": "SBN1EBZEQ8"
     }
 }
 ```

@@ -196,7 +196,7 @@ But when set to False, the charge is passed to the merchant and will be deducted
 
 ## Charge Authorization on Card&#x20;
 
-This allows you charge an authorization on a card.
+This allows you charge an authorization on a card.&#x20;
 
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
@@ -208,6 +208,8 @@ This allows you charge an authorization on a card.
 
 **Example:**\
 Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+
+**DUE TO SENSITIVITY OF THIS API, PLEASE NOTE THAT THIS API CAN ONLY BE MADE AVAILABLE TO YOU BY THE TECHNICAL ACCOUNT MANAGER UPON APPROVAL.**
 
 {% swagger method="post" path="" baseUrl="" summary="" %}
 {% swagger-description %}

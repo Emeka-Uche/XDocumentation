@@ -205,7 +205,7 @@ A unique remark that will be sent with the transfer.
     "amount": "100",
     "account_number":"0123456789",
     "transaction_reference":"SBABCKDY_12345",
-    "account_name":"IGWEH IFEANYI"
+    "account_name":"BOLUS PAUL"
 }
 ```
 

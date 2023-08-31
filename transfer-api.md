@@ -204,7 +204,7 @@ A unique remark that will be sent with the transfer.
     "currency_id": "NGN",
     "amount": "100",
     "account_number":"0123456789",
-    "transaction_reference": "hfhfhhfhhf",
+    "transaction_reference":"SBABCKDY_12345",
     "account_name":"IGWEH IFEANYI"
 }
 ```

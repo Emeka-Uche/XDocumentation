@@ -151,7 +151,7 @@ Amount to be transferred. Value is in Kobo.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="bank_code" type="String" required="true" %}
-Unique NIP Code that identifies a bank. (Currently takes only "000013" for GTB accounts)
+Unique NIP Code that identifies a bank. 
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="account_number" type="String" required="true" %}

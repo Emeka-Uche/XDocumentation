@@ -271,6 +271,18 @@ This API Allows you retrieve the details of all transfers you have done from you
 
 {% endswagger-description %}
 
+{% swagger-parameter in="query" name="page" type="Integer" %}
+Number of Pages
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="perPage" type="Integer" %}
+Number of records per page
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="dir" type="String" %}
+Allows you sort the records in either ascending or descending order. It takes the value "ASC" or "DESC"
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Success" %}
 ```
 {

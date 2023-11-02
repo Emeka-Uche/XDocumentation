@@ -29,15 +29,7 @@ Customer's email address.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-The amount you are debiting customer (expressed in the lowest currency value - 
-
-**`kobo`**
-
-& 
-
-**`cent`**
-
-).  10000 = 100NGN for Naira Transactions
+The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).  10000 = 100NGN for Naira Transactions
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="initiate_type" type="String" required="true" %}
@@ -45,16 +37,8 @@ This states the method by which the transaction is initiated. At the moment, thi
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="currency" type="String" required="true" %}
-
-
 \
-
-
-The currency you want the amount to be charged in. Allowed value is either 
-
-**`NGN or USD`**
-
-.
+The currency you want the amount to be charged in. Allowed value is either **`NGN or USD`**.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="transaction_ref" type="String" %}
@@ -74,44 +58,16 @@ API keys (Secret Key) that authorizes your transactions and gotten from your squ
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="payment_channels" type="Array" %}
-An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; [
-
-**`'card'`**
-
-, 
-
-**`'bank'`**
-
- , 
-
-**`'ussd'`**
-
-,
-
-**`'transfer'`**
-
-]
+An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , **`'ussd'`**,**`'transfer'`**]
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="metadata" type="Object" %}
-Object that contains any additional information that you want to record with the transaction. The 
-
-`custom fields in the object`
-
- will be returned via webhook and the payment verification endpoint.
+Object that contains any additional information that you want to record with the transaction. The `custom fields in the object` will be returned via webhook and the payment verification endpoint.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="pass_charge" type="Boolean" %}
-It takes two possible values: True or False.
-
-\
-
-
-It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).
-
-\
-
-
+It takes two possible values: True or False.\
+It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).\
 But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.
 {% endswagger-parameter %}
 
@@ -211,7 +167,7 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 **DUE TO SENSITIVITY OF THIS API, PLEASE NOTE THAT THIS API CAN ONLY BE MADE AVAILABLE TO YOU BY THE TECHNICAL ACCOUNT MANAGER UPON APPROVAL.**
 
-{% swagger method="post" path="" baseUrl="" summary="" %}
+{% swagger method="post" path="/transaction/charge_card" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}
 
 {% endswagger-description %}

@@ -150,9 +150,9 @@ But when set to False, the charge is passed to the merchant and will be deducted
 }
 ```
 
-## Charge Authorization on Card&#x20;
+## Recurring Payment (Charge Authorization on Card)
 
-This allows you charge an authorization on a card.&#x20;
+This allows you charge a card without collecting the card information each time
 
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
@@ -165,7 +165,34 @@ This allows you charge an authorization on a card.&#x20;
 **Example:**\
 Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-**DUE TO SENSITIVITY OF THIS API, PLEASE NOTE THAT THIS API CAN ONLY BE MADE AVAILABLE TO YOU BY THE TECHNICAL ACCOUNT MANAGER UPON APPROVAL.**
+
+
+## Card Tokenization
+
+To tokenize a card, just add a flag to the initiate payload when calling the initiate endpoint and the card will automatically be tokenized. The unique token code will automatically be added to the webhook notification that will be received after payment.\
+
+
+```
+"is_recurring":true
+```
+
+## Sample Request for Card Tokenization
+
+```
+{
+    "amount":43000,
+    "email":"henimastic@gmail.com",
+    "currency":"NGN",
+    "initiate_type": "inline",
+    "transaction_ref":"bchs4678388588350909090AH",
+    "callback_url":"http://squadco.com",
+    "is_recurring":true
+}
+```
+
+## Charge Card
+
+This allows you charge a card using the token generated during the initial transaction which was sent via webhook
 
 {% swagger method="post" path="/transaction/charge_card" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}

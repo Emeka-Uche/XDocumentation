@@ -5,6 +5,7 @@
   * [Initiate Payment](payments/initiate-payment.md)
   * [Squad Payment Modal](payments/accept-payments.md)
   * [Verify Transaction](payments/accept-payments-1.md)
+  * [Aggregator and Sub-merchants](payments/aggregator-and-sub-merchants.md)
 * [Verify Transaction](verify-transaction.md)
 * [Webhook & Redirect URL](webhook-and-redirect-url/README.md)
   * [Signature validation](webhook-and-redirect-url/signature-validation.md)

@@ -35,9 +35,7 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 {% swagger method="get" path="verify/{{transaction_ref}}" baseUrl="https://sandbox-api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
 {% swagger-description %}
-To verify the validity of a transaction, kindly query the endpoint above by replacing {{transaction_ref}} with the unique transaction_ref of the transaction you want to 
-
-_verify_
+To verify the validity of a transaction, kindly query the endpoint above by replacing \{{transaction\_ref\}} with the unique transaction\_ref of the transaction you want to _verify_
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="transaction_ref" type="String" required="true" %}

@@ -71,6 +71,12 @@ It is set to False by default. When set to True, the charges on the transaction 
 But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.
 {% endswagger-parameter %}
 
+{% swagger-parameter in="body" name="sub_merchant_id" type="String" %}
+This is the ID of a merchant that was created by an aggregator which allows the aggregator initiate a transaction on behalf of the submerchant.\
+This parameter is an optional field that is passed only by a registered aggregator.\
+
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="Successful" %}
 ```javascript
 {
@@ -160,6 +166,10 @@ This allows you charge a card without collecting the card information each time
 
 {% hint style="info" %}
 **The authorization key is sent via the request header as Bearer Token Authorization**
+{% endhint %}
+
+{% hint style="info" %}
+For recurring Payments test on Sandbox, ensure to use the test card: 5200000000000007
 {% endhint %}
 
 **Example:**\

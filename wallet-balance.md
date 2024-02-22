@@ -24,16 +24,8 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="currency_id" type="String" required="true" %}
-It only takes the value "NGN".
-
-\
-
-
-(Please note that you can't get wallet balance for Dollar transactions)
-
-\
-
-
+It only takes the value "NGN".\
+(Please note that you can't get wallet balance for Dollar transactions)\
 
 {% endswagger-parameter %}
 

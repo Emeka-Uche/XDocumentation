@@ -24,12 +24,8 @@ Unique reference that uniquely identifies the medium of payment and can be obtai
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="transaction_ref" type="String" required="true" %}
-unique reference that identifies a transaction.
-
-\
-
-
- Can be obtained from the dashboard or the webhook notification sent to you
+unique reference that identifies a transaction.\
+&#x20;Can be obtained from the dashboard or the webhook notification sent to you
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="refund_type" type="String" required="true" %}
@@ -41,11 +37,7 @@ Reason for initiating the refund
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="refund_amount" type="String" %}
-Refund amount is in kobo or cent.
-
-\
-
-
+Refund amount is in kobo or cent.\
 This is only required for "Partial" refunds
 {% endswagger-parameter %}
 

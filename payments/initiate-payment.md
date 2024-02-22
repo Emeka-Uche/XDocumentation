@@ -202,7 +202,7 @@ To tokenize a card, just add a flag to the initiate payload when calling the ini
 
 ## Charge Card
 
-This allows you charge a card using the token generated during the initial transaction which was sent via webhook
+This allows you to charge a card using the token generated during the initial transaction which was sent via webhook
 
 {% swagger method="post" path="/transaction/charge_card" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}
@@ -265,6 +265,85 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
     "token_id":"tJlYMKcwPd",
 }
 </code></pre>
+
+## Query All Transactions
+
+This endpoint allows you to query all transactions and filter using multiple parameters like transaction ref, start and end dates, amount, etc
+
+
+
+<mark style="color:green;">`GET`</mark> `/`[`https://sandbox-api-d.squadco.com/transaction`](https://sandbox-api-d.squadco.com/transaction)
+
+\<This endpoint returns all successful transactions carried out on the payment gateway >
+
+**Parameters**
+
+| Name         | Type    | Description                                      |
+| ------------ | ------- | ------------------------------------------------ |
+| currency     | string  | transacting currency                             |
+| `start_date` | date    | start date of transactions                       |
+| end\_date    | date    | end date of transactions                         |
+| page         | integer | number of pages to be displayed                  |
+| perPage      | integer | number of transactions to be displayed in a page |
+| amount       | integer | transaction amount                               |
+| reference    | string  | transaction ref of a transaction                 |
+| session\_id  | string  | session id of a transaction                      |
+
+**Response**
+
+{% tabs %}
+{% tab title="200" %}
+````json
+"status": 200,
+    "success": true,
+    "message": "Success",
+    "data": [
+        {
+            "id": 589,
+            "transaction_amount": 500000,
+            "transaction_ref": "SQDEMO6384411820295800001",
+            "email": "demo@merchant.com",
+            "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+            "merchant_amount": 495000,
+            "merchant_name": "Demo Habari Shop",
+            "merchant_business_name": "Ogbologba and Sons Limited",
+            "merchant_email": "demo@merchant.com",
+            "customer_email": "demo@merchant.com",
+            "customer_name": "Test QA",
+            "meta_data": "{\"ip_address\":\"154.113.177.121\",\"Customer_name\":\"Test QA\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36\",\"referring_site\":\"https://pay.squadinc.co/\",\"payment_link_id\":\"GH9Y19\",\"payment_link_type\":\"otp\",\"source\":\"Desktop\",\"device_id\":null,\"order_id\":null,\"auth_code\":null,\"fingerprintData\":null,\"callback_url\":null,\"initiate_type\":null,\"browser_screen_height\":695,\"browser_screen_width\":1536,\"referrer_url\":\"https://pay.squadinc.co/\",\"extra\":\"{}\"}",
+            "meta": {
+                "ip_address": [],
+                "Customer_name": [],
+                "user_agent": [],
+                "referring_site": [],
+                "payment_link_id": [],
+                "payment_link_type": [],
+                "source": [],
+                "device_id": [],
+                "order_id": [],
+                "auth_code": [],
+                "fingerprintData": [],
+                "callback_url": [],
+                "initiate_type": [],
+                "browser_screen_height": [],
+                "browser_screen_width": [],
+                "referrer_url": [],
+                "extra": []
+            },
+            "transaction_status": "success",
+            "transaction_charges": 0,
+            "transaction_currency_id": "NGN",
+            "transaction_gateway_id": "",
+            "transaction_type": "Card",
+            "flat_charge": 0,
+            "is_suspicious": false,
+            "is_refund": false,
+            "created_at": "2024-02-21T13:16:43.012+00:00"
+        }
+```
+````
+{% endtab %}
+{% endtabs %}
 
 ## Go Live
 

@@ -51,11 +51,7 @@ Unique string that identifies each payment Link (cannot exceed 255 characters)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="link_status" type="Integer" required="true" %}
-Value can be 0 or 1. 
-
-\
-
-
+Value can be 0 or 1. \
 1 - Active, 0 - Inactive
 {% endswagger-parameter %}
 

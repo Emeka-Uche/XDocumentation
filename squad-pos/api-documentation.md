@@ -29,20 +29,12 @@ page number
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="date_from" type="date" %}
-Format : YYYY-MM-DD 
-
-\
-
-
+Format : YYYY-MM-DD \
 Start Date
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="date_to" type="date" %}
-Format : YYYY-MM-DD 
-
-\
-
-
+Format : YYYY-MM-DD \
 End Date
 {% endswagger-parameter %}
 
@@ -51,16 +43,8 @@ Sorting Parameter. This can have a value of "createdAt"
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort_by_dir" type="String" %}
-This arranges the transactions in ascending or descending order.
-
-\
-
-
-possible values are "ASC" - ascending order
-
-\
-
-
+This arranges the transactions in ascending or descending order.\
+possible values are "ASC" - ascending order\
 "DESC" - descending order
 {% endswagger-parameter %}
 
@@ -307,34 +291,18 @@ Sorting Parameter. This can have a value of "createdAt"
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="sort_by_dir" type="String" %}
-This arranges the transactions in ascending or descending order.
-
-\
-
-
-possible values are "ASC" - ascending order
-
-\
-
-
+This arranges the transactions in ascending or descending order.\
+possible values are "ASC" - ascending order\
 "DESC" - descending order
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="date_from" type="date" %}
-Format : YYYY-MM-DD 
-
-\
-
-
+Format : YYYY-MM-DD \
 Start Date
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="date_to" type="date" %}
-Format : YYYY-MM-DD 
-
-\
-
-
+Format : YYYY-MM-DD \
 End Date
 {% endswagger-parameter %}
 

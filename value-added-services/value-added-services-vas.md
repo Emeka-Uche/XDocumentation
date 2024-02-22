@@ -34,11 +34,7 @@ This API allows you vend airtime. Minimum amount that can be vended is 50 naira.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="phone_number" type="String" required="true" %}
-11 digit phone number.
-
-\
-
-
+11 digit phone number.\
 Format: : "08139011943"
 {% endswagger-parameter %}
 
@@ -127,11 +123,7 @@ This is the data bundle vending endpoint.
 {% endswagger-description %}
 
 {% swagger-parameter in="body" name="phone_number" type="String" required="true" %}
-11 digit phone number.
-
-\
-
-
+11 digit phone number.\
 Format: : "08139011943"
 {% endswagger-parameter %}
 

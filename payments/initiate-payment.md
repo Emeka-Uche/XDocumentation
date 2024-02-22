@@ -270,30 +270,41 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
 
 This endpoint allows you to query all transactions and filter using multiple parameters like transaction ref, start and end dates, amount, etc
 
+{% swagger method="get" path="/transaction" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
+{% swagger-description %}
 
+{% endswagger-description %}
 
-<mark style="color:green;">`GET`</mark> `/`[`https://sandbox-api-d.squadco.com/transaction`](https://sandbox-api-d.squadco.com/transaction)
+{% swagger-parameter in="query" name="currency" type="string" %}
+transacting currency
+{% endswagger-parameter %}
 
-\<This endpoint returns all successful transactions carried out on the payment gateway >
+{% swagger-parameter in="query" name="start_date" type="date" %}
+start date of transaction
+{% endswagger-parameter %}
 
-**Parameters**
+{% swagger-parameter in="query" name="end_date" type="date" %}
+end date of transactions
+{% endswagger-parameter %}
 
-| Name         | Type    | Description                                      |
-| ------------ | ------- | ------------------------------------------------ |
-| currency     | string  | transacting currency                             |
-| `start_date` | date    | start date of transactions                       |
-| end\_date    | date    | end date of transactions                         |
-| page         | integer | number of pages to be displayed                  |
-| perPage      | integer | number of transactions to be displayed in a page |
-| amount       | integer | transaction amount                               |
-| reference    | string  | transaction ref of a transaction                 |
-| session\_id  | string  | session id of a transaction                      |
+{% swagger-parameter in="query" name="page" type="integer" %}
+shows which page you are on
+{% endswagger-parameter %}
 
-**Response**
+{% swagger-parameter in="query" name="perPage" type="integer" %}
+number of transactions to be displayed in a page
+{% endswagger-parameter %}
 
-{% tabs %}
-{% tab title="200" %}
-````json
+{% swagger-parameter in="query" name="amount" type="integer" %}
+transaction amount
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="reference" type="string" %}
+transaction ref of a transaction
+{% endswagger-parameter %}
+
+{% swagger-response status="200: OK" description="Success" %}
+````javascript
 "status": 200,
     "success": true,
     "message": "Success",
@@ -342,8 +353,10 @@ This endpoint allows you to query all transactions and filter using multiple par
         }
 ```
 ````
-{% endtab %}
-{% endtabs %}
+{% endswagger-response %}
+{% endswagger %}
+
+
 
 ## Go Live
 

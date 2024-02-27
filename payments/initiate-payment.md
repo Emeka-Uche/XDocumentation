@@ -279,11 +279,11 @@ This endpoint allows you to query all transactions and filter using multiple par
 transacting currency
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="start_date" type="date" %}
+{% swagger-parameter required="true" in="query" name="start_date" type="date" %}
 start date of transaction
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="end_date" type="date" %}
+{% swagger-parameter in="query" name="end_date" type="date" required="true" %}
 end date of transactions
 {% endswagger-parameter %}
 

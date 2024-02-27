@@ -21,6 +21,10 @@ Paste your redirect and**`Callback/Webhook URL`** in the space provided on your 
 _**KINDLY ENSURE YOU HAVE A TRANSACTION REFERENCE CHECKER WHEN IMPLEMENTING WEBHOOKS TO AVOID GIVING DOUBLE VALUE ON TRANSACTIONS.**_
 {% endhint %}
 
+{% hint style="info" %}
+Sending IP: 18.133.63.109
+{% endhint %}
+
 ## Webhook Validation
 
 To configure webhook notifications: go to <mark style="color:blue;">**dashboard > profile > Api & Webhooks.**</mark>

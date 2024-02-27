@@ -270,6 +270,8 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
 
 This endpoint allows you to query all transactions and filter using multiple parameters like transaction ref, start and end dates, amount, etc
 
+N.B: The date parameters are compulsory and should be a maximum of one month gap
+
 {% swagger method="get" path="/transaction" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
 {% swagger-description %}
 

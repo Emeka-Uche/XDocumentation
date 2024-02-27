@@ -6,8 +6,14 @@ description: >-
 
 # Initiate Payment
 
+
+
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key (secret key) will fail with a **`401`**` ``(Unauthorized)` response code.
+{% endhint %}
+
+{% hint style="danger" %}
+If using other services such as dynamic virtual accounts, do not use the same transaction reference
 {% endhint %}
 
 {% hint style="info" %}

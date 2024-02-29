@@ -331,7 +331,7 @@ Code	Bank_name
 090401  	 Shepherd Trust Microfinance Bank 
 090403  	 UDA Microfinance Bank 
 090404  	 Olowolagba Microfinance Bank 
-090405  	 Rolez Microfinance Bank 
+090405  	 MONIE POINT (Rolez Microfinance Bank)
 090406  	 Business Support Microfinance Bank 
 090409  	 FCMB BETA 
 090408  	 GMB Microfinance Bank 

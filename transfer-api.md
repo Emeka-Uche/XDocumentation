@@ -21,20 +21,19 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API allows you lookup/confirm the account name of the recipient you intend to credit. This should be done before initiating the transfer.
 
-{% swagger method="post" path="/payout/account/lookup" baseUrl="https://sandbox-api-d.squadco.com" summary="This API allows you confirm Account Name to be transferred to." %}
-{% swagger-description %}
+## This API allows you confirm Account Name to be transferred to.
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/payout/account/lookup`
 
-{% swagger-parameter in="body" name="bank_code" type="String" required="true" %}
-Unique NIP code that identifies a bank.&#x20;
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="account_number" type="String" required="true" %}
-Account number you want to transfer to
-{% endswagger-parameter %}
+| Name                                              | Type   | Description                              |
+| ------------------------------------------------- | ------ | ---------------------------------------- |
+| bank\_code<mark style="color:red;">\*</mark>      | String | Unique NIP code that identifies a bank.  |
+| account\_number<mark style="color:red;">\*</mark> | String | Account number you want to transfer to   |
 
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```
 {
     "status": 200,
@@ -46,9 +45,9 @@ Account number you want to transfer to
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+{% tab title="401: Unauthorized No Authorization" %}
 ```
 {
     "success": false,
@@ -56,9 +55,9 @@ Account number you want to transfer to
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Invalid/Wrong API Keys" %}
+{% tab title="403: Forbidden Invalid/Wrong API Keys" %}
 ```
 {
     "success": false,
@@ -66,8 +65,8 @@ Account number you want to transfer to
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Available Bank Codes
 
@@ -565,46 +564,28 @@ These are the various error codes that you might get on the transfer API and the
 404 --- Not found\
 412 ---- reversed
 
-{% swagger method="post" path="/payout/transfer" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/payout/transfer`
+
 This is for movement of funds from Squad Wallet to any bank account (GTB at the moment)
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="transaction_reference" type="String" required="true" %}
-Unique Transaction Reference used to initiate a transfer. \
-Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.\
+#### Request Body
 
-{% endswagger-parameter %}
+| Name                                                     | Type   | Description                                                                                                                                                                                                                                 |
+| -------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transaction\_reference<mark style="color:red;">\*</mark> | String | <p>Unique Transaction Reference used to initiate a transfer. <br>Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.<br></p> |
+| amount<mark style="color:red;">\*</mark>                 | String | Amount to be transferred. Value is in Kobo.                                                                                                                                                                                                 |
+| bank\_code<mark style="color:red;">\*</mark>             | String | Unique NIP Code that identifies a bank.                                                                                                                                                                                                     |
+| account\_number<mark style="color:red;">\*</mark>        | String | 10-digit NUBAN account number to be transferred to. Must be an account that has been looked up and vetted to be transferred to.                                                                                                             |
+| account\_name<mark style="color:red;">\*</mark>          | String | The account name tied to the account number you are transferring to which you have looked up using our look up API.                                                                                                                         |
+| currency\_id<mark style="color:red;">\*</mark>           | String | Takes only the value "NGN"                                                                                                                                                                                                                  |
+| remark<mark style="color:red;">\*</mark>                 | String | A unique remark that will be sent with the transfer.                                                                                                                                                                                        |
 
-{% swagger-parameter in="body" name="amount" type="String" required="true" %}
-Amount to be transferred. Value is in Kobo.
-{% endswagger-parameter %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 
-{% swagger-parameter in="body" name="bank_code" type="String" required="true" %}
-Unique NIP Code that identifies a bank.&#x20;
-{% endswagger-parameter %}
+{% endtab %}
 
-{% swagger-parameter in="body" name="account_number" type="String" required="true" %}
-10-digit NUBAN account number to be transferred to. Must be an account that has been looked up and vetted to be transferred to.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="account_name" type="String" required="true" %}
-The account name tied to the account number you are transferring to which you have looked up using our look up API.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="currency_id" type="String" required="true" %}
-Takes only the value "NGN"
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="remark" type="String" required="true" %}
-A unique remark that will be sent with the transfer.
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
-
-{% endswagger-response %}
-
-{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+{% tab title="401: Unauthorized No Authorization" %}
 ```
 {
     "success": false,
@@ -612,9 +593,9 @@ A unique remark that will be sent with the transfer.
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Invalid/Wrong API Keys" %}
+{% tab title="403: Forbidden Invalid/Wrong API Keys" %}
 ```
 {
     "success": false,
@@ -622,8 +603,8 @@ A unique remark that will be sent with the transfer.
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 
@@ -645,21 +626,40 @@ This API allows you re-query the status of a transfer made to know if it was suc
 \
 
 
-{% swagger method="post" path="/payout/requery" baseUrl="https://sandbox-api-d.squadco.com" summary="This API allows you re-query the status of a transfer" %}
-{% swagger-description %}
+## This API allows you re-query the status of a transfer
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/payout/requery`
 
-{% swagger-parameter in="body" name="transaction_reference" type="String" required="true" %}
-Unique Transaction Reference used to initiate a transfer. \
-Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-response status="200: OK" description="Success" %}
+| Name                                                     | Type   | Description                                                                                                                                                                                                                             |
+| -------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| transaction\_reference<mark style="color:red;">\*</mark> | String | <p>Unique Transaction Reference used to initiate a transfer. <br>Please ensure that you append your merchant ID to the transaction Reference you are creating. This is compulsory as it will throw an error if you don't append it.</p> |
 
-{% endswagger-response %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 
-{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+
+```json
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "transaction_reference": "SBV6TWACBX-Fsdsd",
+        "response_description": "Transaction Success",
+        "currency_id": "NGN",
+        "amount": "9900",
+        "nip_transaction_reference": "110059240319135040572176148333",
+        "account_number": "0123456789",
+        "account_name": "WILLIAM UDOUSORO",
+        "destination_institution_name": "GTBank Plc"
+    }
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized No Authorization" %}
 ```
 {
     "success": false,
@@ -667,9 +667,9 @@ Please ensure that you append your merchant ID to the transaction Reference you 
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Keys" %}
+{% tab title="403: Forbidden Wrong/Invalid API Keys" %}
 ```
 {
     "success": false,
@@ -677,8 +677,8 @@ Please ensure that you append your merchant ID to the transaction Reference you 
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 
@@ -692,24 +692,20 @@ Please ensure that you append your merchant ID to the transaction Reference you 
 
 This API Allows you retrieve the details of all transfers you have done from your Squad Wallet using this transfer solution.
 
-{% swagger method="get" path="/payout/list" baseUrl="https://sandbox-api-d.squadco.com" summary="This API gets the details of all transfers you have done from your Squad Wallet " %}
-{% swagger-description %}
+## This API gets the details of all transfers you have done from your Squad Wallet&#x20;
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/payout/list`
 
-{% swagger-parameter in="query" name="page" type="Integer" %}
-Number of Pages
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="perPage" type="Integer" %}
-Number of records per page
-{% endswagger-parameter %}
+| Name    | Type    | Description                                                                                             |
+| ------- | ------- | ------------------------------------------------------------------------------------------------------- |
+| page    | Integer | Number of Pages                                                                                         |
+| perPage | Integer | Number of records per page                                                                              |
+| dir     | String  | Allows you sort the records in either ascending or descending order. It takes the value "ASC" or "DESC" |
 
-{% swagger-parameter in="query" name="dir" type="String" %}
-Allows you sort the records in either ascending or descending order. It takes the value "ASC" or "DESC"
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```
 {
     "status": 200,
@@ -796,9 +792,9 @@ Allows you sort the records in either ascending or descending order. It takes th
     ]
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+{% tab title="401: Unauthorized No Authorization" %}
 ```
 {
     "success": false,
@@ -806,9 +802,9 @@ Allows you sort the records in either ascending or descending order. It takes th
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Keys" %}
+{% tab title="403: Forbidden Wrong/Invalid API Keys" %}
 ```
 {
     "success": false,
@@ -816,8 +812,8 @@ Allows you sort the records in either ascending or descending order. It takes th
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Response: 200-ok
 

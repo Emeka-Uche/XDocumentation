@@ -29,19 +29,16 @@ Sending IP: 18.133.63.109
 
 To configure webhook notifications: go to <mark style="color:blue;">**dashboard > profile > Api & Webhooks.**</mark>
 
-{% swagger method="post" path="" baseUrl="" summary="The Webhook is a post request that is triggered whenever a transaction is successful" %}
-{% swagger-description %}
+## The Webhook is a post request that is triggered whenever a transaction is successful
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark>&#x20;
 
-{% swagger-parameter in="header" name="x-squad-encrypted-body" type="Hash" required="true" %}
-This is the encrypted payload which serves as a test of truth for all transactions. This should be compared against the body sent via the webhook by encrypting the body of data and comparing the value with this value
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="Content-type" type="JSON" required="true" %}
-application/json
-{% endswagger-parameter %}
-{% endswagger %}
+| Name                                                     | Type | Description                                                                                                                                                                                                              |
+| -------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| x-squad-encrypted-body<mark style="color:red;">\*</mark> | Hash | This is the encrypted payload which serves as a test of truth for all transactions. This should be compared against the body sent via the webhook by encrypting the body of data and comparing the value with this value |
+| Content-type<mark style="color:red;">\*</mark>           | JSON | application/json                                                                                                                                                                                                         |
 
 Sample POST request to be sent via webhook upon successful transaction
 

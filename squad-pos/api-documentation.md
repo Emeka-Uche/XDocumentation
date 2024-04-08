@@ -15,40 +15,33 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API allows you get all your SquadPOS transactions
 
-{% swagger method="get" path="/softpos/transactions?perPage&page" baseUrl="https://sandbox-api-d.squadco.com" summary="Allows you get all your Squad POS transactions" %}
-{% swagger-description %}
+## Allows you get all your Squad POS transactions
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/softpos/transactions?perPage&page`
 
-{% swagger-parameter in="query" name="perPage" type="Integer" required="true" %}
-Number of transactions per page
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="page" type="Integer" required="true" %}
-page number
-{% endswagger-parameter %}
+| Name                                      | Type    | Description                                                                                                                                         |
+| ----------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| perPage<mark style="color:red;">\*</mark> | Integer | Number of transactions per page                                                                                                                     |
+| page<mark style="color:red;">\*</mark>    | Integer | page number                                                                                                                                         |
+| date\_from                                | date    | <p>Format : YYYY-MM-DD <br>Start Date</p>                                                                                                           |
+| date\_to                                  | date    | <p>Format : YYYY-MM-DD <br>End Date</p>                                                                                                             |
+| sort\_by                                  | String  | Sorting Parameter. This can have a value of "createdAt"                                                                                             |
+| sort\_by\_dir                             | String  | <p>This arranges the transactions in ascending or descending order.<br>possible values are "ASC" - ascending order<br>"DESC" - descending order</p> |
 
-{% swagger-parameter in="query" name="date_from" type="date" %}
-Format : YYYY-MM-DD \
-Start Date
-{% endswagger-parameter %}
+{% tabs %}
+{% tab title="401: Unauthorized No API key" %}
+```javascript
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endtab %}
 
-{% swagger-parameter in="query" name="date_to" type="date" %}
-Format : YYYY-MM-DD \
-End Date
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="sort_by" type="String" %}
-Sorting Parameter. This can have a value of "createdAt"
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="sort_by_dir" type="String" %}
-This arranges the transactions in ascending or descending order.\
-possible values are "ASC" - ascending order\
-"DESC" - descending order
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tab title="200: OK Success" %}
 ```javascript
 {
     "status": 200,
@@ -157,19 +150,9 @@ possible values are "ASC" - ascending order\
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No API key" %}
-```javascript
-{
-    "success": false,
-    "message": "",
-    "data": {}
-}
-```
-{% endswagger-response %}
-
-{% swagger-response status="404: Not Found" description="Not Profiled for SquadPOS" %}
+{% tab title="404: Not Found Not Profiled for SquadPOS" %}
 ```javascript
 {
     "status": 404,
@@ -178,39 +161,32 @@ possible values are "ASC" - ascending order\
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Create Terminal
 
 This API allows yopu create multiple SquadPOS terminals which are associated to your squad account
 
-{% swagger method="post" path="/softpos/terminal" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/softpos/terminal`
 
-{% endswagger-description %}
+#### Headers
 
-{% swagger-parameter in="header" name="content-type" type="String" required="true" %}
-application/json
-{% endswagger-parameter %}
+| Name                                           | Type   | Description      |
+| ---------------------------------------------- | ------ | ---------------- |
+| content-type<mark style="color:red;">\*</mark> | String | application/json |
 
-{% swagger-parameter in="body" name="email" type="String" required="true" %}
-unique email to be associated to the terminal being created
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="name" type="String" required="true" %}
-Name to be associated to the terminal
-{% endswagger-parameter %}
+| Name                                           | Type    | Description                                                 |
+| ---------------------------------------------- | ------- | ----------------------------------------------------------- |
+| email<mark style="color:red;">\*</mark>        | String  | unique email to be associated to the terminal being created |
+| name<mark style="color:red;">\*</mark>         | String  | Name to be associated to the terminal                       |
+| phone<mark style="color:red;">\*</mark>        | String  | 11 digit phone number to be associated to the terminal      |
+| location\_id<mark style="color:red;">\*</mark> | Integer | unique ID that identifies a particular location             |
 
-{% swagger-parameter in="body" name="phone" type="String" required="true" %}
-11 digit phone number to be associated to the terminal
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="location_id" type="Integer" required="true" %}
-unique ID that identifies a particular location
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```javascript
 {
     "status": 200,
@@ -230,9 +206,9 @@ unique ID that identifies a particular location
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No API key" %}
+{% tab title="401: Unauthorized No API key" %}
 ```javascript
 {
     "success": false,
@@ -240,9 +216,9 @@ unique ID that identifies a particular location
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404: Not Found" description="Not Profiled for Squad POS" %}
+{% tab title="404: Not Found Not Profiled for Squad POS" %}
 ```javascript
 {
     "status": 404,
@@ -251,8 +227,8 @@ unique ID that identifies a particular location
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 
@@ -269,48 +245,23 @@ unique ID that identifies a particular location
 
 This API allows you see all  SquadPOS terminals created and associated to your account.
 
-{% swagger method="get" path="/softpos/terminals" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/softpos/terminals`
 
-{% endswagger-description %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="perPage" type="Integer" required="true" %}
-Number of results per page
-{% endswagger-parameter %}
+| Name                                      | Type    | Description                                                                                                                                         |
+| ----------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| location\_id                              | Integer | an ID that identifies a location                                                                                                                    |
+| page<mark style="color:red;">\*</mark>    | Integer | Page Number                                                                                                                                         |
+| perPage<mark style="color:red;">\*</mark> | Integer | Number of results per page                                                                                                                          |
+| sort\_by                                  | String  | Sorting Parameter. This can have a value of "createdAt"                                                                                             |
+| sort\_by\_dir                             | String  | <p>This arranges the transactions in ascending or descending order.<br>possible values are "ASC" - ascending order<br>"DESC" - descending order</p> |
+| date\_from                                | date    | <p>Format : YYYY-MM-DD <br>Start Date</p>                                                                                                           |
+| date\_to                                  | date    | <p>Format : YYYY-MM-DD <br>End Date</p>                                                                                                             |
+| active                                    | Boolean | It takes a value of "True" or "False"                                                                                                               |
 
-{% swagger-parameter in="query" name="page" type="Integer" required="true" %}
-Page Number
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="location_id" type="Integer" %}
-an ID that identifies a location
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="sort_by" type="String" %}
-Sorting Parameter. This can have a value of "createdAt"
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="sort_by_dir" type="String" %}
-This arranges the transactions in ascending or descending order.\
-possible values are "ASC" - ascending order\
-"DESC" - descending order
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="date_from" type="date" %}
-Format : YYYY-MM-DD \
-Start Date
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="date_to" type="date" %}
-Format : YYYY-MM-DD \
-End Date
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="active" type="Boolean" %}
-It takes a value of "True" or "False"
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```javascript
 {
     "status": 200,
@@ -407,9 +358,9 @@ It takes a value of "True" or "False"
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No API key" %}
+{% tab title="401: Unauthorized No API key" %}
 ```javascript
 {
     "success": false,
@@ -417,9 +368,9 @@ It takes a value of "True" or "False"
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="404: Not Found" description="Not Profiled" %}
+{% tab title="404: Not Found Not Profiled" %}
 ```javascript
 {
     "status": 404,
@@ -428,8 +379,8 @@ It takes a value of "True" or "False"
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### GO LIVE - Production
 

@@ -26,5 +26,7 @@
 ## VALUE ADDED SERVICES
 
 * [VALUE ADDED SERVICES (VAS)](value-added-services/value-added-services-vas.md)
-* [Page 1](value-added-services/page-1/README.md)
-  * [Page 2](value-added-services/page-1/page-2.md)
+* [SMS](value-added-services/sms/README.md)
+  * [BUCKET](value-added-services/sms/bucket.md)
+  * [TEMPLATES](value-added-services/sms/templates.md)
+  * [MESSAGES](value-added-services/sms/messages.md)

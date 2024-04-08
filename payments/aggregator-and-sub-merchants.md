@@ -24,32 +24,22 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API is used to create a sub-merchant, the sub-merchant will have its own ID and will automatically have its own view on the dashboard.
 
-{% swagger method="post" path="/merchant/create-sub-users" baseUrl="https://sandbox-api-d.squadco.com" summary="Create Sub-merchants (Aggregator)" %}
-{% swagger-description %}
+## Create Sub-merchants (Aggregator)
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/merchant/create-sub-users`
 
-{% swagger-parameter in="body" name="display_name" type="String" required="true" %}
-Name of sub-merchant
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="account_name" type="String" required="true" %}
-Sub-merchant's settlement bank account name
-{% endswagger-parameter %}
+| Name                                              | Type   | Description                                       |
+| ------------------------------------------------- | ------ | ------------------------------------------------- |
+| display\_name<mark style="color:red;">\*</mark>   | String | Name of sub-merchant                              |
+| account\_name<mark style="color:red;">\*</mark>   | String | Sub-merchant's settlement bank account name       |
+| bank\_code<mark style="color:red;">\*</mark>      | String | Sub-merchant's settlement bank code. e.g 058      |
+| account\_number<mark style="color:red;">\*</mark> | String | Sub-merchant's settlement account number          |
+| bank<mark style="color:red;">\*</mark>            | String | Name of sub-merchant's settlement bank e.g GTBank |
 
-{% swagger-parameter in="body" name="account_number" type="String" required="true" %}
-Sub-merchant's settlement account number
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="bank_code" type="String" required="true" %}
-Sub-merchant's settlement bank code. e.g 058
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="bank" type="String" required="true" %}
-Name of sub-merchant's settlement bank e.g GTBank
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```json
 {
     "status": 200,
@@ -60,9 +50,9 @@ Name of sub-merchant's settlement bank e.g GTBank
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Error in request payload" %}
+{% tab title="400: Bad Request Error in request payload" %}
 ```json
 {
     "status": 400,
@@ -71,9 +61,9 @@ Name of sub-merchant's settlement bank e.g GTBank
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+{% tab title="401: Unauthorized No Authorization" %}
 ```json
 {
     "success": false,
@@ -81,9 +71,9 @@ Name of sub-merchant's settlement bank e.g GTBank
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Keys" %}
+{% tab title="403: Forbidden Wrong/Invalid API Keys" %}
 ```json
 {
     "success": false,
@@ -91,7 +81,7 @@ Name of sub-merchant's settlement bank e.g GTBank
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ##

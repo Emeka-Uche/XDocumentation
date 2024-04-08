@@ -28,21 +28,19 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API allows you vend airtime. Minimum amount that can be vended is 50 naira.
 
-{% swagger method="post" path="/vending/purchase/airtime" baseUrl="https://sandbox-api-d.squadco.com" summary="This API vends Airtime" %}
-{% swagger-description %}
+## This API vends Airtime
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/vending/purchase/airtime`
 
-{% swagger-parameter in="body" name="phone_number" type="String" required="true" %}
-11 digit phone number.\
-Format: : "08139011943"
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-Amount is in Naira.
-{% endswagger-parameter %}
+| Name                                            | Type    | Description                                              |
+| ----------------------------------------------- | ------- | -------------------------------------------------------- |
+| phone\_number<mark style="color:red;">\*</mark> | String  | <p>11 digit phone number.<br>Format: : "08139011943"</p> |
+| amount<mark style="color:red;">\*</mark>        | Integer | Amount is in Naira.                                      |
 
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 {&#x20;
 
 &#x20;   "status": 200,&#x20;
@@ -80,9 +78,9 @@ Amount is in Naira.
 &#x20;   }&#x20;
 
 }&#x20;
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No authorization" %}
+{% tab title="401: Unauthorized No authorization" %}
 ```
 {
     "success": false,
@@ -90,9 +88,9 @@ Amount is in Naira.
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Invalid/Wrong API Keys" %}
+{% tab title="403: Forbidden Invalid/Wrong API Keys" %}
 ```
 {
     "success": false,
@@ -100,8 +98,8 @@ Amount is in Naira.
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 
@@ -117,21 +115,39 @@ Amount is in Naira.
 
 This API allows you vend data bundles.
 
-{% swagger method="post" path="/vending/purchase/data" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/vending/purchase/data`
+
 This is the data bundle vending endpoint.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="phone_number" type="String" required="true" %}
-11 digit phone number.\
-Format: : "08139011943"
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name=" plan_code" type="String" required="true" %}
-The plan code is gotten from the Get Plan Code endpoint and usually in the format: "1001"
-{% endswagger-parameter %}
+| Name                                            | Type   | Description                                                                               |
+| ----------------------------------------------- | ------ | ----------------------------------------------------------------------------------------- |
+| phone\_number<mark style="color:red;">\*</mark> | String | <p>11 digit phone number.<br>Format: : "08139011943"</p>                                  |
+|  plan\_code<mark style="color:red;">\*</mark>   | String | The plan code is gotten from the Get Plan Code endpoint and usually in the format: "1001" |
 
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="403: Forbidden Invalid / Wrong Keys" %}
+```
+{
+    "success": false,
+    "message": "Merchant authentication failed",
+    "data": {}
+}
+```
+{% endtab %}
+
+{% tab title="401: Unauthorized No authorization keys" %}
+```
+{
+    "success": false,
+    "message": "",
+    "data": {}
+}
+```
+{% endtab %}
+
+{% tab title="200: OK Success" %}
 ```
 { 
     "status": 200, 
@@ -153,28 +169,8 @@ The plan code is gotten from the Get Plan Code endpoint and usually in the forma
     } 
 } 
 ```
-{% endswagger-response %}
-
-{% swagger-response status="401: Unauthorized" description="No authorization keys" %}
-```
-{
-    "success": false,
-    "message": "",
-    "data": {}
-}
-```
-{% endswagger-response %}
-
-{% swagger-response status="403: Forbidden" description="Invalid / Wrong Keys" %}
-```
-{
-    "success": false,
-    "message": "Merchant authentication failed",
-    "data": {}
-}
-```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 
@@ -192,16 +188,18 @@ The plan code is gotten from the Get Plan Code endpoint and usually in the forma
 
 This API returns all available data bundle plans for all telcos
 
-{% swagger method="get" path="/vending/data-bundles?network=MTN" baseUrl="https://sandbox-api-d.squadco.com" summary="This API returns all available data bundle plans for all telcos" %}
-{% swagger-description %}
+## This API returns all available data bundle plans for all telcos
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/vending/data-bundles?network=MTN`
 
-{% swagger-parameter in="query" name="network" type="String" required="true" %}
-Teleco ID: MTN, GLO, AIRTEL, 9MOBILE
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200: OK" description="Success" %}
+| Name                                      | Type   | Description                          |
+| ----------------------------------------- | ------ | ------------------------------------ |
+| network<mark style="color:red;">\*</mark> | String | Teleco ID: MTN, GLO, AIRTEL, 9MOBILE |
+
+{% tabs %}
+{% tab title="200: OK Success" %}
 {&#x20;
 
 &#x20;   "status": 200,&#x20;
@@ -305,9 +303,9 @@ Teleco ID: MTN, GLO, AIRTEL, 9MOBILE
 &#x20;   ]&#x20;
 
 }&#x20;
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No Authorization" %}
+{% tab title="401: Unauthorized No Authorization" %}
 ```
 {
     "success": false,
@@ -315,9 +313,9 @@ Teleco ID: MTN, GLO, AIRTEL, 9MOBILE
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Invalid / Wrong Key" %}
+{% tab title="403: Forbidden Invalid / Wrong Key" %}
 ```
 {
     "success": false,
@@ -325,8 +323,8 @@ Teleco ID: MTN, GLO, AIRTEL, 9MOBILE
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## GET ALL TRANSACTIONS
 
@@ -334,24 +332,20 @@ This API returns all transactions done by a merchant.
 
 
 
-{% swagger method="get" path="/vending/transactions?page=1&perPage=4&action=debit" baseUrl="https://api-d.squadco.com" summary="This API returns all transactions done by a merchant." %}
-{% swagger-description %}
+## This API returns all transactions done by a merchant.
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://api-d.squadco.com/vending/transactions?page=1&perPage=4&action=debit`
 
-{% swagger-parameter in="query" name="page" type="integer" %}
-The page of the transaction you want to view
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="perPage" type="Integer" %}
-Number of transaction you want to view per page
-{% endswagger-parameter %}
+| Name    | Type    | Description                                      |
+| ------- | ------- | ------------------------------------------------ |
+| page    | integer | The page of the transaction you want to view     |
+| perPage | Integer | Number of transaction you want to view per page  |
+| action  | string  | The type of transaction you want to see: "debit" |
 
-{% swagger-parameter in="query" name="action" type="string" %}
-The type of transaction you want to see: "debit"
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 {&#x20;
 
 &#x20;   "status": 200,&#x20;
@@ -483,9 +477,9 @@ The type of transaction you want to see: "debit"
 &#x20;   }&#x20;
 
 }&#x20;
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="" %}
+{% tab title="401: Unauthorized " %}
 ```
 {
     "success": false,
@@ -493,9 +487,9 @@ The type of transaction you want to see: "debit"
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="" %}
+{% tab title="403: Forbidden " %}
 ```
 {
     "success": false,
@@ -503,8 +497,8 @@ The type of transaction you want to see: "debit"
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## GO LIVE
 

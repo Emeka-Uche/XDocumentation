@@ -25,65 +25,34 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 
 
-{% swagger method="post" path="/transaction/initiate" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/transaction/initiate`
+
 This endpoint returns a checkout URL that when visited calls up the modal with the various payment channel.
-{% endswagger-description %}
 
-{% swagger-parameter in="body" name="email" type="String" required="true" %}
-Customer's email address.
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).  10000 = 100NGN for Naira Transactions
-{% endswagger-parameter %}
+| Name                                            | Type   | Description                                                                                  |
+| ----------------------------------------------- | ------ | -------------------------------------------------------------------------------------------- |
+| Authorization<mark style="color:red;">\*</mark> | String | API keys (Secret Key) that authorizes your transactions and gotten from your squad dashboard |
 
-{% swagger-parameter in="body" name="initiate_type" type="String" required="true" %}
-This states the method by which the transaction is initiated. At the moment, this can only take the value "inline".
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="currency" type="String" required="true" %}
-\
-The currency you want the amount to be charged in. Allowed value is either **`NGN or USD`**.
-{% endswagger-parameter %}
+| Name                                             | Type    | Description                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| email<mark style="color:red;">\*</mark>          | String  | Customer's email address.                                                                                                                                                                                                                                                                                                   |
+| amount<mark style="color:red;">\*</mark>         | Integer | The amount you are debiting customer (expressed in the lowest currency value - **`kobo`**& **`cent`**).  10000 = 100NGN for Naira Transactions                                                                                                                                                                              |
+| currency<mark style="color:red;">\*</mark>       | String  | <p><br>The currency you want the amount to be charged in. Allowed value is either <strong><code>NGN or USD</code></strong>.</p>                                                                                                                                                                                             |
+| customer\_name                                   | String  | Name of Customer carrying out the transaction                                                                                                                                                                                                                                                                               |
+| initiate\_type<mark style="color:red;">\*</mark> | String  | This states the method by which the transaction is initiated. At the moment, this can only take the value "inline".                                                                                                                                                                                                         |
+| transaction\_ref                                 | String  | An alphanumeric string that uniquely identifies a transaction                                                                                                                                                                                                                                                               |
+| callback\_url                                    | String  | Sample: http://squadco.com                                                                                                                                                                                                                                                                                                  |
+| payment\_channels                                | Array   | An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , **`'ussd'`**,**`'transfer'`**]                                                                                                             |
+| metadata                                         | Object  | Object that contains any additional information that you want to record with the transaction. The `custom fields in the object` will be returned via webhook and the payment verification endpoint.                                                                                                                         |
+| pass\_charge                                     | Boolean | <p>It takes two possible values: True or False.<br>It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).<br>But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.</p> |
+| sub\_merchant\_id                                | String  | <p>This is the ID of a merchant that was created by an aggregator which allows the aggregator initiate a transaction on behalf of the submerchant.<br>This parameter is an optional field that is passed only by a registered aggregator.<br></p>                                                                           |
 
-{% swagger-parameter in="body" name="transaction_ref" type="String" %}
-An alphanumeric string that uniquely identifies a transaction
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="customer_name" type="String" required="false" %}
-Name of Customer carrying out the transaction
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="callback_url" type="String" %}
-Sample: http://squadco.com
-{% endswagger-parameter %}
-
-{% swagger-parameter in="header" name="Authorization" type="String" required="true" %}
-API keys (Secret Key) that authorizes your transactions and gotten from your squad dashboard
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="payment_channels" type="Array" %}
-An array of payment channels to control what channels you want to make available for the user to make a payment with. Available channels include; \[**`'card'`**, **`'bank'`** , **`'ussd'`**,**`'transfer'`**]
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="metadata" type="Object" %}
-Object that contains any additional information that you want to record with the transaction. The `custom fields in the object` will be returned via webhook and the payment verification endpoint.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="pass_charge" type="Boolean" %}
-It takes two possible values: True or False.\
-It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).\
-But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="sub_merchant_id" type="String" %}
-This is the ID of a merchant that was created by an aggregator which allows the aggregator initiate a transaction on behalf of the submerchant.\
-This parameter is an optional field that is passed only by a registered aggregator.\
-
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Successful" %}
+{% tabs %}
+{% tab title="200: OK Successful" %}
 ```javascript
 {
     "status": 200,
@@ -120,9 +89,9 @@ This parameter is an optional field that is passed only by a registered aggregat
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Invalid/No Authorization Key" %}
+{% tab title="401: Unauthorized Invalid/No Authorization Key" %}
 ```javascript
 {
     "status": 401,
@@ -130,9 +99,9 @@ This parameter is an optional field that is passed only by a registered aggregat
     "data": null
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Bad Request" %}
+{% tab title="400: Bad Request Bad Request" %}
 ```javascript
 {
     "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
@@ -146,8 +115,8 @@ This parameter is an optional field that is passed only by a registered aggregat
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Sample Request
 
@@ -210,24 +179,18 @@ To tokenize a card, just add a flag to the initiate payload when calling the ini
 
 This allows you to charge a card using the token generated during the initial transaction which was sent via webhook
 
-{% swagger method="post" path="/transaction/charge_card" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/transaction/charge_card`
 
-{% endswagger-description %}
+#### Request Body
 
-{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-Amount to charge from card in the lowest currency value. kobo for NGN transactions or cent for USD transactions
-{% endswagger-parameter %}
+| Name                                        | Type    | Description                                                                                                                     |
+| ------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| amount<mark style="color:red;">\*</mark>    | Integer | Amount to charge from card in the lowest currency value. kobo for NGN transactions or cent for USD transactions                 |
+| token\_id<mark style="color:red;">\*</mark> | String  | A unique tokenization code for each card transaction and it is returned via the webhook for first charge on the card.           |
+| transaction\_ref                            | String  | Unique case-sensitive transaction reference. If you do not pass this parameter, Squad will generate a unique reference for you. |
 
-{% swagger-parameter in="body" name="token_id" type="String" required="true" %}
-A unique tokenization code for each card transaction and it is returned via the webhook for first charge on the card.
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="transaction_ref" type="String" %}
-Unique case-sensitive transaction reference. If you do not pass this parameter, Squad will generate a unique reference for you.
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```javascript
 {
     "status": 200,
@@ -250,9 +213,9 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Bad Request" %}
+{% tab title="400: Bad Request Bad Request" %}
 ```javascript
 {
     "status": 400,
@@ -261,8 +224,8 @@ Unique case-sensitive transaction reference. If you do not pass this parameter, 
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 
@@ -278,40 +241,22 @@ This endpoint allows you to query all transactions and filter using multiple par
 
 N.B: The date parameters are compulsory and should be a maximum of one month gap
 
-{% swagger method="get" path="/transaction" baseUrl="https://sandbox-api-d.squadco.com" summary="" %}
-{% swagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/transaction`
 
-{% endswagger-description %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="currency" type="string" %}
-transacting currency
-{% endswagger-parameter %}
+| Name                                          | Type    | Description                                      |
+| --------------------------------------------- | ------- | ------------------------------------------------ |
+| currency                                      | string  | transacting currency                             |
+| amount                                        | integer | transaction amount                               |
+| perPage                                       | integer | number of transactions to be displayed in a page |
+| page                                          | integer | shows which page you are on                      |
+| end\_date<mark style="color:red;">\*</mark>   | date    | end date of transactions                         |
+| start\_date<mark style="color:red;">\*</mark> | date    | start date of transaction                        |
+| reference                                     | string  | transaction ref of a transaction                 |
 
-{% swagger-parameter required="true" in="query" name="start_date" type="date" %}
-start date of transaction
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="end_date" type="date" required="true" %}
-end date of transactions
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="page" type="integer" %}
-shows which page you are on
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="perPage" type="integer" %}
-number of transactions to be displayed in a page
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="amount" type="integer" %}
-transaction amount
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="reference" type="string" %}
-transaction ref of a transaction
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ````javascript
 "status": 200,
     "success": true,
@@ -361,8 +306,8 @@ transaction ref of a transaction
         }
 ```
 ````
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 
 

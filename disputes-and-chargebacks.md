@@ -35,68 +35,64 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 This API is used to get all disputes on your transactions raised by your customers.
 
-{% swagger method="get" path="/dispute" baseUrl="https://sandbox-api-d.squadco.com" summary="All you need to do is  make a get request with your private/secret key" %}
-{% swagger-description %}
+## All you need to do is  make a get request with your private/secret key
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/dispute`
 
-{% swagger-response status="200: OK" description="Success" %}
+{% tabs %}
+{% tab title="200: OK Success" %}
 ```javascript
 {
     // Response
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No API key" %}
+{% tab title="401: Unauthorized No API key" %}
 ```javascript
 {
     // Response
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Get Upload URL
 
 This API is used to get a unique URL to upload an evidence(file) which is a proof or reason to reject a dispute. This is only necessary when we want to reject a dispute.
 
-{% swagger method="get" path="/dispute/upload-url/:ticket_id/:file_name" baseUrl="https://sandbox-api-d.squadco.com" summary="All you need to do is  make a get request with your private/secret key" %}
-{% swagger-description %}
+## All you need to do is  make a get request with your private/secret key
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/dispute/upload-url/:ticket_id/:file_name`
 
-{% swagger-parameter in="path" name="ticket_id" type="String" required="true" %}
+#### Path Parameters
 
-{% endswagger-parameter %}
-
-{% swagger-parameter in="path" name="file_name" type="String" required="true" %}
-
-{% endswagger-parameter %}
-{% endswagger %}
+| Name                                         | Type   | Description |
+| -------------------------------------------- | ------ | ----------- |
+| ticket\_id<mark style="color:red;">\*</mark> | String |             |
+| file\_name<mark style="color:red;">\*</mark> | String |             |
 
 ## Resolve Disputes
 
 This API is used to resolve a dispute by either accepting or rejecting it.\
 
 
-{% swagger method="get" path="/dispute/:ticked_id/resolve" baseUrl="https://sandbox-api-d.squadco.com" summary="This API is used to resolve a dispute by either accepting or rejecting it. " %}
-{% swagger-description %}
+## This API is used to resolve a dispute by either accepting or rejecting it.&#x20;
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/dispute/:ticked_id/resolve`
 
-{% swagger-parameter in="body" name="action" type="String" required="true" %}
-This is the action you want to be taken on the raised dispute. The value of this action can be either "rejected" or "accepted"
-{% endswagger-parameter %}
+#### Path Parameters
 
-{% swagger-parameter in="path" name="ticket_id" type="String" required="true" %}
-A unique ID that identifies the dispute you want to reject or accept
-{% endswagger-parameter %}
+| Name                                         | Type   | Description                                                          |
+| -------------------------------------------- | ------ | -------------------------------------------------------------------- |
+| ticket\_id<mark style="color:red;">\*</mark> | String | A unique ID that identifies the dispute you want to reject or accept |
 
-{% swagger-parameter in="body" name="file_name" type="String" %}
-The name of the file uploaded 
-{% endswagger-parameter %}
-{% endswagger %}
+#### Request Body
+
+| Name                                     | Type   | Description                                                                                                                    |
+| ---------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| file\_name                               | String | The name of the file uploaded                                                                                                  |
+| action<mark style="color:red;">\*</mark> | String | This is the action you want to be taken on the raised dispute. The value of this action can be either "rejected" or "accepted" |
 
 ### GO LIVE - Production
 

@@ -18,18 +18,18 @@ description: >-
 **Example:**\
 Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-{% swagger method="get" path="/merchant/balance" baseUrl="https://sandbox-api-d.squadco.com" summary="This endpoint allows you get your Squad Wallet Balance. Amount is in KOBO." %}
-{% swagger-description %}
+## This endpoint allows you get your Squad Wallet Balance. Amount is in KOBO.
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/merchant/balance`
 
-{% swagger-parameter in="query" name="currency_id" type="String" required="true" %}
-It only takes the value "NGN".\
-(Please note that you can't get wallet balance for Dollar transactions)\
+#### Query Parameters
 
-{% endswagger-parameter %}
+| Name                                           | Type   | Description                                                                                                          |
+| ---------------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| currency\_id<mark style="color:red;">\*</mark> | String | <p>It only takes the value "NGN".<br>(Please note that you can't get wallet balance for Dollar transactions)<br></p> |
 
-{% swagger-response status="200: OK" description="Successful" %}
+{% tabs %}
+{% tab title="200: OK Successful" %}
 ```
 {
     "status": 200,
@@ -42,9 +42,9 @@ It only takes the value "NGN".\
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No Authoirzation" %}
+{% tab title="401: Unauthorized No Authoirzation" %}
 ```
 {
     "success": false,
@@ -52,9 +52,9 @@ It only takes the value "NGN".\
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Wrong/Invalid API Key" %}
+{% tab title="403: Forbidden Wrong/Invalid API Key" %}
 ```
 
 {
@@ -63,6 +63,6 @@ It only takes the value "NGN".\
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 

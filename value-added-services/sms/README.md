@@ -80,31 +80,11 @@ const encrypt = (text, keyString, ivString) => {
 
 {% tab title="PHP" %}
 ```
-<?php
- 
 function encrypt($text, $keyString, $ivString) {
     $cipher = "aes-256-cbc";
     $encrypted = openssl_encrypt($text, $cipher, $keyString, OPENSSL_RAW_DATA, $ivString);
     return base64_encode($encrypted);
 }
- 
-function generateSecret($clientId, $userId, $currentDate, $key, $iv) {
-    $stringToSign = "$clientId $userId $currentDate";
-    return encrypt($stringToSign, $key, $iv);
-}
- 
-$clientId = //input your client_id;
-$userId = //input your user_id;
-$currentDate = date("Y-m-d");
- 
-$key = //"Input your key";
-$iv = //"Input your IV";
- 
-$secret = generateSecret($clientId, $userId, $currentDate, $key, $iv);
- 
-echo "Generated Secret: " . $secret;
- 
-?>
 ```
 {% endtab %}
 {% endtabs %}

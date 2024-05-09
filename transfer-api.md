@@ -524,6 +524,10 @@ Code	Bank_name
 }
 ```
 
+{% hint style="info" %}
+Be sure to use a real account number as this service does a live lookup even on the sandbox environment
+{% endhint %}
+
 ### Sample Response
 
 ```

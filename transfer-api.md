@@ -570,7 +570,7 @@ These are the various error codes that you might get on the transfer API and the
 
 <mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/payout/transfer`
 
-This is for movement of funds from Squad Wallet to any bank account (GTB at the moment)
+This is for the movement of funds from Squad Dashboard to any bank account
 
 #### Request Body
 

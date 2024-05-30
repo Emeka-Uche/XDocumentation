@@ -584,9 +584,43 @@ This is for the movement of funds from Squad Dashboard to any bank account
 | currency\_id<mark style="color:red;">\*</mark>           | String | Takes only the value "NGN"                                                                                                                                                                                                                  |
 | remark<mark style="color:red;">\*</mark>                 | String | A unique remark that will be sent with the transfer.                                                                                                                                                                                        |
 
+### Sample Request
+
+```postman_json
+{
+    "remark": "tEST013",
+    "bank_code":"000013",
+    "currency_id": "NGN",
+    "amount": "10000",
+    "account_number":"0736196549",
+    "transaction_reference": "P7SJ3KM9_samplepayment101",
+    "account_name":"WILLIAM UDOUSORO"
+}
+```
+
+## Sample Response
+
 {% tabs %}
 {% tab title="200: OK Success" %}
 
+
+```json
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "transaction_reference": "P7SJ3KM9_samplepayment101",
+        "response_description": "Approved or completed successfully",
+        "currency_id": "NGN",
+        "amount": "10000",
+        "nip_transaction_reference": "110059240530090548383689968929",
+        "account_number": "0736196549",
+        "account_name": "WILLIAM UDOUSORO",
+        "destination_institution_name": "GTBank Plc"
+    }
+}
+```
 {% endtab %}
 
 {% tab title="401: Unauthorized No Authorization" %}
@@ -608,21 +642,20 @@ This is for the movement of funds from Squad Dashboard to any bank account
 }
 ```
 {% endtab %}
-{% endtabs %}
 
-### Sample Request
+{% tab title="400: Insufficient balance " %}
 
-```postman_json
+
+```json
 {
-    "remark": "for test transfer to my customer",
-    "bank_code":"000013",
-    "currency_id": "NGN",
-    "amount": "100",
-    "account_number":"0123456789",
-    "transaction_reference":"SBABCKDY_12345",
-    "account_name":"BOLUS PAUL"
+    "status": 400,
+    "success": false,
+    "message": "Insufficient balance",
+    "data": {}
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Re-query Transfer
 

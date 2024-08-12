@@ -457,6 +457,7 @@ Code	Bank_name
 090615  	 Beststar MFB 
 090616  	 Rayyan MFB 
 090603  	 Macrod MFB 
+090634           Cashbridge Microfinance Bank
 090620  	 Iyin Ekiti MFB 
 090611  	 Creditville MFB 
 090623  	 MAB Allianz MFB 

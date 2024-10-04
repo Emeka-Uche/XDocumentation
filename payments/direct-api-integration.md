@@ -54,11 +54,11 @@ This endpoint allows you to initiate the direct debit of a GTBank account by pas
 
 ```
 {
- // "transaction_reference": "test001",
+  "transaction_reference": "test001",
   "amount": 51800,
   "pass_charge": false,
   "currency": "NGN",
-  //"webhook_url": "string",
+  "webhook_url": "www.sampleurl.com",
   "bank": {
     "bank_code": "058",
     "account_or_phoneno": "08146663666"
@@ -240,11 +240,11 @@ The bank code provided is what should be populated in the bank\_code parameter.
 
 ```
 {
-  //"transaction_reference": "testussd",
+  "transaction_reference": "testussd",
   "amount": 56800,
   "pass_charge": false,
   "currency": "NGN",
-  //"webhook_url": "string",
+  "webhook_url": "www.sampleurl.com",
   "ussd": {
     "bank_code": "058"
   },

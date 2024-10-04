@@ -3,6 +3,7 @@
 * [Home](README.md)
 * [Payments](payments/README.md)
   * [Initiate Payment](payments/initiate-payment.md)
+  * [Direct API Integration](payments/direct-api-integration.md)
   * [Squad Payment Modal](payments/accept-payments.md)
   * [Verify Transaction](payments/accept-payments-1.md)
   * [Aggregator and Sub-merchants](payments/aggregator-and-sub-merchants.md)

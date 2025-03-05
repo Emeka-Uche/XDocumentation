@@ -18,7 +18,7 @@ With this, you are able to initiate transactions from a central point for all bu
 {% endhint %}
 
 **Example:**\
-Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 ## Create Sub-merchants.
 

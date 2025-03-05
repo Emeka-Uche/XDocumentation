@@ -21,7 +21,7 @@ If using other services such as dynamic virtual accounts, do not use the same tr
 {% endhint %}
 
 **Example:**\
-Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 
 
@@ -148,7 +148,7 @@ For recurring Payments test on Sandbox, ensure to use the test card: 52000000000
 {% endhint %}
 
 **Example:**\
-Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 
 

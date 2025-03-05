@@ -31,18 +31,22 @@ Transaction status can either be Success, Failed, Abandoned or Pending
 {% endhint %}
 
 **Example:**\
-Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-{% swagger method="get" path="verify/{{transaction_ref}}" baseUrl="https://sandbox-api-d.squadco.com/transaction/" summary="This verifies a transaction" %}
-{% swagger-description %}
+## This verifies a transaction
+
+<mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/transaction/verify/{{transaction_ref}}`
+
 To verify the validity of a transaction, kindly query the endpoint above by replacing \{{transaction\_ref\}} with the unique transaction\_ref of the transaction you want to _verify_
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="transaction_ref" type="String" required="true" %}
-Unique transaction reference that identifies each transaction
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200: OK" description="Valid Transaction Reference" %}
+| Name                                               | Type   | Description                                                   |
+| -------------------------------------------------- | ------ | ------------------------------------------------------------- |
+| transaction\_ref<mark style="color:red;">\*</mark> | String | Unique transaction reference that identifies each transaction |
+
+{% tabs %}
+{% tab title="200: OK Valid Transaction Reference" %}
 Sample Response for Successful Transaction
 
 ```
@@ -94,9 +98,9 @@ Sample Response for Failed Transaction
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Invalid Transaction Reference" %}
+{% tab title="400: Bad Request Invalid Transaction Reference" %}
 ```javascript
 {
     "status": 400,
@@ -105,9 +109,9 @@ Sample Response for Failed Transaction
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Unauthorized Request" %}
+{% tab title="401: Unauthorized Unauthorized Request" %}
 ```javascript
 //sending a request without an authorization key
 {
@@ -116,9 +120,9 @@ Sample Response for Failed Transaction
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="403: Forbidden" description="Invalid API Key" %}
+{% tab title="403: Forbidden Invalid API Key" %}
 ```javascript
 //sending a request with an Invalid key
 {
@@ -127,8 +131,8 @@ Sample Response for Failed Transaction
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ## Go Live
 

@@ -12,36 +12,24 @@ This API is used to initiate refund process on a successful transaction.\
 {% endhint %}
 
 **Example:**\
-Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-{% swagger method="post" path="/transaction/refund" baseUrl="https://sandbox-api-d.squadco.com" summary="This endpoint refunds an already completed transactions" %}
-{% swagger-description %}
+## This endpoint refunds an already completed transactions
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/transaction/refund`
 
-{% swagger-parameter in="body" name="gateway_transaction_ref" required="true" type="String" %}
-Unique reference that uniquely identifies the medium of payment and can be obtained from  the webhook notification sent to you.
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="transaction_ref" type="String" required="true" %}
-unique reference that identifies a transaction.\
-&#x20;Can be obtained from the dashboard or the webhook notification sent to you
-{% endswagger-parameter %}
+| Name                                                        | Type   | Description                                                                                                                           |
+| ----------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| gateway\_transaction\_ref<mark style="color:red;">\*</mark> | String | Unique reference that uniquely identifies the medium of payment and can be obtained from  the webhook notification sent to you.       |
+| transaction\_ref<mark style="color:red;">\*</mark>          | String | <p>unique reference that identifies a transaction.<br> Can be obtained from the dashboard or the webhook notification sent to you</p> |
+| refund\_type<mark style="color:red;">\*</mark>              | String | The value of this parameter is either "Full" or "Partial"                                                                             |
+| reason\_for\_refund<mark style="color:red;">\*</mark>       | String | Reason for initiating the refund                                                                                                      |
+| refund\_amount                                              | String | <p>Refund amount is in kobo or cent.<br>This is only required for "Partial" refunds</p>                                               |
 
-{% swagger-parameter in="body" name="refund_type" type="String" required="true" %}
-The value of this parameter is either "Full" or "Partial"
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="reason_for_refund" type="String" required="true" %}
-Reason for initiating the refund
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="refund_amount" type="String" %}
-Refund amount is in kobo or cent.\
-This is only required for "Partial" refunds
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Successful" %}
+{% tabs %}
+{% tab title="200: OK Successful" %}
 
 
 ```
@@ -56,9 +44,9 @@ This is only required for "Partial" refunds
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="No API Key" %}
+{% tab title="401: Unauthorized No API Key" %}
 ```javascript
 {
     "success": false,
@@ -66,8 +54,8 @@ This is only required for "Partial" refunds
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Sample Request
 

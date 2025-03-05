@@ -26,8 +26,11 @@
 
 ## VALUE ADDED SERVICES
 
-* [VALUE ADDED SERVICES (VAS)](value-added-services/value-added-services-vas.md)
+* [AIRTIME AND DATA](value-added-services/airtime-and-data.md)
 * [SMS](value-added-services/sms/README.md)
   * [BUCKET](value-added-services/sms/bucket.md)
   * [TEMPLATES](value-added-services/sms/templates.md)
   * [MESSAGES](value-added-services/sms/messages.md)
+* [Utilities](value-added-services/utilities/README.md)
+  * [Cable Subscription](value-added-services/utilities/cable-subscription.md)
+  * [Electricity Subscription](value-added-services/utilities/electricity-subscription.md)

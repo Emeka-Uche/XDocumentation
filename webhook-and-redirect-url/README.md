@@ -8,7 +8,7 @@ This can be set up on your Squad Dashboard by specifying a URL we would send POS
 
 To process notifications, you need to:
 
-Paste your redirect and**`Callback/Webhook URL`** in the space provided on your dashboard by following the steps below:
+Paste your redirect an&#x64;**`Callback/Webhook URL`** in the space provided on your dashboard by following the steps below:
 
 * Login to your Squad dashboard.&#x20;
 * Go to Profile > API & Webhook.

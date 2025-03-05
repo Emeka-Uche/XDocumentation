@@ -12,7 +12,7 @@ This API is used to create a simple payment link. All calls to this end point is
 {% endhint %}
 
 **Example:**\
-Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
+Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 ### Sample Request
 
@@ -37,49 +37,26 @@ Authorization**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f1040
 
 #### Creating a Payment Link
 
-{% swagger method="post" path="/payment_link/otp" baseUrl="https://sandbox-api-d.squadco.com" summary="This API creates a Simple Payment Link" %}
-{% swagger-description %}
+## This API creates a Simple Payment Link
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://sandbox-api-d.squadco.com/payment_link/otp`
 
-{% swagger-parameter in="body" name="name" type="String" required="true" %}
-Title/Name of the Payment Link
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="hash" required="true" type="String" %}
-Unique string that identifies each payment Link (cannot exceed 255 characters)
-{% endswagger-parameter %}
+| Name                                           | Type    | Description                                                                                                                   |
+| ---------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| name<mark style="color:red;">\*</mark>         | String  | Title/Name of the Payment Link                                                                                                |
+| hash<mark style="color:red;">\*</mark>         | String  | Unique string that identifies each payment Link (cannot exceed 255 characters)                                                |
+| link\_status<mark style="color:red;">\*</mark> | Integer | <p>Value can be 0 or 1. <br>1 - Active, 0 - Inactive</p>                                                                      |
+| expire\_by<mark style="color:red;">\*</mark>   | String  | sample: 2021-04-26T11:22:08.587Z                                                                                              |
+| amount<mark style="color:red;">\*</mark>       | Integer | Amount must be in the lowest currency. (kobo for Naira transactions and cent for Dollar transaction) i.e 40000 = 400NGN       |
+| currency\_id<mark style="color:red;">\*</mark> | String  | USD or NGN (USD - US Dollars & NGN - Nigerian Naira)                                                                          |
+| description<mark style="color:red;">\*</mark>  | String  | This describes what the payment link does                                                                                     |
+| redirect\_link                                 | String  | URL to be redirected to after payment. When this is not provided, the default redirect URL set on your dashboard will be used |
+| return\_msg                                    | String  | Message to be displayed to the customer after payment via the link                                                            |
 
-{% swagger-parameter in="body" name="link_status" type="Integer" required="true" %}
-Value can be 0 or 1. \
-1 - Active, 0 - Inactive
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="expire_by" type="String" required="true" %}
-sample: 2021-04-26T11:22:08.587Z
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="amount" type="Integer" required="true" %}
-Amount must be in the lowest currency. (kobo for Naira transactions and cent for Dollar transaction) i.e 40000 = 400NGN
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="currency_id" required="true" type="String" %}
-USD or NGN (USD - US Dollars & NGN - Nigerian Naira)
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="description" required="true" type="String" %}
-This describes what the payment link does
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="redirect_link" type="String" %}
-URL to be redirected to after payment. When this is not provided, the default redirect URL set on your dashboard will be used
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="return_msg" type="String" %}
-Message to be displayed to the customer after payment via the link
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="Successful" %}
+{% tabs %}
+{% tab title="200: OK Successful" %}
 ```javascript
 {
     "status": 200,
@@ -116,9 +93,9 @@ Message to be displayed to the customer after payment via the link
     }
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="400: Bad Request" description="Bad Request" %}
+{% tab title="400: Bad Request Bad Request" %}
 ```javascript
 {
     "status": 400,
@@ -127,9 +104,9 @@ Message to be displayed to the customer after payment via the link
     "data": {}
 }
 ```
-{% endswagger-response %}
+{% endtab %}
 
-{% swagger-response status="401: Unauthorized" description="Unauthorized" %}
+{% tab title="401: Unauthorized Unauthorized" %}
 ```javascript
 {
     "success": false,
@@ -137,8 +114,8 @@ Message to be displayed to the customer after payment via the link
     "data": {}
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 ### Generating the Link
 

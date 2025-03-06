@@ -121,13 +121,17 @@ This API allows you to subscribe to a bouquet.
 
 <mark style="color:green;">`POST`</mark> `https:{{base_url}}`/v1/service/cable/vend
 
+{% hint style="info" %}
+Before vending, you must have first called the Account lookup endpoint, and pass the reference generated as your reference in order to vend
+{% endhint %}
+
 ### Request Body
 
 | Name                                            | Type   | Description                              |
 | ----------------------------------------------- | ------ | ---------------------------------------- |
 | provider<mark style="color:red;">\*</mark>      | String | Name of Cable Provider (e.g, GoTV, DSTV) |
-| reference<mark style="color:red;">\*</mark>     | String | Reference from account lookup            |
-| boquet\_code                                    | String | Provider's boquet package                |
+| reference<mark style="color:red;">\*</mark>     | String | Reference retrived from account lookup   |
+| boquet\_code<mark style="color:red;">\*</mark>  | String | Provider's boquet package                |
 | phone\_number<mark style="color:red;">\*</mark> | String | Phone number of the user                 |
 | email<mark style="color:red;">\*</mark>         | String | Email address of the user                |
 
@@ -136,7 +140,7 @@ This API allows you to subscribe to a bouquet.
 ```
 {
     "provider": "GOTV",
-    "reference": "{{utilities_reference}}",
+    "reference": "MLTCHC-250228dd3bccb250f3ed1b",
     "bouquet_code": "GOTVMAX",
     "phone_number": "08061234567",
     "email": "cable@squadco.com"
@@ -179,6 +183,20 @@ This API allows you to subscribe to a bouquet.
     "data": {}
 }
 ```
+
+
+{% endtab %}
+
+{% tab title="Unauthorized" %}
+````
+{
+    "status": 401,
+    "success": false,
+    "message": "Authorization failed",
+    "data": {}
+}
+```
+````
 
 
 {% endtab %}

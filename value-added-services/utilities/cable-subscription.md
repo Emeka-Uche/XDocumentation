@@ -4,8 +4,6 @@ description: These Suit of APIs allow you vend cable subscriptions
 
 # Cable Subscription
 
-
-
 ## BOUQUET LIST
 
 This API allows you to retrieve the bouquet list of a cable provider
@@ -79,15 +77,13 @@ This API allows you to look up the smartcard number of a provider before vending
 | --------------------------------------------------- | ------ | ---------------------------------------- |
 | provider<mark style="color:red;">\*</mark>          | String | Name of Cable Provider (e.g, GoTV, DSTV) |
 | smartcard\_number<mark style="color:red;">\*</mark> | String | The smartcard number of the decoder      |
-| boquet\_code                                        | String | Provider's boquet package                |
 
 ### Sample Request
 
 ```
 {
     "provider": "GOTV",
-    "smartcard_number": "4135391280",
-    "bouquet_code": "GOTVMAX"
+    "smartcard_number": "4135391280"
 }
 
 ```

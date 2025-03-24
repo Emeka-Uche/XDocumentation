@@ -51,6 +51,21 @@ This endpoint returns a checkout URL that when visited calls up the modal with t
 | pass\_charge                                     | Boolean | <p>It takes two possible values: True or False.<br>It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).<br>But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.</p> |
 | sub\_merchant\_id                                | String  | <p>This is the ID of a merchant that was created by an aggregator which allows the aggregator initiate a transaction on behalf of the submerchant.<br>This parameter is an optional field that is passed only by a registered aggregator.<br></p>                                                                           |
 
+## Sample Request
+
+```
+{
+    "amount":43000,
+    "email":"henimastic@gmail.com",
+    "currency":"NGN",
+    "initiate_type": "inline",
+    "transaction_ref":"4678388588350909090AH",
+    "callback_url":"http://squadco.com"
+}
+```
+
+## Sample Response
+
 {% tabs %}
 {% tab title="200: OK Successful" %}
 ```javascript
@@ -117,19 +132,6 @@ This endpoint returns a checkout URL that when visited calls up the modal with t
 ```
 {% endtab %}
 {% endtabs %}
-
-## Sample Request
-
-```
-{
-    "amount":43000,
-    "email":"henimastic@gmail.com",
-    "currency":"NGN",
-    "initiate_type": "inline",
-    "transaction_ref":"4678388588350909090AH",
-    "callback_url":"http://squadco.com"
-}
-```
 
 ## Recurring Payment (Charge Authorization on Card)
 

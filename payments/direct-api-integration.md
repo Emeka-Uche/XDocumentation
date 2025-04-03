@@ -27,7 +27,7 @@ Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93
 
 <mark style="color:green;">`POST`</mark> [https://sandbox-api-squadco.com/transaction/initiate/process-payment](https://sandbox-api-squadco.com/transaction/initiate/process-payment)
 
-This endpoint allows you to initiate the direct debit of a GTBank account by passing the account number. After initiating the request using this endpoint you are then to call the validate endpoint to complete the transaction.
+This endpoint allows you to initiate the direct debit of a GTBank account by passing the account number. After initiating the request using this endpoint, you are then to call the validate endpoint to complete the transaction.
 
 #### Headers
 
@@ -202,11 +202,53 @@ If **ValidateOTP** is returned, then an OTP will be sent to the phone number lin
 
 ## DIRECT USSD Transactions
 
-<mark style="color:green;">`POST`</mark> [ https://sandbox-api-squadco.com/transaction/initiate/process-payment](https://sandbox-api-squadco.com/transaction/initiate/process-payment)
+These suites of APIs allow you to make use of the USSD endpoints to directly access USSD codes.
 
-This API allows you to directly process USSD transactions, with the same param details as direct bank payment.
+## Bank USSD List
 
-#### USSD SUPPORTED BANKS AND BANK CODES
+<mark style="color:green;">`GET`</mark>  [https://sandbox-api-d.squadco.com/transaction/ussd/banklist](https://sandbox-api-d.squadco.com/transaction/ussd/banklist)
+
+This API allows you to retrieve the list of all USSD-supported banks along with their bank codes
+
+#### Response
+
+```json
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": [
+        {
+            "label": "Access (Diamond)",
+            "bank_code": "063"
+        },
+        {
+            "label": "Access",
+            "bank_code": "044"
+        },
+        {
+            "label": "Fidelity Bank",
+            "bank_code": "070"
+        },
+        {
+            "label": "First Bank",
+            "bank_code": "011"
+        },
+        {
+            "label": "Globus Bank",
+            "bank_code": "00103"
+        },
+        {
+            "label": "Guaranty Trust Bank",
+            "bank_code": "058"
+        },
+       
+        
+    ]
+}
+```
+
+#### USSD-SUPPORTED BANKS AND BANK CODES
 
 | BANK                    | BANK CODE |
 | ----------------------- | --------- |
@@ -235,6 +277,12 @@ This API allows you to directly process USSD transactions, with the same param d
 | Kuda MFB                | 50211     |
 
 The bank code provided is what should be populated in the bank\_code parameter.
+
+### USSD INITIATE
+
+<mark style="color:green;">`POST`</mark> [ https://sandbox-api-squadco.com/transaction/initiate/process-payment](https://sandbox-api-squadco.com/transaction/initiate/process-payment)
+
+This API allows you to directly process USSD transactions directly with the same parameter details as direct bank payments.
 
 ### Sample Request
 
@@ -287,7 +335,30 @@ The bank code provided is what should be populated in the bank\_code parameter.
 
 
 
+### QUERY USSD Transaction
 
+<mark style="color:green;">`GET`</mark> [https://sandbox-api-d.squadco.com/transaction/verify/ussd/](https://sandbox-api-d.squadco.com/transaction/verify/ussd/weu2)\{{transaction\_ref\}}
+
+This endpoint allows you requery a USSD transaction for testing purposes in the sandbox environment
+
+### Sampe response
+
+```json
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "amount": 10000,
+        "transaction_ref": "test001",
+        "currency": "NGN",
+        "transaction_type": "Ussd",
+        "gateway_ref": "test001",
+        "message": "success",
+        "transaction_status": "Success"
+    }
+}
+```
 
 ## Go Live
 

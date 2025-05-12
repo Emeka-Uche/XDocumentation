@@ -10,7 +10,7 @@ description: >-
 
 This endpoint allows you to curate and send messages.
 
-<mark style="color:green;">`POST`</mark> https://squadbygtco.com:8080/dashboard/message
+<mark style="color:green;">`POST`</mark> https://squadbygtco.com:8080/service/message
 
 #### Request Body
 
@@ -42,6 +42,14 @@ This endpoint allows you to curate and send messages.
 {% tabs %}
 {% tab title="Success Response" %}
 ```
+{
+    "status": "SUCCESS",
+    "message": "messages sent successfully",
+    "data": {
+        "sent": 1,
+        "batch_id": "40FACAF358EA"
+    }
+}
 ```
 {% endtab %}
 
@@ -95,7 +103,7 @@ This endpoint allows you to retrieve all campaigns
 
 This endpoint allows you retrieve the campaign messages themselves.
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/message/campaign/messages/by-campaign/1?page=1\&count=10
+<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/service/message/campaign/messages/by-campaign/1?page=1\&count=10
 
 
 
@@ -126,7 +134,7 @@ This endpoint allows you retrieve the campaign messages themselves.
 
 This endpoint allows you to retrieve statistics for all sent campaigns
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/message/statistics/by-client/1?page=1\&count=10
+<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/service/message/statistics/by-client/1?page=1\&count=10
 
 {% tabs %}
 {% tab title="Sample Response" %}
@@ -156,7 +164,7 @@ This endpoint allows you to retrieve statistics for all sent campaigns
 
 This endpoint allows you to retrieve statistics for a single campaign
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/message/statistics/by-campaign/2?page=1\&count=10
+<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/service/message/statistics/by-campaign/2?page=1\&count=10
 
 
 
@@ -184,7 +192,7 @@ This endpoint allows you to retrieve statistics for a single campaign
 
 This endpoint allows you to retrieve messages using a phone number
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/message/by-phone/0701234?page=1\&count=20
+<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/service/message/by-phone/0701234?page=1\&count=20
 
 
 
@@ -211,11 +219,66 @@ This endpoint allows you to retrieve messages using a phone number
 {% endtab %}
 {% endtabs %}
 
+#### GET MESSAGE STATUS BY BATCH\_ID
+
+This endpoint allows you to retrieve the status of a single message using the batch\_id
+
+<mark style="color:green;">`GET`</mark> [https://squadbygtco.com:8080/service/message/by-params?batch\_id=61AF806F8AE8](https://squadbygtco.com:8080/service/message/by-params?batch_id=61AF806F8AE8)
+
+{% tabs %}
+{% tab title="Response" %}
+```
+{
+    "status": "SUCCESS",
+    "message": "messages retrieved successfully",
+    "data": {
+        "items": [
+            {
+                "status": "submitted",
+                "id": 7900221,
+                "transaction_id": "8_9405c9d2-2411-42af-8ec7-88ffbc70ea61_0",
+                "phonenumber": "08132448598",
+                "message": "Testing for retrieveal for Elizabeth and Anthony",
+                "sender_id": "HabariPay",
+                "network": null,
+                "charge": "4",
+                "created_at": "2025-05-08T10:25:57.000Z",
+                "sent_timestamp": null,
+                "dlr_timestamp": null,
+                "pages": 1,
+                "message_type": "direct"
+            }
+        ],
+        "pageInfo": {
+            "hasNextPage": false,
+            "nextCursor": null,
+            "prevCursor": null
+        }
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Error Response" %}
+
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+The Status response can be any of the following:\
+Submitted: Request Received\
+Pending: Request submitted to Telco
+
+Delivered: Customer has received sms
+
+Delivery Failed: Telco attempted to send sms but failed
+{% endhint %}
+
 **GET HOURLY STATISTICS**
 
 This endpoint allows you to get statistics by the hour of sent campaigns
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/message.summary/hourly-statistics/by-client/2?date=2024-03-12
+<mark style="color:green;">`GET`</mark> [https://squadbygtco.com:8080/service/message.summary/hourly-statistics/by-client/2?date=2024-03-12](https://squadbygtco.com:8080/service/message/by-params?batch_id=61AF806F8AE8)
 
 {% tabs %}
 {% tab title="Sample Response" %}

@@ -237,6 +237,22 @@ This allows you to charge a card using the token generated during the initial tr
 }
 </code></pre>
 
+## Cancel Card Tokenisation
+
+This endpoint allows you to cancel a card which was previously tokenised. To cancel recurring payments, simply pass the auth ID received in the cancel card tokenisation endpoint.
+
+<mark style="color:green;">`PATCH`</mark> `https://sandbox-api-d.squadco.com/transaction/cancel/recurring`
+
+### Sample Request
+
+```
+{
+  "auth_code": [
+    "AUTH_SlYtufQzy_452037"
+  ]
+}
+```
+
 ## Query All Transactions
 
 This endpoint allows you to query all transactions and filter using multiple parameters like transaction ref, start and end dates, amount, etc

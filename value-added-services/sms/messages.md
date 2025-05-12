@@ -65,7 +65,7 @@ This endpoint allows you to curate and send messages.
 
 This endpoint allows you to retrieve all campaigns
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/template/by-client/2?page=1\&count=10
+<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/service/template/by-client/2?page=1\&count=10
 
 
 

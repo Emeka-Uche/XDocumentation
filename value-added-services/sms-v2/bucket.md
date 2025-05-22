@@ -14,11 +14,11 @@ This endpoint allows you to create a bucket which contains all the phone numbers
 
 #### Request Body
 
-| Name                                          | Type   | Description           |
-| --------------------------------------------- | ------ | --------------------- |
-| name<mark style="color:red;">\*</mark>        | String | Name of the bucket    |
-| description<mark style="color:red;">\*</mark> | String | Description of bucket |
-| file\_name<mark style="color:red;">\*</mark>  | String | name of file          |
+| Name                                          | Type   | Description                                 |
+| --------------------------------------------- | ------ | ------------------------------------------- |
+| name<mark style="color:red;">\*</mark>        | String | Name of the bucket                          |
+| description<mark style="color:red;">\*</mark> | String | Description of bucket                       |
+| file\_name<mark style="color:red;">\*</mark>  | String | name of file (should have a .csv extension) |
 
 > Once a request is successfully sent a file path (signed\_url) is provided in the response message, you are to follow the link on a browser and upload a csv file containing the list of phone numbers
 
@@ -28,7 +28,7 @@ This endpoint allows you to create a bucket which contains all the phone numbers
 {
   "name": "file1234",
   "description": "baa baa black sheep",
-  "file_name": "teest"
+  "file_name": "teest.csv"
 }
 
 ```

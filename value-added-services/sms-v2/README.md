@@ -11,14 +11,8 @@ description: >-
 
 1. Create an account on our sandbox environment: sandbox.squadco.com
 2. Retrieve keys from the API & Webhook Section inside Merchant Settings
-3. Pass the Secret Key gotten as a Bearer Token to authorize requests
+3. Pass the Secret Key obtained as a Bearer Token to authorize requests
 
 {% hint style="info" %}
 **Example:**  Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 {% endhint %}
-
-{% hint style="info" %}
-&#x20;**Secret** s
-{% endhint %}
-
-**CODE SNIPPETS FOR ENCRYPTING SECRET**

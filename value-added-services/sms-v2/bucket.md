@@ -10,60 +10,51 @@ description: >-
 
 This endpoint allows you to create a bucket which contains all the phone numbers to be reached via sms.
 
-<mark style="color:green;">`POST`</mark> https://squadbygtco.com:8080/dashboard/bucket
+<mark style="color:green;">`POST`</mark> https://sandbox-api-d.squadco.com/sms/bucket
 
 #### Request Body
 
-| Name                                          | Type    | Description                     |
-| --------------------------------------------- | ------- | ------------------------------- |
-| name<mark style="color:red;">\*</mark>        | String  | Name of the bucket              |
-| description<mark style="color:red;">\*</mark> | String  | Description of bucket           |
-| Client\_id<mark style="color:red;">\*</mark>  | Integer | Unique Client ID pre-assigned   |
-| items<mark style="color:red;">\*</mark>       | Object  | Phone number and detail of each |
+| Name                                          | Type      | Description                               |
+| --------------------------------------------- | --------- | ----------------------------------------- |
+| name<mark style="color:red;">\*</mark>        | String    | Name of the bucket                        |
+| description<mark style="color:red;">\*</mark> | String    | Description of bucket                     |
+| file\_name<mark style="color:red;">\*</mark>  | file path | path from which csv file will be uploaded |
 
 #### Sample Request
 
 ```
 {
-  "name": "nov2022",
-    "description": "November birthdays",
-    "client_id": 1,
-    "items": [
-        {
-            "phone_number": "0701234",
-            "param1": "012"
-        },
-        {
-            "phone_number": "0701234",
-            "param1": "012"
-        }
-    ]
-
+  "name": "file1234",
+  "description": "baa baa black sheep",
+  "file_name": "teest.csv"
 }
+
 ```
 
 {% tabs %}
 {% tab title="Success Response" %}
 ```
 {
-    "status": "CREATED",
-    "message": "bucket created successfully",
+    "status": 200,
+    "success": true,
+    "message": "Success",
     "data": {
-        "id": 2,
-        "name": "nov2022",
-        "description": "november birthdays",
-        "params": [
-            "phone_number",
-            "param1"
-        ],
-        "client_id": 1,
-        "created_at": "2024-04-08T11:55:08.000Z",
-        "created_by": 1,
-        "updated_at": null,
-        "updated_by": null,
-        "bucket_items": 2
+        "uuid": "ec571a9a-0c78-4d98-9956-1e5ede72d344",
+        "status": "pending",
+        "name": "file1234",
+        "description": "baa baa black sheep",
+        "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+        "updatedAt": "2025-05-22T09:34:58.800Z",
+        "createdAt": "2025-05-22T09:34:58.800Z",
+        "size": null,
+        "file_url": null,
+        "estimated_cost": null,
+        "headers": null,
+        "meta": null,
+        "signed_url": "https://s3.eu-west-2.amazonaws.com/squadinc.co-gateway-mobile-app-service-dev/bulk_sms/AABBCCDDEEFFGGHHJJKK/campaign/ec571a9a-0c78-4d98-9956-1e5ede72d344/teest.csv/1747906498860-523754.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYPHEQVFJHOQDZNU6%2F20250522%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250522T093458Z&X-Amz-Expires=300&X-Amz-Signature=1f1f0017519941522352b1e8496d41b7641d7a8dd800cc3948afaf8850f86e79&X-Amz-SignedHeaders=host%3Bx-amz-acl&x-amz-acl=public-read"
     }
 }
+
 ```
 {% endtab %}
 
@@ -79,7 +70,7 @@ This endpoint allows you to create a bucket which contains all the phone numbers
 
 This endpoint allows you to retrieve created buckets
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/bucket/by-client/1?page=1\&count=10
+<mark style="color:green;">`GET`</mark> https://sandbox-api-d.squadco.com/sms/bucket
 
 
 
@@ -87,83 +78,44 @@ This endpoint allows you to retrieve created buckets
 {% tab title="Success Response" %}
 ```
 {
-    "message": "success",
+    "status": 200,
+    "success": true,
+    "message": "Success",
     "data": {
-        "items": [
+        "count": 2,
+        "rows": [
             {
-                "id": 1,
-                "name": "nov2022",
-                "description": "november birthdays",
-                "params": [
-                    "phone_number",
-                    "param1"
-                ],
-                "client_id": 1,
-                "created_at": "2024-02-29T11:22:51.000Z",
-                "created_by": 8,
-                "updated_at": null,
-                "updated_by": null
+                "uuid": "ec571a9a-0c78-4d98-9956-1e5ede72d344",
+                "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+                "name": "file1234",
+                "description": "baa baa black sheep",
+                "size": null,
+                "file_url": null,
+                "estimated_cost": null,
+                "headers": null,
+                "status": "pending",
+                "meta": null,
+                "createdAt": "2025-05-22T09:34:58.800Z",
+                "updatedAt": "2025-05-22T09:34:58.800Z"
             },
             {
-                "id": 2,
-                "name": "nov2022",
-                "description": "november birthdays",
-                "params": [
-                    "phone_number",
-                    "param1"
-                ],
-                "client_id": 1,
-                "created_at": "2024-04-08T11:55:08.000Z",
-                "created_by": 1,
-                "updated_at": null,
-                "updated_by": null
+                "uuid": "0f704e13-7b52-4ceb-a3ee-a1a253d14d97",
+                "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+                "name": "file123",
+                "description": "baa baa black sheep",
+                "size": null,
+                "file_url": null,
+                "estimated_cost": null,
+                "headers": null,
+                "status": "pending",
+                "meta": null,
+                "createdAt": "2025-05-21T16:03:17.357Z",
+                "updatedAt": "2025-05-21T16:03:17.357Z"
             }
-        ],
-        "total": 2
+        ]
     }
 }
-```
-{% endtab %}
 
-{% tab title="Error Response" %}
-
-{% endtab %}
-{% endtabs %}
-
-#### UPDATE CREATED BUCKETS
-
-This endpoint allows you to edit details for already created buckets. It allows editing the name of the bucket
-
-<mark style="color:green;">`PATCH`</mark> https://squadbygtco.com:8080/dashboard/bucket/1
-
-#### Sample Request
-
-```
-{
-  "name":"nov2023_bucket"
-}
-```
-
-{% tabs %}
-{% tab title="Sample Response" %}
-```
-{
-    "message": "success",
-    "data": {
-        "id": 1,
-        "name": "nov2023_bucket",
-        "description": "november birthdays",
-        "params": [
-            "phone_number",
-            "param1"
-        ],
-        "client_id": 1,
-        "created_at": "2024-02-29T11:22:51.000Z",
-        "created_by": 8,
-        "updated_at": "2024-04-08T12:47:21.000Z",
-        "updated_by": 1
-    }
-}
 ```
 {% endtab %}
 
@@ -176,14 +128,33 @@ This endpoint allows you to edit details for already created buckets. It allows 
 
 This endpoint allows you to delete a bucket
 
-<mark style="color:green;">`DELETE`</mark> https://squadbygtco.com:8080/dashboard/bucket/1
+<mark style="color:green;">`DELETE`</mark> https://sandbox-api-d.squadco.com//sms/bucket/\{{:id\}}
 
-
+{% hint style="info" %}
+id is a String
+{% endhint %}
 
 **Sample Response**
 
 ```
 {
-    "message": "success"
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "uuid": "907f7702-6bd3-4667-b8ad-3b041cb3e217",
+        "merchant_id": "development_sk_sample-secret-key-1",
+        "name": "file123",
+        "description": "baa baa black sheep",
+        "size": null,
+        "file_url": null,
+        "estimated_cost": null,
+        "headers": null,
+        "status": "pending",
+        "meta": null,
+        "createdAt": "2025-05-22T09:04:46.576Z",
+        "updatedAt": "2025-05-22T09:04:46.576Z"
+    }
 }
+
 ```

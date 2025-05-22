@@ -1,7 +1,7 @@
 ---
 description: >-
-  A Template is a pre defined message format which can be called over and again,
-  without requiring to rewrite again.
+  A Template is a pre defined message format which can be called over and over
+  again, without requiring to rewrite again.
 ---
 
 # TEMPLATES
@@ -10,25 +10,23 @@ description: >-
 
 This endpoint allows you to create a template&#x20;
 
-<mark style="color:green;">`POST`</mark> https://squadbygtco.com:8080/dashboard/template
+<mark style="color:green;">`POST`</mark> https://sandbox-api-d.squadco.com/sms/template
 
 #### Request Body
 
-| Name                                          | Type    | Description                                   |
-| --------------------------------------------- | ------- | --------------------------------------------- |
-| name<mark style="color:red;">\*</mark>        | String  | Name of the template                          |
-| body<mark style="color:red;">\*</mark>        | String  | Actualt template form to be used continiously |
-| Client\_id<mark style="color:red;">\*</mark>  | Integer | Unique Client ID pre-assigned                 |
-| description<mark style="color:red;">\*</mark> | String  | Description of template                       |
+| Name                                          | Type   | Description               |
+| --------------------------------------------- | ------ | ------------------------- |
+| name<mark style="color:red;">\*</mark>        | String | Name of the template      |
+| description<mark style="color:red;">\*</mark> | String | Description of template   |
+| message<mark style="color:red;">\*</mark>     | String | Message format to be sent |
 
 #### Sample Request
 
 ```
 {
-    "name": "CHDP_C",
-    "body": "Txn: Credit\nAc:#$TXN_ACC$#\nAmt:#$AMOUNT$#\nDes:Cash Dep/_BRC_/#$OFS_ACC$#/#$TRANSACTION_ID$#\nDate:#$TXN_DATE$#\nBal#$CCY$##$AVAIL_BAL$#\n#$sms_advert#",
-    "client_id": 2,
-    "description":"CASH DEPOSIT CREDITING"
+    "name": "First template",
+    "description": "Used for new user onboarding",
+    "message": "Welcome to our platform!"
 }
 ```
 
@@ -36,35 +34,38 @@ This endpoint allows you to create a template&#x20;
 {% tab title="Success Response" %}
 ```
 {
-    "status": "CREATED",
-    "message": "template created successfully",
+    "status": 200,
+    "success": true,
+    "message": "Success",
     "data": {
-        "id": 5,
-        "name": "CHDP_C",
-        "description": "CASH DEPOSIT CREDITING",
-        "client_id": 2,
-        "created_at": "2024-04-08T13:02:44.000Z",
-        "created_by": 1,
-        "updated_at": null,
-        "updated_by": null
+        "uuid": "5b9840d0-2382-4289-a4da-d7ecf3270d98",
+        "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+        "name": "First template",
+        "description": "Used for new user onboarding",
+        "pages": 1,
+        "message": "Welcome to our platform!",
+        "createdAt": "2025-05-22T10:08:03.733Z",
+        "updatedAt": "2025-05-22T10:08:03.733Z"
     }
 }
 ```
 {% endtab %}
-
-{% tab title="Error Response" %}
-
-{% endtab %}
 {% endtabs %}
 
-```
-```
+#### GET TEMPLATES
 
-#### GET ALL CREATED TEMPLATES
+This endpoint allows you to retrieve created templates
 
-This endpoint allows you to retrieve all created templates
+<mark style="color:green;">`GET`</mark> https://sandbox-api-d.squadco.com/sms/template
 
-<mark style="color:green;">`GET`</mark> https://squadbygtco.com:8080/dashboard/template/by-client/2?page=1\&count=10
+| Query Params | Type    | Description                          |
+| ------------ | ------- | ------------------------------------ |
+| perPage      | Integer | number of templates to view per page |
+| page         | Integer | number of pages to view              |
+| sort\_by     | String  | Sorted by creation date              |
+| dir          | String  | DSC/ASC                              |
+| date\_from   | date    | beginning date                       |
+| date\_to     | date    | ending                               |
 
 
 
@@ -72,118 +73,46 @@ This endpoint allows you to retrieve all created templates
 {% tab title="Success Response" %}
 ```
 {
-    "status": "SUCCESS",
-    "message": "templates retrieved successfully",
+    "status": 200,
+    "success": true,
+    "message": "Success",
     "data": {
-        "items": [
+        "count": 1,
+        "rows": [
             {
-                "id": 2,
-                "name": "FTRQ_D",
-                "body": "Txn: Debit\nAc:#$TXN_ACC$#\nAmt:#$AMOUNT$#\nDes:AAC/Debit/Funds Transfer/#$TRANSACTION_ID$#\nDate:#$TXN_DATE$#\nBal:#$AVAIL_BAL$#\n#$sms_advert$#",
-                "description": "FUNDS TRANSFER DEBIT",
-                "client_id": 2,
-                "params": [
-                    "phone_number",
-                    "TXN_ACC",
-                    "AMOUNT",
-                    "TRANSACTION_ID",
-                    "TXN_DATE",
-                    "AVAIL_BAL",
-                    "sms_advert"
-                ],
-                "created_at": "2024-03-20T20:28:53.000Z",
-                "created_by": 10,
-                "updated_at": "2024-03-26T06:48:22.000Z",
-                "updated_by": 10
-            },
-            {
-                "id": 3,
-                "name": "FTRQ_C",
-                "body": "Credit\nAc:#$OFS_ACC$#\nAmt:#$CCY$##$AMOUNT$#\nDes:AAC/Credit/Funds Transfer/#$TRANSACTION_ID$#\nDate:#$TXN_DATE$#\nBal:#$CCY$##$AVAIL_BAL$#\n#$sms_advert$#",
-                "description": "FUNDS TRANSFER CREDIT",
-                "client_id": 2,
-                "params": [
-                    "phone_number",
-                    "OFS_ACC",
-                    "CCY",
-                    "AMOUNT",
-                    "TRANSACTION_ID",
-                    "TXN_DATE",
-                    "CCY",
-                    "AVAIL_BAL",
-                    "sms_advert"
-                ],
-                "created_at": "2024-03-20T20:31:37.000Z",
-                "created_by": 10,
-                "updated_at": "2024-03-26T06:53:23.000Z",
-                "updated_by": 10
-            },
-            {
-                "id": 4,
-                "name": "CHDP_C",
-                "body": "Txn: Credit\nAc:#$TXN_ACC$#\nAmt:#$AMOUNT$#\nDes:Cash Dep/_BRC_/#$OFS_ACC$#/#$TRANSACTION_ID$#\nDate:#$TXN_DATE$#\nBal#$CCY$##$AVAIL_BAL$#\n#$sms_advert$#",
-                "description": "CASH DEPOSIT CREDIT",
-                "client_id": 2,
-                "params": [
-                    "phone_number",
-                    "TXN_ACC",
-                    "AMOUNT",
-                    "OFS_ACC",
-                    "TRANSACTION_ID",
-                    "TXN_DATE",
-                    "CCY",
-                    "AVAIL_BAL",
-                    "sms_advert"
-                ],
-                "created_at": "2024-03-20T20:39:02.000Z",
-                "created_by": 10,
-                "updated_at": "2024-03-26T06:53:09.000Z",
-                "updated_by": 10
-            },
-            {
-                "id": 5,
-                "name": "CHDP_C",
-                "body": "Txn: Credit\nAc:#$TXN_ACC$#\nAmt:#$AMOUNT$#\nDes:Cash Dep/_BRC_/#$OFS_ACC$#/#$TRANSACTION_ID$#\nDate:#$TXN_DATE$#\nBal#$CCY$##$AVAIL_BAL$#\n#$sms_advert#",
-                "description": "CASH DEPOSIT CREDITING",
-                "client_id": 2,
-                "params": [
-                    "phone_number",
-                    "TXN_ACC",
-                    "AMOUNT",
-                    "OFS_ACC",
-                    "TRANSACTION_ID",
-                    "TXN_DATE",
-                    "CCY",
-                    "AVAIL_BAL"
-                ],
-                "created_at": "2024-04-08T13:02:44.000Z",
-                "created_by": 1,
-                "updated_at": null,
-                "updated_by": null
+                "uuid": "a3795ac3-8252-4ce0-aa6c-def776570455",
+                "merchant_id": "EAZMC2DZ",
+                "name": "Test_002",
+                "description": "Test template",
+                "pages": 1,
+                "message": "Hi, Get a life",
+                "createdAt": "2025-05-16T14:19:44.380Z",
+                "updatedAt": "2025-05-16T14:19:44.380Z"
             }
-        ],
-        "total": 4
+        ]
     }
 }
 ```
 {% endtab %}
-
-{% tab title="Error Response" %}
-
-{% endtab %}
 {% endtabs %}
 
-#### UPDATE CREATED TEMPLATES
+#### EDIT CREATED TEMPLATES
 
 This endpoint allows you to edit the body of a template.
 
-<mark style="color:green;">`PATCH`</mark> https://squadbygtco.com:8080/dashboard/template/3
+<mark style="color:green;">`PATCH`</mark> https://sandbox-api-d.squadco.com/sms/template/:id
+
+{% hint style="info" %}
+id is a String
+{% endhint %}
 
 #### Sample Request
 
 ```
 {
-    "body": "Credit\nAc:#$OFS_ACC$#\nAmt:#$CCY$##$AMOUNT$#\nDes:AAC/Credit/Funds Transfer/#$TRANSACTION_ID$#\nDate:#$TXN_DATE$#\nBal:#$CCY$##$AVAIL_BAL$#\n#$sms_advert$#"
+  "name": "file123",
+  "description": "baa baa black sheep",
+  "file_name": "test.csv"
 }
 ```
 
@@ -191,24 +120,22 @@ This endpoint allows you to edit the body of a template.
 {% tab title="Sample Response" %}
 ```
 {
-    "status": "SUCCESS",
-    "message": "template updated successfully",
+    "status": 200,
+    "success": true,
+    "message": "Success",
     "data": {
-        "id": 3,
-        "name": "FTRQ_C",
-        "description": "FUNDS TRANSFER CREDIT",
-        "client_id": 2,
-        "created_at": "2024-03-20T20:31:37.000Z",
-        "created_by": 10,
-        "updated_at": "2024-04-08T13:08:32.000Z",
-        "updated_by": 1
+        "uuid": "edb720f0-6162-46f2-aafe-c52962bd56f8",
+        "merchant_id": "development_sk_sample-secret-key-1",
+        "name": "Updated Template",
+        "description": "Updated description here",
+        "pages": 1,
+        "message": "This is an updated message.",
+        "createdAt": "2025-05-22T09:11:48.562Z",
+        "updatedAt": "2025-05-22T09:13:40.273Z"
     }
 }
+
 ```
-{% endtab %}
-
-{% tab title="Error Response" %}
-
 {% endtab %}
 {% endtabs %}
 
@@ -216,14 +143,29 @@ This endpoint allows you to edit the body of a template.
 
 This endpoint allows you to delete a template
 
-<mark style="color:green;">`DELETE`</mark> https://squadbygtco.com:8080/dashboard/bucket/1
+<mark style="color:green;">`DELETE`</mark> https://sandbox-api-d.squadco.com/sms/template/\{{:id\}}
 
-
+{% hint style="info" %}
+id is a String
+{% endhint %}
 
 **Sample Response**
 
 ```
 {
-    "message": "success"
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "uuid": "edb720f0-6162-46f2-aafe-c52962bd56f8",
+        "merchant_id": "EAZMC2DZ",
+        "name": "Updated Template",
+        "description": "Updated description here",
+        "pages": 1,
+        "message": "This is an updated message.",
+        "createdAt": "2025-05-22T09:11:48.562Z",
+        "updatedAt": "2025-05-22T09:13:40.273Z"
+    }
 }
+
 ```

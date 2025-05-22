@@ -34,7 +34,7 @@
 * [SMS V2](value-added-services/sms-v2/README.md)
   * [BUCKET](value-added-services/sms-v2/bucket.md)
   * [TEMPLATES](value-added-services/sms-v2/templates.md)
-  * [MESSAGES](value-added-services/sms-v2/messages.md)
+  * [CAMPAIGNS](value-added-services/sms-v2/campaigns.md)
 * [Utilities](value-added-services/utilities/README.md)
   * [Cable Subscription](value-added-services/utilities/cable-subscription.md)
   * [Electricity Subscription](value-added-services/utilities/electricity-subscription.md)

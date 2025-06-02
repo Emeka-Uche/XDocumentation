@@ -26,6 +26,7 @@
 
 ## VALUE ADDED SERVICES
 
+* [Overview](value-added-services/overview.md)
 * [AIRTIME AND DATA](value-added-services/airtime-and-data.md)
 * [SMS](value-added-services/sms/README.md)
   * [BUCKET](value-added-services/sms/bucket.md)

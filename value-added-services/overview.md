@@ -1,0 +1,5 @@
+# Overview
+
+**Value Added Services (VAS)** refer to a suite of API based services which can be integrated into any platform, enhancing user experience and expanding merchant offerings beyond core payment functionalities. These services include **airtime top-up** for all mobile networks, **data bundle purchases**, **SMS services** for both transactional and bulk messaging, and **utility bill payments** covering electricity and cable TV. VAS APIs are designed to be secure, reliable, and easy to integrate, allowing businesses to deliver essential services directly to end users through web, mobile, or backend systems.
+
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td>Airtime &#x26; Data</td><td><a href="airtime-and-data.md">airtime-and-data.md</a></td></tr><tr><td>SMS</td><td><a href="sms-v2/">sms-v2</a></td></tr><tr><td>Utilities</td><td><a href="utilities/electricity-subscription.md">electricity-subscription.md</a></td></tr></tbody></table>

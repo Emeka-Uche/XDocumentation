@@ -17,7 +17,7 @@ Create an account on our sandbox environment: sandbox.squadco.com
 {% endhint %}
 
 {% hint style="info" %}
-Retrieve keys from the bottom of the Get Started Page
+Retrieve keys from Merchant Settings in your dashboard
 {% endhint %}
 
 

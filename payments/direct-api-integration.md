@@ -1,7 +1,7 @@
 ---
 description: >-
-  This suite of APIs allows you to directly initiate BANK and USSD transactions
-  without using the Squad Modal.
+  This suite of APIs allows you to directly initiate CARD, BANK and USSD
+  transactions without using the Squad Modal.
 ---
 
 # Direct API Integration
@@ -22,6 +22,168 @@ If using other services such as dynamic virtual accounts, do not use the same tr
 Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
 ###
+
+## DIRECT CARD&#x20;
+
+This suite of API's allows merchants to directly collect customer card details and charge the cards following the expected steps. Only PCI-DSS-certified and profiled merchants will be able to make use of the service
+
+{% hint style="info" %}
+Due to the nature of payment systems around cards, several possible scenarios may play out, which are broadly classified as:
+
+1. Payments requiring only PIN, only OTP or a combination of both for completion (scenario 1)
+2. Payments requiring a challenge (3DS) for completion (scenario 2)
+{% endhint %}
+
+### Step #1: Charge Card&#x20;
+
+This endpoint allows you pass collected card details and other required fields
+
+<mark style="color:green;">`POST`</mark> https://sandbox-api-squadco.com/transaction/initiate/process-payment
+
+#### Request Body
+
+| Name                                                   | Type    | Description                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| email<mark style="color:red;">\*</mark>                | String  | Customer's email address.                                                                                                                                                                                                                                                                                                   |
+| amount<mark style="color:red;">\*</mark>               | Integer | The amount in kobo you are debiting customer (expressed in the lowest currency value - **`kobo`**).  10000 = 100NGN                                                                                                                                                                                                         |
+| currency                                               | String  | <p><br>The currency you want the amount to be charged in. Allowed value is <strong><code>NGN</code></strong></p>                                                                                                                                                                                                            |
+| name                                                   | String  | Name of Customer carrying out the transaction                                                                                                                                                                                                                                                                               |
+| bank\_code<mark style="color:red;">\*</mark>           | String  | Unique NIP code that identifies a bank.                                                                                                                                                                                                                                                                                     |
+| payment\_method<mark style="color:red;">\*</mark>      | String  |  method of payment (should use BANK)                                                                                                                                                                                                                                                                                        |
+| transaction\_ref                                       | String  | An alphanumeric string that uniquely identifies a transaction (where none is presented, the sytem generates one for you)                                                                                                                                                                                                    |
+| webhook\_url                                           | String  | Allows you define where webhook notification is sent (where none is presented, the default webhook for merchant is notified)                                                                                                                                                                                                |
+| account\_or\_phoneno<mark style="color:red;">\*</mark> | String  | The GTBank account number to be debitted                                                                                                                                                                                                                                                                                    |
+| pass\_charge                                           | Boolean | <p>It takes two possible values: True or False.<br>It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).<br>But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.</p> |
+
+## Sample Request
+
+```
+{
+    // "transaction_reference": "hell333o123",
+    "amount": 1000000,
+    "pass_charge": true,
+    "currency": "NGN",
+    "webhook_url": "https://webhook.site/50733ce1-f957-4900-9f4a-3eddf0a1f270",
+    "card": {
+        "number": "5555555555554444",
+        "cvv": "121",
+        "expiry_month": "12",
+        "expiry_year": "50"
+    },
+    // "meta": "string",
+    "payment_method": "card",
+    "customer": {
+        "name": "Tams Bills",
+        "email": "50733ce1-f957-4900-9f4a-3eddf0a1f270@emailhook.site"
+    },
+    "redirect_url": "https://www.facebook.com/"
+}
+```
+
+### Response
+
+{% tabs %}
+{% tab title="200: ValidatePin" %}
+```javascript
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "amount": 1001000,
+        "transaction_ref": "SQDEMO6388697447108000002",
+        "currency": "NGN",
+        "transaction_type": "Card",
+        "gateway_ref": "SQDEMO6388697447108000002_1_1_1",
+        "merchant_amount": 1000000,
+        "message": "Charge Attempted",
+        "transaction_status": "ValidatePin"
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+### Step #2: Authorize Payment&#x20;
+
+This endpoint allows you to authorize a payment following the transaction\_status from the charge card process
+
+<mark style="color:green;">`POST`</mark> https://sandbox-api-squadco.com/transaction/payment/authorize
+
+## Sample Request for ValidatePin
+
+```
+{
+    "transaction_reference": "SQDEMO6388591221547800002",
+    "authorization": {
+        "pin": "1234"
+    }
+}
+```
+
+## Sample Request for ValidateOTP
+
+```
+{
+    "transaction_reference": "SQDEMO6388591221547800002",
+    "authorization": {
+        "otp": "123456"
+    }
+}
+```
+
+### Response For ValidatePin
+
+{% tabs %}
+{% tab title="200: ValidatePin" %}
+```javascript
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "amount": 1001000,
+        "transaction_ref": "SQDEMO6388697447108000002",
+        "currency": "NGN",
+        "transaction_type": "Card",
+        "gateway_ref": "SQDEMO6388697447108000002_1_1_1",
+        "merchant_amount": 1000000,
+        "message": "Validate pin attempted",
+        "transaction_status": "ValidateOTP"
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+### Response For ValidateOTP
+
+{% tabs %}
+{% tab title="200: ValidateOTP" %}
+```javascript
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "amount": 1001000,
+        "transaction_ref": "SQDEMO6388697447108000002",
+        "transaction_type": "Card",
+        "gateway_ref": "SQDEMO6388697447108000002_1_1_1",
+        "merchant_amount": 1000000,
+        "message": "Validate OTP Successful.",
+        "transaction_status": "Success"
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
 
 ## DIRECT GTBANK ACCOUNT DEBIT
 

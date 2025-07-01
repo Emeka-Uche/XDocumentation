@@ -2,7 +2,8 @@
 
 * [Home](README.md)
 * [Payments](payments/README.md)
-  * [Initiate Payment](payments/initiate-payment.md)
+  * [Initiate Payment](payments/initiate-payment/README.md)
+    * [Channels](payments/initiate-payment/channels.md)
   * [Direct API Integration](payments/direct-api-integration.md)
   * [Squad Payment Modal](payments/accept-payments.md)
   * [Verify Transaction](payments/accept-payments-1.md)

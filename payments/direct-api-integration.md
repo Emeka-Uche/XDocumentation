@@ -90,7 +90,7 @@ This endpoint allows you to pass collected card details and other required field
         "name": "Tams Bills",
         "email": "50733ce1-f957-4900-9f4a-3eddf0a1f270@emailhook.site"
     },
-    "redirect_url": "https://www.facebook.com/"
+    "redirect_url": "https://www.squadco.com/"
 }
 ```
 
@@ -192,10 +192,10 @@ This endpoint allows you to authorize a payment based on the transaction\_status
 
 
 
-### Response For ValidatePin (+ Validate OTP)
+### Response
 
 {% tabs %}
-{% tab title="200: ValidatePin" %}
+{% tab title="200: ValidatePin+OTP" %}
 ```javascript
 {
     "status": 200,
@@ -214,15 +214,9 @@ This endpoint allows you to authorize a payment based on the transaction\_status
 }
 ```
 {% endtab %}
-{% endtabs %}
 
-
-
-### Response For ValidateOTP
-
-{% tabs %}
 {% tab title="200: ValidateOTP" %}
-```javascript
+```
 {
     "status": 200,
     "success": true,
@@ -240,6 +234,18 @@ This endpoint allows you to authorize a payment based on the transaction\_status
 ```
 {% endtab %}
 {% endtabs %}
+
+
+
+### 3DS
+
+Where transaction\_status returns threeDSecure, and the URL initiated, a challenge page is initiated and once completed a payment successful page
+
+<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Challenge Initiated</td><td><a href="../.gitbook/assets/3DS PAGE 1.png">3DS PAGE 1.png</a></td></tr><tr><td>Payment Successfull</td><td><a href="../.gitbook/assets/3DS PAGE 2.png">3DS PAGE 2.png</a></td></tr></tbody></table>
+
+
+
+
 
 
 

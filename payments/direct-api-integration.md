@@ -38,6 +38,18 @@ Due to the nature of payment systems around cards, several possible scenarios ma
 
 > The Expected next step to take will be based on the **transaction\_status** in the response body after the Step 1 (Charge Card)
 
+{% hint style="info" %}
+```
+Test Cards for Different Scenarios
+
+4242424242424242 >> Direct OTP validation (Use Amount < ₦7,500)
+
+5200000000001096 >> 3DS authentication
+
+5555555555554444 >> PIN + OTP (Two-step validation: PIN verification → OTP validation)
+```
+{% endhint %}
+
 ### Step #1: Charge Card&#x20;
 
 This endpoint allows you to pass collected card details and other required fields
@@ -180,7 +192,7 @@ This endpoint allows you to authorize a payment based on the transaction\_status
 
 
 
-### Response For ValidatePin
+### Response For ValidatePin (+ Validate OTP)
 
 {% tabs %}
 {% tab title="200: ValidatePin" %}

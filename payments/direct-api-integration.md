@@ -21,7 +21,7 @@ If using other services such as dynamic virtual accounts, do not use the same tr
 **Example:**\
 Authorizatio&#x6E;**:** Bearer sandbox\_sk\_94f2b798466408ef4d19e848ee1a4d1a3e93f104046f
 
-###
+
 
 ## DIRECT CARD&#x20;
 
@@ -166,6 +166,11 @@ This endpoint allows you to authorize a payment based on the transaction\_status
 
 <mark style="color:green;">`POST`</mark> https://sandbox-api-squadco.com/transaction/payment/authorize
 
+{% hint style="info" %}
+For ValidatePin, use PIN: 1234\
+For ValidateOTP, use OTP: 123456
+{% endhint %}
+
 ## Sample Request for ValidatePin
 
 ```
@@ -187,10 +192,6 @@ This endpoint allows you to authorize a payment based on the transaction\_status
     }
 }
 ```
-
-> Where transaction\_status is ThreeDSecure, the challenge is to be completed by following the URL specified from the auth\_url field
-
-
 
 ### Response
 
@@ -235,13 +236,19 @@ This endpoint allows you to authorize a payment based on the transaction\_status
 {% endtab %}
 {% endtabs %}
 
+### 3DS (ThreeDSecure)
 
+Where transaction\_status is ThreeDSecure, the challenge is to be completed by following the URL specified in the auth\_url field. When executed, a challenge page is initiate,d and once the challenge is completed, a payment successful page is displayed and then redirected to redirect\_url provided.
 
-### 3DS
+{% tabs %}
+{% tab title="Challange Page" %}
+<figure><img src="../.gitbook/assets/3DS PAGE 1.png" alt="" width="245"><figcaption></figcaption></figure>
+{% endtab %}
 
-Where transaction\_status returns threeDSecure, and the URL initiated, a challenge page is initiated and once completed a payment successful page
-
-<table data-view="cards"><thead><tr><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Challenge Initiated</td><td><a href="../.gitbook/assets/3DS PAGE 1.png">3DS PAGE 1.png</a></td></tr><tr><td>Payment Successfull</td><td><a href="../.gitbook/assets/3DS PAGE 2.png">3DS PAGE 2.png</a></td></tr></tbody></table>
+{% tab title="Successfull Payment" %}
+<figure><img src="../.gitbook/assets/3DS PAGE 2.png" alt="" width="309"><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
 
 
 

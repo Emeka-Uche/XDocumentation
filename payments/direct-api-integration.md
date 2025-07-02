@@ -30,30 +30,33 @@ This suite of API's allows merchants to directly collect customer card details a
 {% hint style="info" %}
 Due to the nature of payment systems around cards, several possible scenarios may play out, which are broadly classified as:
 
-1. Payments requiring only PIN, only OTP or a combination of both for completion (scenario 1)
-2. Payments requiring a challenge (3DS) for completion (scenario 2)
+1. Payments requiring only PIN for completion
+2. Payments requiring only OTP for completion
+3. Payments requiring a combination of both PIN and OTP for completion&#x20;
+4. Payments requiring a challenge (3DS) for completion&#x20;
 {% endhint %}
+
+> The Expected next step to take will be based on the **transaction\_status** in the response body after the Step 1 (Charge Card)
 
 ### Step #1: Charge Card&#x20;
 
-This endpoint allows you pass collected card details and other required fields
+This endpoint allows you to pass collected card details and other required fields
 
 <mark style="color:green;">`POST`</mark> https://sandbox-api-squadco.com/transaction/initiate/process-payment
 
 #### Request Body
 
-| Name                                                   | Type    | Description                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| email<mark style="color:red;">\*</mark>                | String  | Customer's email address.                                                                                                                                                                                                                                                                                                   |
-| amount<mark style="color:red;">\*</mark>               | Integer | The amount in kobo you are debiting customer (expressed in the lowest currency value - **`kobo`**).  10000 = 100NGN                                                                                                                                                                                                         |
-| currency                                               | String  | <p><br>The currency you want the amount to be charged in. Allowed value is <strong><code>NGN</code></strong></p>                                                                                                                                                                                                            |
-| name                                                   | String  | Name of Customer carrying out the transaction                                                                                                                                                                                                                                                                               |
-| bank\_code<mark style="color:red;">\*</mark>           | String  | Unique NIP code that identifies a bank.                                                                                                                                                                                                                                                                                     |
-| payment\_method<mark style="color:red;">\*</mark>      | String  |  method of payment (should use BANK)                                                                                                                                                                                                                                                                                        |
-| transaction\_ref                                       | String  | An alphanumeric string that uniquely identifies a transaction (where none is presented, the sytem generates one for you)                                                                                                                                                                                                    |
-| webhook\_url                                           | String  | Allows you define where webhook notification is sent (where none is presented, the default webhook for merchant is notified)                                                                                                                                                                                                |
-| account\_or\_phoneno<mark style="color:red;">\*</mark> | String  | The GTBank account number to be debitted                                                                                                                                                                                                                                                                                    |
-| pass\_charge                                           | Boolean | <p>It takes two possible values: True or False.<br>It is set to False by default. When set to True, the charges on the transaction is computed and passed on to the customer(payer).<br>But when set to False, the charge is passed to the merchant and will be deducted from the amount to be settled to the merchant.</p> |
+| Name                                              | Type    | Description                                                                                                               |
+| ------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
+| transaction\_reference                            | String  | An alphanumeric string that uniquely identifies a transaction (where none is presented, the system generates one for you) |
+| amount<mark style="color:red;">\*</mark>          | Integer | The amount in kobo you are debiting customer (expressed in the lowest currency value - **`kobo`**).  10000 = 100NGN       |
+| currency                                          | String  | <p><br>The currency you want the amount to be charged in. Allowed value is <strong><code>NGN</code></strong></p>          |
+| pass\_charge                                      | Boolean | Allows charges to be passed to customer when set as True, else merchant bears charges                                     |
+| webhook\_url                                      | String  | Specifies where successfull notification is sent on payment completion (superseded by webhook\_url set on dashboard)      |
+| card<mark style="color:red;">\*</mark>            | Object  | Collects card details comprising of card number, cvv, expiry\_month & expiry\_year                                        |
+| payment\_method<mark style="color:red;">\*</mark> | String  | Either "card" or "ussd"                                                                                                   |
+| customer<mark style="color:red;">\*</mark>        | Object  | Collects name and email of customer making payment, email receives receipt of successfull payment                         |
+| redirect\_url                                     | String  | Specifies site to be redirected to after successfull payment                                                              |
 
 ## Sample Request
 
@@ -70,7 +73,6 @@ This endpoint allows you pass collected card details and other required fields
         "expiry_month": "12",
         "expiry_year": "50"
     },
-    // "meta": "string",
     "payment_method": "card",
     "customer": {
         "name": "Tams Bills",
@@ -80,7 +82,7 @@ This endpoint allows you pass collected card details and other required fields
 }
 ```
 
-### Response
+### Sample Response
 
 {% tabs %}
 {% tab title="200: ValidatePin" %}
@@ -102,13 +104,53 @@ This endpoint allows you pass collected card details and other required fields
 }
 ```
 {% endtab %}
+
+{% tab title="200: ValidateOTP" %}
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "amount": 50000,
+        "transaction_ref": "SUPR123",
+        "currency": "NGN",
+        "transaction_type": "Card",
+        "gateway_ref": "SUPR123_1_18_1",
+        "merchant_amount": 49500,
+        "transaction_status": "ValidateOTP"
+    }
+}
+```
+{% endtab %}
+
+{% tab title="200: 3DS" %}
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "amount": 1010000,
+        "transaction_ref": "test1001",
+        "currency": "NGN",
+        "transaction_type": "Card",
+        "gateway_ref": "test1001_1_5_4",
+        "merchant_amount": 1000000,
+        "message": "COMPLETED",
+        "auth_url": "https://sandbox-pay.squadco.com/3ds/U0JTNUI4VlUzNl82Mzg4NzA0NDQyNDM4MTQzMTc=",
+        "transaction_status": "ThreeDSecure"
+    }
+}
+```
+{% endtab %}
 {% endtabs %}
 
 
 
 ### Step #2: Authorize Payment&#x20;
 
-This endpoint allows you to authorize a payment following the transaction\_status from the charge card process
+This endpoint allows you to authorize a payment based on the transaction\_status from the charge card process
 
 <mark style="color:green;">`POST`</mark> https://sandbox-api-squadco.com/transaction/payment/authorize
 
@@ -133,6 +175,10 @@ This endpoint allows you to authorize a payment following the transaction\_statu
     }
 }
 ```
+
+> Where transaction\_status is ThreeDSecure, the challenge is to be completed by following the URL specified from the auth\_url field
+
+
 
 ### Response For ValidatePin
 

@@ -134,6 +134,60 @@ Sample Response for Failed Transaction
 {% endtab %}
 {% endtabs %}
 
+## Verify POS transaction
+
+<mark style="color:blue;">`GET`</mark> `https://api-d.squadco.com/softpos/transaction/verify/:transaction_reference`
+
+To verify the validity of a POS transaction, kindly query the endpoint above, passing the transaction\_reference as the value in the path variable
+
+#### Query Parameters
+
+| Name                                                     | Type   | Description                                                   |
+| -------------------------------------------------------- | ------ | ------------------------------------------------------------- |
+| transaction\_reference<mark style="color:red;">\*</mark> | String | Unique transaction reference that identifies each transaction |
+
+{% tabs %}
+{% tab title="200: OK Valid Transaction Reference" %}
+Sample Response for Successful Transaction
+
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "terminal_id": "2058AB05",
+        "merchant_id": "AABBCCDDEEFFGGHHJJKK",
+        "transaction_reference": "SQDEMO420135925351",
+        "virtual_account_number": null,
+        "amount": 570000,
+        "currency": "NGN",
+        "payment_method": "card",
+        "transaction_type": "Purchase",
+        "payment_info": {
+            "card_exp": "2706",
+            "card_pan": "539983******9484",
+            "card_type": "Debit Mastercard",
+            "cardholder_name": "MUIDEEN/BALOGUN"
+        },
+        "rrn": "420135925351",
+        "stan": "925351",
+        "aid": "A0000000041010",
+        "response_code": "99",
+        "response_message": "Request in progress",
+        "status": "failed",
+        "meta": {},
+        "created_at": "2025-06-02T12:38:11.833Z",
+        "updated_at": "2025-06-02T12:38:41.858Z",
+        "receipt_no": "0000000352"
+    }
+}
+```
+
+
+{% endtab %}
+{% endtabs %}
+
 ## Go Live
 
 If you are using the verify transaction endpoint, kindly change the base URL to https://api-d.squadco.com

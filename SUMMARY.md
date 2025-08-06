@@ -14,6 +14,7 @@
 * [Virtual Accounts](https://squadinc.gitbook.io/virtual-accounts/)
 * [Test Cards](https://squadinc.gitbook.io/squad-api/test-cards)
 * [Payment Link](payment-link.md)
+* [Direct Debit](direct-debit.md)
 * [Refund API](refund-api.md)
 * [Squad Woo Commerce Plugin](squad-woo-commerce-plugin.md)
 * [Disputes & Chargebacks](disputes-and-chargebacks.md)

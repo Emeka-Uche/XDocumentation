@@ -114,7 +114,7 @@ This endpoint allows you to create a mandate for an account
 | address<mark style="color:red;">\*</mark>             | String  | Customer address                                                                                                                               |
 | phone<mark style="color:red;">\*</mark>               | Integer | Customer phone number, must match with BVN details                                                                                             |
 
-## Sample Request
+### Sample Request
 
 ```
 {
@@ -140,7 +140,7 @@ This endpoint allows you to create a mandate for an account
 }
 ```
 
-## Sample Response
+### Sample Response
 
 {% tabs %}
 {% tab title="200 Success" %}
@@ -192,7 +192,7 @@ This endpoint allows you to create a mandate for an account
 {% endtab %}
 {% endtabs %}
 
-## Webhook Notification For Mandate Creation
+### Webhook Notification For Mandate Creation
 
 ```
 {
@@ -228,7 +228,7 @@ This endpoint allows you to create a mandate for an account
 On the Production environment, the customer must transfer N50 from the account to be mandated to any of the provided account numbers
 {% endhint %}
 
-## Webhook Notification for Approved Mandate
+### Webhook Notification for Approved Mandate
 
 ```
 {
@@ -277,7 +277,7 @@ Debits can only occur once a day
 | pass\_charge<mark style="color:red;">\*</mark>           | Boolean | Pass charges to customers by setting to True             |
 | customer\_email<mark style="color:red;">\*</mark>        | email   | customer email address to be notified                    |
 
-## Sample Request
+### Sample Request
 
 ```
 {
@@ -290,7 +290,7 @@ Debits can only occur once a day
 }
 ```
 
-## Sample Response
+### Sample Response
 
 {% tabs %}
 {% tab title="Success" %}
@@ -349,7 +349,7 @@ Debits can only occur once a day
 {% endtab %}
 {% endtabs %}
 
-## Webhook Notification
+### Webhook Notification
 
 ```
 {
@@ -378,13 +378,13 @@ Debits can only occur once a day
 
 This endpoint allows you to cancel a mandate on the account
 
-## Request Body
+### Request Body
 
 | Name                                         | Type   | Description                                                                           |
 | -------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
 | mandateIds<mark style="color:red;">\*</mark> | Object | **`mandateIds`**&#x69;s a object where a single or multiple mandate Ids can be passed |
 
-## Sample Request
+### Sample Request
 
 ```
 {
@@ -396,7 +396,7 @@ This endpoint allows you to cancel a mandate on the account
 }
 ```
 
-## Sample Response
+### Sample Response
 
 {% tabs %}
 {% tab title="Success" %}
@@ -443,7 +443,7 @@ This endpoint allows you to cancel a mandate on the account
 
 This endpoint allows you to get details of a mandate by passing the Reference of that mandate
 
-## Sample Response
+### Sample Response
 
 ```
 {

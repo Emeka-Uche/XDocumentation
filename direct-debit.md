@@ -373,3 +373,102 @@ Debits can only occur once a day
 ```
 
 ## Cancel Mandate
+
+<mark style="color:green;">`POST`</mark>https://sandbox-api-d.squadco.com/transaction/mandate/cancel
+
+This endpoint allows you to cancel a mandate on the account
+
+## Request Body
+
+| Name                                         | Type   | Description                                                                           |
+| -------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| mandateIds<mark style="color:red;">\*</mark> | Object | **`mandateIds`**&#x69;s a object where a single or multiple mandate Ids can be passed |
+
+## Sample Request
+
+```
+{
+    "mandateIds": [
+        "sqaudDD657al1hrep7m4bc",
+        "sqaudDD5c9elxp61u3sju",
+        "sqaudDD5c9elxp61u3sju"
+    ]
+}
+```
+
+## Sample Response
+
+{% tabs %}
+{% tab title="Success" %}
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "canceledMandates": [
+            "sqaudDDf99ae9mtizerna8f"
+        ],
+        "failedMandates": []
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Failed" %}
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": {
+        "canceledMandates": [],
+        "failedMandates": [
+            {
+                "mandateId": "sqaudDDf99ae9mtizerna8f",
+                "failureReason": "Mandate already cancelled"
+            }
+        ]
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
+
+## GET MANDATE BY REF
+
+<mark style="color:green;">`GET`</mark>https://sandbox-api-d.squadco.com/transaction/mandate/get-mandates/:Ref
+
+This endpoint allows you to get details of a mandate by passing the Reference of that mandate
+
+## Sample Response
+
+```
+{
+    "status": 200,
+    "success": true,
+    "message": "Success",
+    "data": [
+        {
+            "start_date": "2025-08-31T00:00:00",
+            "end_date": "2026-01-22T00:00:00",
+            "account_number": "0179088393",
+            "account_name": "william udousoro",
+            "bankName": "Standard Chartered",
+            "bank": "068",
+            "ready_to_debit": true,
+            "is_approved": true,
+            "status": "approved",
+            "merchant_reference": "workinornot242",
+            "mandate_type": "emandate",
+            "debit_type": "variable",
+            "merchant_id": "SBBWRX1Z3S",
+            "amount": 20000000,
+            "balance": 20000000,
+            "total_debited": 0
+        }
+    ]
+}
+```

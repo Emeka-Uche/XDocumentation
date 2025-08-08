@@ -728,9 +728,7 @@ This API allows you re-query the status of a transfer made to know if it was suc
 
 ## Get All Transfers
 
-This API Allows you retrieve the details of all transfers you have done from your Squad Wallet using this transfer solution.
-
-## This API gets the details of all transfers you have done from your Squad Wallet&#x20;
+This API allows you to retrieve the details of all transfers made
 
 <mark style="color:blue;">`GET`</mark> `https://sandbox-api-d.squadco.com/payout/list`
 

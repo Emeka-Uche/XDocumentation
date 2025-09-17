@@ -7,6 +7,10 @@ description: >-
 
 # AIRTIME AND DATA
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 ### API KEYS (Test Environment)
 
 1. Create an account on our sandbox environment: sandbox.squadco.com

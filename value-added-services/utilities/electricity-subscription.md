@@ -4,6 +4,10 @@ description: These Suit of APIs allow you vend electricity tokens
 
 # Electricity Subscription
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 ## Electricity Providers Nationwide
 
 <table><thead><tr><th width="258">Provider</th><th>Full Name</th><th>Region</th></tr></thead><tbody><tr><td>IE</td><td>Ikeja Electricity</td><td>Abule Egba, Akowonjo, Ikeja, Ikorodu, Oshodi and Shomolu in Lagos</td></tr><tr><td>EKEDC</td><td>Eko Electricity Distribution Company</td><td>Lekki, Ibeju, Islands, Ajah, Ajele, Orile, Ijora, Apapa, Mushin, Festac, Ojo, and Agbara in Lagos</td></tr><tr><td>AEDC </td><td>Abuja Electricity Distribution Company</td><td>FCT Abuja, Kogi, Niger, and Nasarawa States</td></tr><tr><td>YEDC</td><td>Yola Electricity Distribution Company</td><td>Adamawa, Taraba, Borno, and Yobe states</td></tr><tr><td>BEDC</td><td>Benin Electricity Distribution Company</td><td>Delta, Edo, Ekiti, and Ondo States</td></tr><tr><td>IBEDC</td><td>Ibadan Electricity Distribution Company</td><td>Oyo, Ibadan, Osun, Ogun &#x26; Kwara States</td></tr><tr><td>KEDCO</td><td>Kano Electricity Distribution Company</td><td>Kano, Katsina, and Jigawa States</td></tr><tr><td>KAEDC</td><td>Kaduna Electricity Distribution Company</td><td>Kaduna, Kebbi, Sokoto and Zamfara States</td></tr><tr><td>PHED</td><td>Port Harcourt Electricity Distribution Company</td><td>Rivers, Bayelsa, Cross River and Akwa-Ibom States</td></tr><tr><td>EEDC</td><td>Enugu Electricity Distribution Company</td><td>Abia, Anambra, Ebonyi, Enugu and Imo States</td></tr></tbody></table>

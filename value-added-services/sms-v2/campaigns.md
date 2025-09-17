@@ -4,6 +4,10 @@ description: This set of endpoints allows you send messages and campaigns.
 
 # CAMPAIGNS
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 **SEND INSTANT SMS**
 
 This endpoint allows you to curate and send sms instantly.

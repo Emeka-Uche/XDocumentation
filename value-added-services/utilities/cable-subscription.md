@@ -4,6 +4,10 @@ description: These Suit of APIs allow you vend cable subscriptions
 
 # Cable Subscription
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 ## BOUQUET LIST
 
 This API allows you to retrieve the bouquet list of a cable provider

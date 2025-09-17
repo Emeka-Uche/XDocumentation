@@ -1,5 +1,9 @@
 # Verify Transaction
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 This is an endpoint that allows you to query the status of a particular transaction using the unique transaction reference attached to the transaction.
 
 **RESPONSE**\

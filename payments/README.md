@@ -5,6 +5,10 @@ coverY: 294.47852760736197
 
 # Payments
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 Squad helps you create any type of payment flow for your particular use case, from online collections to payouts and everything in between. You can integrate our payment system on:
 
 ![](../.gitbook/assets/screen-shot-2021-08-04-at-12.25.38-pm.png)

@@ -6,6 +6,10 @@ description: >-
 
 # Squad Woo Commerce Plugin
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 ## Overview
 
 Squad helps thousands of businesses in Nigeria to receive secure payments globally. Our goal is to make accepting payments from around the world as easy as possible. Get started by integrating our easy-to-use payment gateway directly on your WooCommerce website to receive local and USD payments quickly and efficiently.

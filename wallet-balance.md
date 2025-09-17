@@ -7,6 +7,10 @@ description: >-
 
 # Wallet Balance
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 {% hint style="warning" %}
 **Authorization** Any request made without the authorization key will fail with a **`401`**` ``(Service Not Authorized)` response code.
 {% endhint %}

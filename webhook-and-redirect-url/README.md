@@ -1,5 +1,9 @@
 # Webhook & Redirect URL
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 Webhooks are used so that anytime an event occurs on your account, your application can be notified with instant, real-time notifications by Squad.
 
 Squad webhooks are HTTP calls that are triggered by specific events. It is necessary only for behind-the-scenes transactions.&#x20;

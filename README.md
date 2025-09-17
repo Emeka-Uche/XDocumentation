@@ -4,6 +4,10 @@ coverY: 219.8773006134969
 
 # Home
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 We're excited to introduce a payment feature that enables you to make and receive payments from any location across the globe! This means that, wherever your customers are, they will be able to make payments for your products and services successfully. This way, you can more reliably deliver value to your customers.
 
 ## Getting Started
@@ -22,8 +26,4 @@ We're excited to introduce a payment feature that enables you to make and receiv
 
 &#x20; 4\. Initiate payment.
 
-<div align="center">
-
-<img src=".gitbook/assets/Squad Sandbox Account.gif" alt="Steps to get your Squad API Keys.">
-
-</div>
+<div align="center"><img src=".gitbook/assets/Squad Sandbox Account.gif" alt="Steps to get your Squad API Keys."></div>

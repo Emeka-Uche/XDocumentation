@@ -6,6 +6,10 @@ description: >-
 
 # Aggregator and Sub-merchants
 
+{% hint style="danger" %}
+**This documentation site has been deprecated as of September 8, 2025, and will no longer receive updates. Please refer to the new documentation site at** [**https://docs.squadco.com**](https://docs.squadco.com)**.**
+{% endhint %}
+
 With this, you are able to initiate transactions from a central point for all businesses or sub merchants under you using the same API keys.\
 
 
